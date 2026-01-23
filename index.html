@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p></p>
+    <div></div>
+    <script>
+      console.log("Hello World");
+
+      // get user by id
+      {
+        async function getUser(user_id) {
+          const res = await fetch("./data/users.json");
+          const data = await res.json();
+
+          const user = data.find((u) => u.id === user_id);
+          document.querySelector("p").innerText = user.name;
+          return user;
+        }
+
+        getUser("user-012");
+      }
+
+      // get subcategory
+      {
+        async function getSubcategory(subcategory_id) {
+          const res = await fetch("./data/subcategories.json");
+          const data = await res.json();
+            
+          const subcategory = data.find((c) => c.id === subcategory_id);
+          document.querySelector("p").innerText += subcategory.name;
+          return subcategory;
+        }
+
+        getSubcategory("subcat-002");
+      } 
+
+      // get subcategory inside category
+      {
+        async function getCategorySubcategories(category_id) {
+          const res = await fetch("./data/subcategories.json");
+          const data = await res.json();
+
+          const subcategories = data.filter((c) => c.categoryId === category_id);
+          subcategories.forEach((s) => {
+            document.querySelector("div").innerHTML += `${s.name}<br>`;
+          });
+          return subcategories;
+        }
+
+        getCategorySubcategories("cat-004");
+
+      }
+    </script>
+  </body>
+</html>
