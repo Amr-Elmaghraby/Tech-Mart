@@ -44,7 +44,7 @@ This project was built with passion by:
 * [Adham Sakoury](https://github.com/AdhamSakoury)
 * [Ahmed Ghanem](https://github.com/AhmedGhanem50)
 * [Ahmed Kamel](https://github.com/ahmedgaddoo21)
-* [Amr Tarek]()
+* [Amr Tarek](https://github.com/Amrtarik)
 
 ---
 
