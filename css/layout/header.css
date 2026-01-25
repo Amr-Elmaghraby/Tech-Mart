@@ -88,7 +88,14 @@ body {
 
 
 
+
+
 /* --- 2. Main Header (Modified) --- */
+
+
+
+
+
 
 .header__main .container {
   display: flex;
@@ -223,6 +230,10 @@ body {
 
 
 /* --- 3. Action Bar (Green) --- */
+
+
+
+
 
 /* --- Bottom Header (Green Bar) --- */
 .bottom-header {

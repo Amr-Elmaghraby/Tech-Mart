@@ -11,14 +11,105 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <p></p>
-    <div>
-      <img
-        style="width: 100px"
-        src="../assets/images/users/user-012.png"
-        alt=""
-      />
+    
+    <!-- header main -->
+    <div class="header__main">
+      <div class="container">
+        
+        <div class="header__logo">
+          <img src="logo.png" alt="Swoo Logo">
+          <div class="logo-text">
+            <strong>SWOO</strong>
+            <span>TECH MART</span>
+          </div>
+        </div>
+
+        <nav class="header__nav">
+          <div class="header__nav-container">
+            
+            <div class="nav-item">
+              <select class="top-select nav-dropdown">
+                <option value="" disabled selected>Home</option>
+                <option value="home-1">Modern </option>
+                <option value="home-2">Classic </option>
+              </select>
+            </div>
+
+            <div class="nav-item">
+              <select class="top-select nav-dropdown">
+                <option value="" disabled selected>Pages</option>
+                <option value="about">About Us</option>
+                <option value="faq">FAQ</option>
+              </select>
+            </div>
+
+            <div class="nav-item">
+              <select class="top-select nav-dropdown">
+                <option value="" disabled selected>Products</option>
+                <option value="electronics">Electronics</option>
+                <option value="fashion">Fashion</option>
+              </select>
+            </div>
+
+            <a href="contact.html" class="header__nav-link contact-link">Contact</a>
+            
+          </div>
+        </nav>
+
+        <div class="header__actions">
+          <div class="action-icons">
+            <div  class="icon-circle">
+              <button id="dark-mode-toggle" class="top-select">
+              <i class="fas fa-moon"></i> Dark Mode
+              </button>
+            </div>
+            <div class="icon-circle"><img src="heart-icon.png" alt="Wishlist"></div>
+
+            <div class="icon-circle"><img src="refresh-icon.png" alt="Compare"></div>
+            
+          </div>
+          
+          <div class="user-account">
+            <span class="label">WELCOME</span>
+            <strong class="value">LOG IN / REGISTER</strong>
+          </div>
+
+          <div class="cart-section">
+            <div class="cart-icon-wrapper">
+              <img src="cart-icon.png" alt="Cart">
+              <span class="badge">5</span>
+            </div>
+            <div class="cart-text">
+              <span class="label">CART</span>
+              <strong class="value">$1,689.00</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!-- header actions -->
+  <div class="bottom-header">
+    <div class="container bar-flex">
+      <div class="search-category-wrapper">
+        <select class="category-select">
+          <option>All Categories</option>
+        </select>
+        <input type="text" placeholder="Search anything...">
+        <button class="search-btn"><i class="fa fa-search"></i></button>
+      </div>
+      
+      <div class="promo-texts">
+        <span>FREE SHIPPING OVER $199</span>
+        <span>30 DAYS MONEY BACK</span>
+        <span>100% SECURE PAYMENT</span>
+      </div>
     </div>
+  </div>
+</header>
+  <!-- End header main -->
+
+  
     <script>
       
     </script>
