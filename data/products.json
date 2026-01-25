@@ -275,8 +275,12 @@
       "rating": 4.3,
       "reviewCount": 3456,
       "brand": "Apple",
-      "images": ["../assets/images/products/power-adapter.png"],
-      "thumbnail": "../assets/images/products/power-adapter.png",
+      "images": [
+        "../assets/images/products/20W USB-C Power Adapter/20W USB-C Power Adapter.jpg",
+        "../assets/images/products/20W USB-C Power Adapter/20W USB-C Power Adapter-1.jpg",
+        "../assets/images/products/20W USB-C Power Adapter/20W USB-C Power Adapter-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/20W USB-C Power Adapter/20W USB-C Power Adapter.jpg",
       "description": "Fast, efficient charging at home, in the office, or on the go.",
       "specifications": {
         "Power": "20W",
@@ -307,8 +311,12 @@
       "rating": 4.6,
       "reviewCount": 1278,
       "brand": "Apple",
-      "images": ["../assets/images/products/magsafe-wallet.png"],
-      "thumbnail": "../assets/images/products/magsafe-wallet.png",
+      "images": [
+        "../assets/images/products/MagSafe Wallet/MagSafe Wallet.jpg",
+        "../assets/images/products/MagSafe Wallet/MagSafe Wallet-1.jpg",
+        "../assets/images/products/MagSafe Wallet/MagSafe Wallet-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/MagSafe Wallet/MagSafe Wallet.jpg",
       "description": "Crafted from specially tanned European leather with built-in Find My support.",
       "specifications": {
         "Material": "European Leather",
@@ -339,8 +347,12 @@
       "rating": 4.2,
       "reviewCount": 987,
       "brand": "Apple",
-      "images": ["../assets/images/products/clear-case.png"],
-      "thumbnail": "../assets/images/products/clear-case.png",
+      "images": [
+        "../assets/images/products/Clear Case with MagSafe/Clear Case with MagSafe.webp",
+        "../assets/images/products/Clear Case with MagSafe/Clear Case with MagSafe-1.webp",
+        "../assets/images/products/Clear Case with MagSafe/Clear Case with MagSafe-2.webp"
+      ],
+      "thumbnail": "../assets/images/products/Clear Case with MagSafe/Clear Case with MagSafe.webp",
       "description": "Thin, light, and easy to grip — this case shows off the brilliant finish of iPhone.",
       "specifications": {
         "Material": "Clear Polycarbonate",
@@ -371,8 +383,12 @@
       "rating": 4.9,
       "reviewCount": 1542,
       "brand": "Samsung",
-      "images": ["../assets/images/products/s24.png"],
-      "thumbnail": "../assets/images/products/s24.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy S24 Ultra/Samsung Galaxy S24 Ultra.webp",
+        "../assets/images/products/Samsung Galaxy S24 Ultra/Samsung Galaxy S24 Ultra-1.jpg",
+        "../assets/images/products/Samsung Galaxy S24 Ultra/Samsung Galaxy S24 Ultra-2.webp"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy S24 Ultra/Samsung Galaxy S24 Ultra.webp",
       "description": "The compact flagship with a 50MP camera and pro-grade photo editing AI.",
       "specifications": {
         "Display": "6.2-inch Dynamic AMOLED 2X",
@@ -405,8 +421,13 @@
       "rating": 4.5,
       "reviewCount": 2341,
       "brand": "Samsung",
-      "images": ["../assets/images/products/a54.png"],
-      "thumbnail": "../assets/images/products/a54.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy A54 5G/Samsung Galaxy A54 5G.jpg",
+        "../assets/images/products/Samsung Galaxy A54 5G/Samsung Galaxy A54 5G-1.jpg",
+        "../assets/images/products/Samsung Galaxy A54 5G/Samsung Galaxy A54 5G-2.jpg",
+        "../assets/images/products/Samsung Galaxy A54 5G/Samsung Galaxy A54 5G-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy A54 5G/Samsung Galaxy A54 5G.jpg",
       "description": "Awesome screen, awesome camera, and long-lasting battery life.",
       "specifications": {
         "Display": "6.4-inch Super AMOLED",
@@ -439,8 +460,12 @@
       "rating": 4.3,
       "reviewCount": 1876,
       "brand": "Samsung",
-      "images": ["../assets/images/products/a34.png"],
-      "thumbnail": "../assets/images/products/a34.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy A34/Samsung Galaxy A34.jpg",
+        "../assets/images/products/Samsung Galaxy A34/Samsung Galaxy A34-1.jpg",
+        "../assets/images/products/Samsung Galaxy A34/Samsung Galaxy A34-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy A34/Samsung Galaxy A34.jpg",
       "description": "Bright and clear viewing even in sunlight with a 120Hz AMOLED display.",
       "specifications": {
         "Display": "6.6-inch Super AMOLED",
@@ -473,8 +498,12 @@
       "rating": 4.4,
       "reviewCount": 543,
       "brand": "Samsung",
-      "images": ["../assets/images/products/s23-fe.png"],
-      "thumbnail": "../assets/images/products/s23-fe.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy S23 FE/Samsung Galaxy S23 FE.jpg",
+        "../assets/images/products/Samsung Galaxy S23 FE/Samsung Galaxy S23 FE-1.jpg",
+        "../assets/images/products/Samsung Galaxy S23 FE/Samsung Galaxy S23 FE-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy S23 FE/Samsung Galaxy S23 FE.jpg",
       "description": "The Fan Edition brings flagship features to a more accessible price point.",
       "specifications": {
         "Display": "6.4-inch Dynamic AMOLED 2X",
@@ -507,8 +536,12 @@
       "rating": 4.1,
       "reviewCount": 3421,
       "brand": "Samsung",
-      "images": ["../assets/images/products/a15.png"],
-      "thumbnail": "../assets/images/products/a15.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy A15/Samsung Galaxy A15.jpg",
+        "../assets/images/products/Samsung Galaxy A15/Samsung Galaxy A15-1.jpg",
+        "../assets/images/products/Samsung Galaxy A15/Samsung Galaxy A15-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy A15/Samsung Galaxy A15.jpg",
       "description": "Super AMOLED display and 50MP main camera for everyday essentials.",
       "specifications": {
         "Display": "6.5-inch Super AMOLED",
@@ -541,8 +574,12 @@
       "rating": 4.2,
       "reviewCount": 2134,
       "brand": "Samsung",
-      "images": ["../assets/images/products/a25.png"],
-      "thumbnail": "../assets/images/products/a25.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy A25 5G/Samsung Galaxy A25 5G.jpg",
+        "../assets/images/products/Samsung Galaxy A25 5G/Samsung Galaxy A25 5G-1.jpg",
+        "../assets/images/products/Samsung Galaxy A25 5G/Samsung Galaxy A25 5G-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy A25 5G/Samsung Galaxy A25 5G.jpg",
       "description": "Vivid visual experience with an expansive 6.5-inch display.",
       "specifications": {
         "Display": "6.5-inch Super AMOLED",
@@ -575,8 +612,12 @@
       "rating": 4.8,
       "reviewCount": 4567,
       "brand": "Samsung",
-      "images": ["../assets/images/products/samsung-charger.png"],
-      "thumbnail": "../assets/images/products/samsung-charger.png",
+      "images": [
+        "../assets/images/products/45W USB-C Fast Charger/45W USB-C Fast Charger.jpg",
+        "../assets/images/products/45W USB-C Fast Charger/45W USB-C Fast Charger-1.jpg",
+        "../assets/images/products/45W USB-C Fast Charger/45W USB-C Fast Charger-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/45W USB-C Fast Charger/45W USB-C Fast Charger.jpg",
       "description": "Super Fast Charging 2.0 to get your Galaxy back to 100% in minutes.",
       "specifications": {
         "Power": "45W",
@@ -608,8 +649,12 @@
       "rating": 4.9,
       "reviewCount": 432,
       "brand": "Samsung",
-      "images": ["../assets/images/products/s-pen.png"],
-      "thumbnail": "../assets/images/products/s-pen.png",
+      "images": [
+        "../assets/images/products/Galaxy S24 Ultra S Pen/Galaxy S24 Ultra S Pen.webp",
+        "../assets/images/products/Galaxy S24 Ultra S Pen/Galaxy S24 Ultra S Pen-1.webp",
+        "../assets/images/products/Galaxy S24 Ultra S Pen/Galaxy S24 Ultra S Pen-2.webp"
+      ],
+      "thumbnail": "../assets/images/products/Galaxy S24 Ultra S Pen/Galaxy S24 Ultra S Pen.webp",
       "description": "Official replacement stylus for precise writing and air gestures.",
       "specifications": {
         "Compatibility": "Galaxy S24 Ultra, S23 Ultra, S22 Ultra",
@@ -641,8 +686,13 @@
       "rating": 4.4,
       "reviewCount": 876,
       "brand": "Samsung",
-      "images": ["../assets/images/products/m54.png"],
-      "thumbnail": "../assets/images/products/m54.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy M54/Samsung Galaxy M54.jpg",
+        "../assets/images/products/Samsung Galaxy M54/Samsung Galaxy M54-1.jpg",
+        "../assets/images/products/Samsung Galaxy M54/Samsung Galaxy M54-2.jpg",
+        "../assets/images/products/Samsung Galaxy M54/Samsung Galaxy M54-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy M54/Samsung Galaxy M54.jpg",
       "description": "Massive 6000mAh battery for power users who never want to plug in.",
       "specifications": {
         "Display": "6.7-inch Super AMOLED Plus",
@@ -675,8 +725,13 @@
       "rating": 4.7,
       "reviewCount": 3421,
       "brand": "Samsung",
-      "images": ["../assets/images/products/buds-2-pro.png"],
-      "thumbnail": "../assets/images/products/buds-2-pro.png",
+      "images": [
+        "../assets/images/products/Galaxy Buds2 Pro/Galaxy Buds2 Pro.jpg",
+        "../assets/images/products/Galaxy Buds2 Pro/Galaxy Buds2 Pro-1.jpg",
+        "../assets/images/products/Galaxy Buds2 Pro/Galaxy Buds2 Pro-2.jpg",
+        "../assets/images/products/Galaxy Buds2 Pro/Galaxy Buds2 Pro-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Galaxy Buds2 Pro/Galaxy Buds2 Pro.jpg",
       "description": "Studio-quality sound and Intelligent Active Noise Cancellation.",
       "specifications": {
         "Driver": "10mm + 5.3mm 2-way",
@@ -709,8 +764,13 @@
       "rating": 4.0,
       "reviewCount": 234,
       "brand": "Samsung",
-      "images": ["../assets/images/products/s22-refurb.png"],
-      "thumbnail": "../assets/images/products/s22-refurb.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy S22 Refurbished/Samsung Galaxy S22 Refurbishedwebp.webp",
+        "../assets/images/products/Samsung Galaxy S22 Refurbished/Samsung Galaxy S22 Refurbishedwebp-1.webp",
+        "../assets/images/products/Samsung Galaxy S22 Refurbished/Samsung Galaxy S22 Refurbishedwebp-2.webp",
+        "../assets/images/products/Samsung Galaxy S22 Refurbished/Samsung Galaxy S22 Refurbishedwebp-3.webp"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy S22 Refurbished/Samsung Galaxy S22 Refurbishedwebp.webp",
       "description": "Sustainable choice with high-end performance at a fraction of the cost.",
       "specifications": {
         "Display": "6.1-inch Dynamic AMOLED 2X",
@@ -744,8 +804,13 @@
       "rating": 4.9,
       "reviewCount": 1234,
       "brand": "Apple",
-      "images": ["../assets/images/products/ipad-pro-12.png"],
-      "thumbnail": "../assets/images/products/ipad-pro-12.png",
+      "images": [
+        "../assets/images/products/iPad Pro 12.9-inch (M2)/iPad Pro 12.9-inch (M2).jpg",
+        "../assets/images/products/iPad Pro 12.9-inch (M2)/iPad Pro 12.9-inch (M2)-1.jpg",
+        "../assets/images/products/iPad Pro 12.9-inch (M2)/iPad Pro 12.9-inch (M2)-2.jpg",
+        "../assets/images/products/iPad Pro 12.9-inch (M2)/iPad Pro 12.9-inch (M2)-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/iPad Pro 12.9-inch (M2)/iPad Pro 12.9-inch (M2).jpg",
       "description": "Brilliant Liquid Retina XDR display and the incredible M2 chip performance.",
       "specifications": {
         "Display": "12.9-inch Liquid Retina XDR",
@@ -779,8 +844,13 @@
       "rating": 4.8,
       "reviewCount": 2341,
       "brand": "Apple",
-      "images": ["../assets/images/products/ipad-air.png"],
-      "thumbnail": "../assets/images/products/ipad-air.png",
+      "images": [
+        "../assets/images/products/iPad Air (5th Gen)/iPad Air (5th Gen).jpg",
+        "../assets/images/products/iPad Air (5th Gen)/iPad Air (5th Gen)-1.jpg",
+        "../assets/images/products/iPad Air (5th Gen)/iPad Air (5th Gen)-2.jpg",
+        "../assets/images/products/iPad Air (5th Gen)/iPad Air (5th Gen)-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/iPad Air (5th Gen)/iPad Air (5th Gen).jpg",
       "description": "Turbocharged by the Apple M1 chip. 12MP Ultra Wide front camera with Center Stage.",
       "specifications": {
         "Display": "10.9-inch Liquid Retina",
@@ -814,8 +884,13 @@
       "rating": 4.7,
       "reviewCount": 1876,
       "brand": "Apple",
-      "images": ["../assets/images/products/ipad-mini.png"],
-      "thumbnail": "../assets/images/products/ipad-mini.png",
+      "images": [
+        "../assets/images/products/iPad Mini (6th Gen)/iPad Mini (6th Gen).webp",
+        "../assets/images/products/iPad Mini (6th Gen)/iPad Mini (6th Gen)-1.webp",
+        "../assets/images/products/iPad Mini (6th Gen)/iPad Mini (6th Gen)-2.webp",
+        "../assets/images/products/iPad Mini (6th Gen)/iPad Mini (6th Gen)-3.webp"
+      ],
+      "thumbnail": "../assets/images/products/iPad Mini (6th Gen)/iPad Mini (6th Gen).webp",
       "description": "Mega power in a mini size. All-screen design with an 8.3-inch Liquid Retina display.",
       "specifications": {
         "Display": "8.3-inch Liquid Retina",
@@ -849,8 +924,12 @@
       "rating": 4.6,
       "reviewCount": 3421,
       "brand": "Apple",
-      "images": ["../assets/images/products/ipad-10.png"],
-      "thumbnail": "../assets/images/products/ipad-10.png",
+      "images": [
+        "../assets/images/products/iPad (10th Gen)/iPad (10th Gen).jpg",
+        "../assets/images/products/iPad (10th Gen)/iPad (10th Gen)-1.jpg",
+        "../assets/images/products/iPad (10th Gen)/iPad (10th Gen)-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/iPad (10th Gen)/iPad (10th Gen).jpg",
       "description": "Colorfully reimagined for versatility. 10.9-inch Liquid Retina display.",
       "specifications": {
         "Display": "10.9-inch Liquid Retina",
@@ -884,8 +963,12 @@
       "rating": 4.8,
       "reviewCount": 987,
       "brand": "Apple",
-      "images": ["../assets/images/products/ipad-pro-11.png"],
-      "thumbnail": "../assets/images/products/ipad-pro-11.png",
+      "images": [
+        "../assets/images/products/iPad Pro 11-inch (M2)/iPad Pro 11-inch (M2).jpg",
+        "../assets/images/products/iPad Pro 11-inch (M2)/iPad Pro 11-inch (M2)-1.jpg",
+        "../assets/images/products/iPad Pro 11-inch (M2)/iPad Pro 11-inch (M2)-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/iPad Pro 11-inch (M2)/iPad Pro 11-inch (M2).jpg",
       "description": "The ultimate iPad experience in a more portable 11-inch form factor.",
       "specifications": {
         "Display": "11-inch Liquid Retina",
@@ -919,8 +1002,12 @@
       "rating": 4.9,
       "reviewCount": 543,
       "brand": "Samsung",
-      "images": ["../assets/images/products/tab-s9-ultra.png"],
-      "thumbnail": "../assets/images/products/tab-s9-ultra.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy Tab S9 Ultra/Samsung Galaxy Tab S9 Ultra.jpg",
+        "../assets/images/products/Samsung Galaxy Tab S9 Ultra/Samsung Galaxy Tab S9 Ultra-1.jpg",
+        "../assets/images/products/Samsung Galaxy Tab S9 Ultra/Samsung Galaxy Tab S9 Ultra-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy Tab S9 Ultra/Samsung Galaxy Tab S9 Ultra.jpg",
       "description": "Our largest, most powerful Android tablet with IP68 water and dust resistance.",
       "specifications": {
         "Display": "14.6-inch Dynamic AMOLED 2X",
@@ -955,8 +1042,13 @@
       "rating": 4.5,
       "reviewCount": 1234,
       "brand": "Samsung",
-      "images": ["../assets/images/products/tab-s9-fe.png"],
-      "thumbnail": "../assets/images/products/tab-s9-fe.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy Tab S9 FE/Samsung Galaxy Tab S9 FE.webp",
+        "../assets/images/products/Samsung Galaxy Tab S9 FE/Samsung Galaxy Tab S9 FE-1.webp",
+        "../assets/images/products/Samsung Galaxy Tab S9 FE/Samsung Galaxy Tab S9 FE-2.webp",
+        "../assets/images/products/Samsung Galaxy Tab S9 FE/Samsung Galaxy Tab S9 FE-3.webp"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy Tab S9 FE/Samsung Galaxy Tab S9 FE.webp",
       "description": "The Fan Edition experience with an included S Pen and vibrant 90Hz display.",
       "specifications": {
         "Display": "10.9-inch TFT LCD",
@@ -991,8 +1083,12 @@
       "rating": 4.3,
       "reviewCount": 2341,
       "brand": "Samsung",
-      "images": ["../assets/images/products/tab-a9-plus.png"],
-      "thumbnail": "../assets/images/products/tab-a9-plus.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy Tab A9+/Samsung Galaxy Tab A9+.jpg",
+        "../assets/images/products/Samsung Galaxy Tab A9+/Samsung Galaxy Tab A9+-1.jpg",
+        "../assets/images/products/Samsung Galaxy Tab A9+/Samsung Galaxy Tab A9+-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy Tab A9+/Samsung Galaxy Tab A9+.jpg",
       "description": "A stylish and affordable tablet with a smooth 90Hz refresh rate and quad speakers.",
       "specifications": {
         "Display": "11-inch TFT LCD",
@@ -1026,8 +1122,13 @@
       "rating": 4.6,
       "reviewCount": 876,
       "brand": "Samsung",
-      "images": ["../assets/images/products/tab-s8.png"],
-      "thumbnail": "../assets/images/products/tab-s8.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy Tab S8/Samsung Galaxy Tab S8.jpg",
+        "../assets/images/products/Samsung Galaxy Tab S8/Samsung Galaxy Tab S8-1.jpg",
+        "../assets/images/products/Samsung Galaxy Tab S8/Samsung Galaxy Tab S8-2.jpg",
+        "../assets/images/products/Samsung Galaxy Tab S8/Samsung Galaxy Tab S8-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy Tab S8/Samsung Galaxy Tab S8.jpg",
       "description": "Flagship performance and multitasking capabilities at a great value.",
       "specifications": {
         "Display": "11-inch TFT LCD",
@@ -1062,8 +1163,13 @@
       "rating": 4.2,
       "reviewCount": 3421,
       "brand": "Samsung",
-      "images": ["../assets/images/products/tab-a8.png"],
-      "thumbnail": "../assets/images/products/tab-a8.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy Tab A8/Samsung Galaxy Tab A8.jpg",
+        "../assets/images/products/Samsung Galaxy Tab A8/Samsung Galaxy Tab A8-1.jpg",
+        "../assets/images/products/Samsung Galaxy Tab A8/Samsung Galaxy Tab A8-2.jpg",
+        "../assets/images/products/Samsung Galaxy Tab A8/Samsung Galaxy Tab A8-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy Tab A8/Samsung Galaxy Tab A8.jpg",
       "description": "The perfect family tablet for streaming, learning, and casual gaming.",
       "specifications": {
         "Display": "10.5-inch TFT LCD",
@@ -1097,8 +1203,13 @@
       "rating": 4.9,
       "reviewCount": 2876,
       "brand": "Anker",
-      "images": ["../assets/images/products/anker-737.png"],
-      "thumbnail": "../assets/images/products/anker-737.png",
+      "images": [
+        "../assets/images/products/Anker 737 Power Bank (PowerCore 24K)/Anker 737 Power Bank (PowerCore 24K).jpg",
+        "../assets/images/products/Anker 737 Power Bank (PowerCore 24K)/Anker 737 Power Bank (PowerCore 24K)-1.jpg",
+        "../assets/images/products/Anker 737 Power Bank (PowerCore 24K)/Anker 737 Power Bank (PowerCore 24K)-2.jpg",
+        "../assets/images/products/Anker 737 Power Bank (PowerCore 24K)/Anker 737 Power Bank (PowerCore 24K)-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Anker 737 Power Bank (PowerCore 24K)/Anker 737 Power Bank (PowerCore 24K).jpg",
       "description": "Ultra-powerful 140W two-way charging with a smart digital display.",
       "specifications": {
         "Capacity": "24,000mAh / 86.4Wh",
@@ -1132,8 +1243,12 @@
       "rating": 4.5,
       "reviewCount": 1876,
       "brand": "Belkin",
-      "images": ["../assets/images/products/belkin-20k.png"],
-      "thumbnail": "../assets/images/products/belkin-20k.png",
+      "images": [
+        "../assets/images/products/Belkin BoostCharge 20K/Belkin BoostCharge 20K.jpg",
+        "../assets/images/products/Belkin BoostCharge 20K/Belkin BoostCharge 20K-1.webp",
+        "../assets/images/products/Belkin BoostCharge 20K/Belkin BoostCharge 20K-2.webp"
+      ],
+      "thumbnail": "../assets/images/products/Belkin BoostCharge 20K/Belkin BoostCharge 20K.jpg",
       "description": "High-capacity power bank with 3 ports to charge multiple devices at once.",
       "specifications": {
         "Capacity": "20,000mAh",
@@ -1165,8 +1280,12 @@
       "rating": 4.4,
       "reviewCount": 1234,
       "brand": "Samsung",
-      "images": ["../assets/images/products/samsung-25w-bank.png"],
-      "thumbnail": "../assets/images/products/samsung-25w-bank.png",
+      "images": [
+        "../assets/images/products/Samsung 25W Battery Pack/Samsung 25W Battery Pack.webp",
+        "../assets/images/products/Samsung 25W Battery Pack/Samsung 25W Battery Pack-1.webp",
+        "../assets/images/products/Samsung 25W Battery Pack/Samsung 25W Battery Pack-2.webp"
+      ],
+      "thumbnail": "../assets/images/products/Samsung 25W Battery Pack/Samsung 25W Battery Pack.webp",
       "description": "Slim, lightweight design with 10,000mAh and Super Fast Charging support.",
       "specifications": {
         "Capacity": "10,000mAh",
@@ -1198,8 +1317,12 @@
       "rating": 4.1,
       "reviewCount": 876,
       "brand": "Apple",
-      "images": ["../assets/images/products/magsafe-bank.png"],
-      "thumbnail": "../assets/images/products/magsafe-bank.png",
+      "images": [
+        "../assets/images/products/Apple MagSafe Battery Pack/Apple MagSafe Battery Pack.jpg",
+        "../assets/images/products/Apple MagSafe Battery Pack/Apple MagSafe Battery Pack-1.jpg",
+        "../assets/images/products/Apple MagSafe Battery Pack/Apple MagSafe Battery Pack-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Apple MagSafe Battery Pack/Apple MagSafe Battery Pack.jpg",
       "description": "Attaches with a click. Its compact design makes on-the-go charging easy.",
       "specifications": {
         "Capacity": "1,460mAh (7.62V / 11.13Wh)",
@@ -1231,8 +1354,14 @@
       "rating": 4.6,
       "reviewCount": 2134,
       "brand": "Baseus",
-      "images": ["../assets/images/products/baseus-65w.png"],
-      "thumbnail": "../assets/images/products/baseus-65w.png",
+      "images": [
+        "../assets/images/products/Baseus 65W Power Bank/Baseus 65W Power Bank.jpg",
+        "../assets/images/products/Baseus 65W Power Bank/Baseus 65W Power Bank-1.jpg",
+        "../assets/images/products/Baseus 65W Power Bank/Baseus 65W Power Bank-2.jpg",
+        "../assets/images/products/Baseus 65W Power Bank/Baseus 65W Power Bank-3.jpg",
+        "../assets/images/products/Baseus 65W Power Bank/Baseus 65W Power Bank-4.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Baseus 65W Power Bank/Baseus 65W Power Bank.jpg",
       "description": "Fast charging for laptops and phones with a large 20,000mAh capacity.",
       "specifications": {
         "Capacity": "20,000mAh / 74Wh",
