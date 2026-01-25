@@ -1559,8 +1559,14 @@
       "rating": 4.7,
       "reviewCount": 742,
       "brand": "ASUS",
-      "images": ["../assets/images/products/rog-strix-g16.png"],
-      "thumbnail": "../assets/images/products/rog-strix-g16.png",
+      "images": [
+        "../assets/images/products/ASUS ROG Strix G16/ASUS ROG Strix G16.png",
+        "../assets/images/products/ASUS ROG Strix G16/ASUS ROG Strix G16-1.png",
+        "../assets/images/products/ASUS ROG Strix G16/ASUS ROG Strix G16-2.png",
+        "../assets/images/products/ASUS ROG Strix G16/ASUS ROG Strix G16-3.png",
+        "../assets/images/products/ASUS ROG Strix G16/ASUS ROG Strix G16-4.png"
+      ],
+      "thumbnail": "../assets/images/products/ASUS ROG Strix G16/ASUS ROG Strix G16.png",
       "description": "High-performance gaming laptop powered by Intel Core i7 and RTX 4060.",
       "specifications": {
         "Display": "16-inch FHD 165Hz",
@@ -1586,8 +1592,14 @@
       "rating": 4.6,
       "reviewCount": 531,
       "brand": "MSI",
-      "images": ["../assets/images/products/msi-katana-15.png"],
-      "thumbnail": "../assets/images/products/msi-katana-15.png",
+      "images": [
+        "../assets/images/products/MSI Katana 15/MSI Katana 15.jpg",
+        "../assets/images/products/MSI Katana 15/MSI Katana 15-1.jpg",
+        "../assets/images/products/MSI Katana 15/MSI Katana 15-2.jpg",
+        "../assets/images/products/MSI Katana 15/MSI Katana 15-3.jpg",
+        "../assets/images/products/MSI Katana 15/MSI Katana 15-4.jpg"
+      ],
+      "thumbnail": "../assets/images/products/MSI Katana 15/MSI Katana 15.jpg",
       "description": "Gaming laptop with RTX graphics and fast refresh rate display.",
       "specifications": {
         "Display": "15.6-inch FHD 144Hz",
@@ -1613,8 +1625,12 @@
       "rating": 4.8,
       "reviewCount": 1123,
       "brand": "Dell",
-      "images": ["../assets/images/products/dell-xps-15.png"],
-      "thumbnail": "../assets/images/products/dell-xps-15.png",
+      "images": [
+        "../assets/images/products/Dell XPS 15/Dell XPS 15.jpg",
+        "../assets/images/products/Dell XPS 15/Dell XPS 15-1.jpg",
+        "../assets/images/products/Dell XPS 15/Dell XPS 15-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Dell XPS 15/Dell XPS 15.jpg",
       "description": "Premium business laptop with stunning display and performance.",
       "specifications": {
         "Display": "15.6-inch OLED",
@@ -1639,8 +1655,13 @@
       "rating": 4.7,
       "reviewCount": 984,
       "brand": "Lenovo",
-      "images": ["../assets/images/products/thinkpad-x1.png"],
-      "thumbnail": "../assets/images/products/thinkpad-x1.png",
+      "images": [
+        "../assets/images/products/Lenovo ThinkPad X1 Carbon/Lenovo ThinkPad X1 Carbon.jpg",
+        "../assets/images/products/Lenovo ThinkPad X1 Carbon/Lenovo ThinkPad X1 Carbon-1.jpg",
+        "../assets/images/products/Lenovo ThinkPad X1 Carbon/Lenovo ThinkPad X1 Carbon-2.jpg",
+        "../assets/images/products/Lenovo ThinkPad X1 Carbon/Lenovo ThinkPad X1 Carbon-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Lenovo ThinkPad X1 Carbon/Lenovo ThinkPad X1 Carbon.jpg",
       "description": "Ultra-light business laptop with legendary ThinkPad durability.",
       "specifications": {
         "Display": "14-inch WUXGA",
