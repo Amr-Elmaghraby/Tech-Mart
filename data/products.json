@@ -54,11 +54,11 @@
       "brand": "Apple",
       "images": [
         "../assets/images/products/iPhone 17 Pro/iphone-17-pm.webp",
-        "../assets/images/products/iPhone 17 Pro/iphone-17-pm-2.png",
+        "../assets/images/products/iPhone 17 Pro/iphone-17-pm-2.jpg",
         "../assets/images/products/iPhone 17 Pro/iphone-17-pm-3.webp",
         "../assets/images/products/iPhone 17 Pro/iphone-17-pro-4.jpg"
       ],
-      "thumbnail": "../assets/images/products/iPhone 17 Pro/iphone-17-pro-4.jpg",
+      "thumbnail": "../assets/images/products/iPhone 17 Pro/iphone-17-pm.webp",
       "description": "New aluminum unibody design with vapor chamber cooling and the powerful 48MP Fusion camera system.",
       "specifications": {
         "Display": "6.3-inch Super Retina XDR",
@@ -1393,8 +1393,13 @@
       "rating": 4.7,
       "reviewCount": 543,
       "brand": "Canon",
-      "images": ["../assets/images/products/canon-90d.png"],
-      "thumbnail": "../assets/images/products/canon-90d.png",
+      "images": [
+        "../assets/images/products/Canon EOS 90D/Canon EOS 90D.jpg",
+        "../assets/images/products/Canon EOS 90D/Canon EOS 90D-1.jpg",
+        "../assets/images/products/Canon EOS 90D/Canon EOS 90D-2.jpg",
+        "../assets/images/products/Canon EOS 90D/Canon EOS 90D-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Canon EOS 90D/Canon EOS 90D.jpg",
       "description": "High-speed continuous shooting and stunning 4K video for sports and wildlife.",
       "specifications": {
         "Sensor": "32.5MP APS-C CMOS",
