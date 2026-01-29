@@ -1,555 +1,548 @@
-[
-  {
-    "TYPE": "METADATA",
-    "project": "SWOO eCommerce Egypt",
-    "last_updated": "2026-01-24",
-    "currency": "USD",
-    "_note": "Shipping rates based on distance from Cairo central hub."
-  },
-  {
-    "id": "order-001",
-    "userId": "user-001",
-    "orderNumber": "SWOO-EG-101",
-    "status": "delivered",
-    "items": [
-      {
-        "productId": "prod-001",
-        "name": "iPhone 17 Pro Max",
-        "quantity": 1,
-        "unitPrice": 1199.99,
-        "totalPrice": 1199.99,
-        "thumbnail": "../assets/images/products/iphone-17-pm.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 1199.99,
-      "shipping": 2.0,
-      "tax": 168.0,
-      "discountApplied": 0,
-      "total": 1369.99
-    },
-    "shippingAddress": {
-      "fullName": "Ahmed Swoo",
-      "street": "90th Street",
-      "city": "New Cairo",
-      "governorate": "Cairo",
-      "zipCode": "11835",
-      "country": "Egypt"
-    },
-    "payment": { "method": "credit_card", "status": "paid" },
-    "createdAt": "2026-01-20T10:00:00Z"
-  },
-  {
-    "id": "order-002",
-    "userId": "user-005",
-    "orderNumber": "SWOO-EG-102",
-    "status": "shipped",
-    "items": [
-      {
-        "productId": "prod-078",
-        "name": "Sony WH-1000XM5",
-        "quantity": 1,
-        "unitPrice": 349.99,
-        "totalPrice": 349.99,
-        "thumbnail": "../assets/images/products/sony-xm5.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 349.99,
-      "shipping": 5.0,
-      "tax": 49.0,
-      "total": 403.99
-    },
-    "shippingAddress": {
-      "fullName": "Omar Khaled",
-      "street": "Sidi Gaber",
-      "city": "Alexandria",
-      "governorate": "Alexandria",
-      "zipCode": "21500",
-      "country": "Egypt"
-    },
-    "payment": { "method": "cash_on_delivery", "status": "pending" },
-    "createdAt": "2026-01-21T14:30:00Z"
-  },
-  {
-    "id": "order-003",
-    "userId": "user-012",
-    "orderNumber": "SWOO-EG-103",
-    "status": "processing",
-    "items": [
-      {
-        "productId": "prod-051",
-        "name": "Logitech MX Master 3S",
-        "quantity": 1,
-        "unitPrice": 99.99,
-        "totalPrice": 99.99,
-        "thumbnail": "../assets/images/products/mx-master.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 99.99,
-      "shipping": 5.0,
-      "tax": 14.0,
-      "total": 118.99
-    },
-    "shippingAddress": {
-      "fullName": "Youssef Ali",
-      "street": "Al Rawdah",
-      "city": "Damanhour",
-      "governorate": "Beheira",
-      "zipCode": "22511",
-      "country": "Egypt"
-    },
-    "payment": { "method": "fawry", "status": "paid" },
-    "createdAt": "2026-01-22T09:15:00Z"
-  },
-  {
-    "id": "order-004",
-    "userId": "user-020",
-    "orderNumber": "SWOO-EG-104",
-    "status": "pending",
-    "items": [
-      {
-        "productId": "prod-041",
-        "name": "Canon EOS 90D",
-        "quantity": 1,
-        "unitPrice": 1199.99,
-        "totalPrice": 1199.99,
-        "thumbnail": "../assets/images/products/canon-90d.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 1199.99,
-      "shipping": 8.0,
-      "tax": 168.0,
-      "total": 1375.99
-    },
-    "shippingAddress": {
-      "fullName": "Mona Ibrahim",
-      "street": "Kornish Al Nile",
-      "city": "Qiena",
-      "governorate": "Qena",
-      "zipCode": "83511",
-      "country": "Egypt"
-    },
-    "payment": { "method": "credit_card", "status": "pending" },
-    "createdAt": "2026-01-23T11:00:00Z"
-  },
-  {
-    "id": "order-005",
-    "userId": "user-033",
-    "orderNumber": "SWOO-EG-105",
-    "status": "shipped",
-    "items": [
-      {
-        "productId": "prod-011",
-        "name": "Samsung Galaxy S24 Ultra",
-        "quantity": 1,
-        "unitPrice": 1299.99,
-        "totalPrice": 1299.99,
-        "thumbnail": "../assets/images/products/s24-ultra.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 1299.99,
-      "shipping": 10.0,
-      "tax": 182.0,
-      "total": 1491.99
-    },
-    "shippingAddress": {
-      "fullName": "Hassan Zaki",
-      "street": "Luxor Temple St",
-      "city": "Luxor",
-      "governorate": "Luxor",
-      "zipCode": "85811",
-      "country": "Egypt"
-    },
-    "payment": { "method": "instapay", "status": "paid" },
-    "createdAt": "2026-01-23T18:45:00Z"
-  },
-  {
-    "id": "order-006",
-    "userId": "user-044",
-    "orderNumber": "SWOO-EG-106",
-    "status": "processing",
-    "items": [
-      {
-        "productId": "prod-081",
-        "name": "Samsung HW-Q700C Soundbar",
-        "quantity": 1,
-        "unitPrice": 599.99,
-        "totalPrice": 599.99,
-        "thumbnail": "../assets/images/products/samsung-soundbar.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 599.99,
-      "shipping": 12.0,
-      "tax": 84.0,
-      "total": 695.99
-    },
-    "shippingAddress": {
-      "fullName": "Mariam Taha",
-      "street": "Elephantine Island",
-      "city": "Aswan",
-      "governorate": "Aswan",
-      "zipCode": "81111",
-      "country": "Egypt"
-    },
-    "payment": { "method": "cash_on_delivery", "status": "pending" },
-    "createdAt": "2026-01-24T12:00:00Z"
-  },
-  {
-    "id": "order-007",
-    "userId": "user-055",
-    "orderNumber": "SWOO-EG-107",
-    "status": "delivered",
-    "items": [
-      {
-        "productId": "prod-047",
-        "name": "Dell XPS 15",
-        "quantity": 1,
-        "unitPrice": 1799.99,
-        "totalPrice": 1799.99,
-        "thumbnail": "../assets/images/products/dell-xps15.png"
+ [
+    {
+      "id": "order-001",
+      "userId": "user-001",
+      "orderNumber": "SWOO-EG-101",
+      "status": "delivered",
+      "items": [
+        {
+          "productId": "prod-001",
+          "name": "iPhone 17 Pro Max",
+          "quantity": 1,
+          "unitPrice": 1199.99,
+          "totalPrice": 1199.99,
+          "thumbnail": "../assets/images/products/iPhone 17 Pro Max/iphone-17-pm-2.png"
+        }
+      ],
+      "pricing": {
+        "subtotal": 1199.99,
+        "shipping": 2.0,
+        "tax": 168.0,
+        "discountApplied": 0,
+        "total": 1369.99
       },
-      {
-        "productId": "prod-051",
-        "name": "Logitech MX Master 3S",
-        "quantity": 1,
-        "unitPrice": 99.99,
-        "totalPrice": 99.99,
-        "thumbnail": "../assets/images/products/mx-master.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 1899.98,
-      "shipping": 2.0,
-      "tax": 266.0,
-      "discountApplied": 0,
-      "total": 2167.98
-    },
-    "shippingAddress": {
-      "fullName": "Sherif Mounir",
-      "street": "El-Batal Ahmed Abdel Aziz",
-      "city": "Mohandessin",
-      "governorate": "Giza",
-      "zipCode": "12611",
-      "country": "Egypt"
-    },
-    "payment": { "method": "credit_card", "status": "paid" },
-    "createdAt": "2026-01-15T14:20:00Z"
-  },
-  {
-    "id": "order-008",
-    "userId": "user-062",
-    "orderNumber": "SWOO-EG-108",
-    "status": "shipped",
-    "items": [
-      {
-        "productId": "prod-026",
-        "name": "iPad Pro 12.9-inch (M2)",
-        "quantity": 1,
-        "unitPrice": 1099.0,
-        "totalPrice": 1099.0,
-        "thumbnail": "../assets/images/products/ipad-pro-12.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 1099.0,
-      "shipping": 10.0,
-      "tax": 153.86,
-      "total": 1262.86
-    },
-    "shippingAddress": {
-      "fullName": "Nour El-Din",
-      "street": "Corniche El Nil",
-      "city": "Aswan",
-      "governorate": "Aswan",
-      "zipCode": "81111",
-      "country": "Egypt"
-    },
-    "payment": { "method": "instapay", "status": "paid" },
-    "createdAt": "2026-01-21T11:00:00Z"
-  },
-  {
-    "id": "order-009",
-    "userId": "user-018",
-    "orderNumber": "SWOO-EG-109",
-    "status": "processing",
-    "items": [
-      {
-        "productId": "prod-069",
-        "name": "Apple AirTag",
-        "quantity": 4,
-        "unitPrice": 29.99,
-        "totalPrice": 119.96,
-        "thumbnail": "../assets/images/products/airtag.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 119.96,
-      "shipping": 5.0,
-      "tax": 16.79,
-      "total": 141.75
-    },
-    "shippingAddress": {
-      "fullName": "Khaled Saeed",
-      "street": "Stanly Bridge St.",
-      "city": "Alexandria",
-      "governorate": "Alexandria",
-      "zipCode": "21500",
-      "country": "Egypt"
-    },
-    "payment": { "method": "cash_on_delivery", "status": "pending" },
-    "createdAt": "2026-01-23T08:30:00Z"
-  },
-  {
-    "id": "order-010",
-    "userId": "user-099",
-    "orderNumber": "SWOO-EG-110",
-    "status": "delivered",
-    "items": [
-      {
-        "productId": "prod-045",
-        "name": "ASUS ROG Strix G16",
-        "quantity": 1,
-        "unitPrice": 1599.99,
-        "totalPrice": 1599.99,
-        "thumbnail": "../assets/images/products/rog-strix.png"
+      "shippingAddress": {
+        "fullName": "Ahmed Swoo",
+        "street": "90th Street",
+        "city": "New Cairo",
+        "governorate": "Cairo",
+        "zipCode": "11835",
+        "country": "Egypt"
       },
-      {
-        "productId": "prod-050",
-        "name": "Samsung Odyssey G5",
-        "quantity": 1,
-        "unitPrice": 399.99,
-        "totalPrice": 399.99,
-        "thumbnail": "../assets/images/products/odyssey-g5.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 1999.98,
-      "shipping": 5.0,
-      "tax": 280.0,
-      "total": 2284.98
+      "payment": { "method": "credit_card", "status": "paid" },
+      "createdAt": "2026-01-20T10:00:00Z"
     },
-    "shippingAddress": {
-      "fullName": "Ziad Bakr",
-      "street": "Gomhouria St",
-      "city": "Damanhour",
-      "governorate": "Beheira",
-      "zipCode": "22511",
-      "country": "Egypt"
-    },
-    "payment": { "method": "credit_card", "status": "paid" },
-    "createdAt": "2026-01-05T12:00:00Z"
-  },
-  {
-    "id": "order-011",
-    "userId": "user-104",
-    "orderNumber": "SWOO-EG-111",
-    "status": "pending",
-    "items": [
-      {
-        "productId": "prod-074",
-        "name": "Fujifilm X-T5",
-        "quantity": 1,
-        "unitPrice": 1699.99,
-        "totalPrice": 1699.99,
-        "thumbnail": "../assets/images/products/fuji-xt5.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 1699.99,
-      "shipping": 9.0,
-      "tax": 238.0,
-      "total": 1946.99
-    },
-    "shippingAddress": {
-      "fullName": "Sara Mansour",
-      "street": "Nile View Towers",
-      "city": "Luxor",
-      "governorate": "Luxor",
-      "zipCode": "85811",
-      "country": "Egypt"
-    },
-    "payment": { "method": "fawry", "status": "pending" },
-    "createdAt": "2026-01-24T16:45:00Z"
-  },
-  {
-    "id": "order-012",
-    "userId": "user-022",
-    "orderNumber": "SWOO-EG-112",
-    "status": "delivered",
-    "items": [
-      {
-        "productId": "prod-068",
-        "name": "Samsung Galaxy Buds FE",
-        "quantity": 1,
-        "unitPrice": 99.99,
-        "totalPrice": 99.99,
-        "thumbnail": "../assets/images/products/buds-fe.png"
+    {
+      "id": "order-002",
+      "userId": "user-005",
+      "orderNumber": "SWOO-EG-102",
+      "status": "shipped",
+      "items": [
+        {
+          "productId": "prod-078",
+          "name": "Sony WH-1000XM5",
+          "quantity": 1,
+          "unitPrice": 349.99,
+          "totalPrice": 349.99,
+          "thumbnail": "../assets/images/products/Sony WH-1000XM5/Sony WH-1000XM5.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 349.99,
+        "shipping": 5.0,
+        "tax": 49.0,
+        "total": 403.99
       },
-      {
-        "productId": "prod-064",
-        "name": "Spigen Rugged Armor Case",
-        "quantity": 1,
-        "unitPrice": 24.99,
-        "totalPrice": 24.99,
-        "thumbnail": "../assets/images/products/spigen-case.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 124.98,
-      "shipping": 2.0,
-      "tax": 17.5,
-      "total": 144.48
-    },
-    "shippingAddress": {
-      "fullName": "Mostafa Gad",
-      "street": "Zamalek St",
-      "city": "Cairo",
-      "governorate": "Cairo",
-      "zipCode": "11211",
-      "country": "Egypt"
-    },
-    "payment": { "method": "credit_card", "status": "paid" },
-    "createdAt": "2026-01-10T10:00:00Z"
-  },
-  {
-    "id": "order-013",
-    "userId": "user-013",
-    "orderNumber": "SWOO-EG-113",
-    "status": "shipped",
-    "items": [
-      {
-        "productId": "prod-076",
-        "name": "GoPro HERO12 Black",
-        "quantity": 1,
-        "unitPrice": 399.99,
-        "totalPrice": 399.99,
-        "thumbnail": "../assets/images/products/gopro-12.png"
+      "shippingAddress": {
+        "fullName": "Omar Khaled",
+        "street": "Sidi Gaber",
+        "city": "Alexandria",
+        "governorate": "Alexandria",
+        "zipCode": "21500",
+        "country": "Egypt"
       },
-      {
-        "productId": "prod-077",
-        "name": "Manfrotto Compact Tripod",
-        "quantity": 1,
-        "unitPrice": 89.99,
-        "totalPrice": 89.99,
-        "thumbnail": "../assets/images/products/tripod.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 489.98,
-      "shipping": 8.0,
-      "tax": 68.6,
-      "total": 566.58
+      "payment": { "method": "cash_on_delivery", "status": "pending" },
+      "createdAt": "2026-01-21T14:30:00Z"
     },
-    "shippingAddress": {
-      "fullName": "Hany Ramzy",
-      "street": "Free Zone",
-      "city": "Qiena",
-      "governorate": "Qena",
-      "zipCode": "83511",
-      "country": "Egypt"
+    {
+      "id": "order-003",
+      "userId": "user-012",
+      "orderNumber": "SWOO-EG-103",
+      "status": "processing",
+      "items": [
+        {
+          "productId": "prod-051",
+          "name": "Logitech MX Master 3S",
+          "quantity": 1,
+          "unitPrice": 99.99,
+          "totalPrice": 99.99,
+          "thumbnail": "../assets/images/products/Logitech MX Master 3S/Logitech MX Master 3S.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 99.99,
+        "shipping": 5.0,
+        "tax": 14.0,
+        "total": 118.99
+      },
+      "shippingAddress": {
+        "fullName": "Youssef Ali",
+        "street": "Al Rawdah",
+        "city": "Damanhour",
+        "governorate": "Beheira",
+        "zipCode": "22511",
+        "country": "Egypt"
+      },
+      "payment": { "method": "fawry", "status": "paid" },
+      "createdAt": "2026-01-22T09:15:00Z"
     },
-    "payment": { "method": "instapay", "status": "paid" },
-    "createdAt": "2026-01-22T13:15:00Z"
-  },
-  {
-    "id": "order-014",
-    "userId": "user-009",
-    "orderNumber": "SWOO-EG-114",
-    "status": "processing",
-    "items": [
-      {
-        "productId": "prod-036",
-        "name": "Anker 737 Power Bank",
-        "quantity": 2,
-        "unitPrice": 149.99,
-        "totalPrice": 299.98,
-        "thumbnail": "../assets/images/products/anker-737.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 299.98,
-      "shipping": 5.0,
-      "tax": 42.0,
-      "total": 346.98
+    {
+      "id": "order-004",
+      "userId": "user-020",
+      "orderNumber": "SWOO-EG-104",
+      "status": "pending",
+      "items": [
+        {
+          "productId": "prod-041",
+          "name": "Canon EOS 90D",
+          "quantity": 1,
+          "unitPrice": 1199.99,
+          "totalPrice": 1199.99,
+          "thumbnail": "../assets/images/products/Canon EOS 90D/Canon EOS 90D.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 1199.99,
+        "shipping": 8.0,
+        "tax": 168.0,
+        "total": 1375.99
+      },
+      "shippingAddress": {
+        "fullName": "Mona Ibrahim",
+        "street": "Kornish Al Nile",
+        "city": "Qiena",
+        "governorate": "Qena",
+        "zipCode": "83511",
+        "country": "Egypt"
+      },
+      "payment": { "method": "credit_card", "status": "pending" },
+      "createdAt": "2026-01-23T11:00:00Z"
     },
-    "shippingAddress": {
-      "fullName": "Eman Fouad",
-      "street": "Smuoha",
-      "city": "Alexandria",
-      "governorate": "Alexandria",
-      "zipCode": "21641",
-      "country": "Egypt"
+    {
+      "id": "order-005",
+      "userId": "user-033",
+      "orderNumber": "SWOO-EG-105",
+      "status": "shipped",
+      "items": [
+        {
+          "productId": "prod-011",
+          "name": "Samsung Galaxy S24 Ultra",
+          "quantity": 1,
+          "unitPrice": 1299.99,
+          "totalPrice": 1299.99,
+          "thumbnail": "../assets/images/products/Samsung Galaxy S24 Ultra/Samsung Galaxy S24 Ultra.webp"
+        }
+      ],
+      "pricing": {
+        "subtotal": 1299.99,
+        "shipping": 10.0,
+        "tax": 182.0,
+        "total": 1491.99
+      },
+      "shippingAddress": {
+        "fullName": "Hassan Zaki",
+        "street": "Luxor Temple St",
+        "city": "Luxor",
+        "governorate": "Luxor",
+        "zipCode": "85811",
+        "country": "Egypt"
+      },
+      "payment": { "method": "instapay", "status": "paid" },
+      "createdAt": "2026-01-23T18:45:00Z"
     },
-    "payment": { "method": "cash_on_delivery", "status": "pending" },
-    "createdAt": "2026-01-23T20:00:00Z"
-  },
-  {
-    "id": "order-015",
-    "userId": "user-112",
-    "orderNumber": "SWOO-EG-115",
-    "status": "delivered",
-    "items": [
-      {
-        "productId": "prod-031",
-        "name": "Samsung Galaxy Tab S9 Ultra",
-        "quantity": 1,
-        "unitPrice": 1199.99,
-        "totalPrice": 1199.99,
-        "thumbnail": "../assets/images/products/tab-s9-ultra.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 1199.99,
-      "shipping": 12.0,
-      "tax": 168.0,
-      "total": 1379.99
+    {
+      "id": "order-006",
+      "userId": "user-044",
+      "orderNumber": "SWOO-EG-106",
+      "status": "processing",
+      "items": [
+        {
+          "productId": "prod-081",
+          "name": "Samsung HW-Q700C Soundbar",
+          "quantity": 1,
+          "unitPrice": 599.99,
+          "totalPrice": 599.99,
+          "thumbnail": "../assets/images/products/Samsung HW-Q700C Soundbar/Samsung HW-Q700C Soundbar.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 599.99,
+        "shipping": 12.0,
+        "tax": 84.0,
+        "total": 695.99
+      },
+      "shippingAddress": {
+        "fullName": "Mariam Taha",
+        "street": "Elephantine Island",
+        "city": "Aswan",
+        "governorate": "Aswan",
+        "zipCode": "81111",
+        "country": "Egypt"
+      },
+      "payment": { "method": "cash_on_delivery", "status": "pending" },
+      "createdAt": "2026-01-24T12:00:00Z"
     },
-    "shippingAddress": {
-      "fullName": "Tarek Aziz",
-      "street": "Philae Port",
-      "city": "Aswan",
-      "governorate": "Aswan",
-      "zipCode": "81111",
-      "country": "Egypt"
+    {
+      "id": "order-007",
+      "userId": "user-055",
+      "orderNumber": "SWOO-EG-107",
+      "status": "delivered",
+      "items": [
+        {
+          "productId": "prod-047",
+          "name": "Dell XPS 15",
+          "quantity": 1,
+          "unitPrice": 1799.99,
+          "totalPrice": 1799.99,
+          "thumbnail": "../assets/images/products/Dell XPS 15/Dell XPS 15.jpg"
+        },
+        {
+          "productId": "prod-051",
+          "name": "Logitech MX Master 3S",
+          "quantity": 1,
+          "unitPrice": 99.99,
+          "totalPrice": 99.99,
+          "thumbnail": "../assets/images/products/Logitech MX Master 3S/Logitech MX Master 3S.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 1899.98,
+        "shipping": 2.0,
+        "tax": 266.0,
+        "discountApplied": 0,
+        "total": 2167.98
+      },
+      "shippingAddress": {
+        "fullName": "Sherif Mounir",
+        "street": "El-Batal Ahmed Abdel Aziz",
+        "city": "Mohandessin",
+        "governorate": "Giza",
+        "zipCode": "12611",
+        "country": "Egypt"
+      },
+      "payment": { "method": "credit_card", "status": "paid" },
+      "createdAt": "2026-01-15T14:20:00Z"
     },
-    "payment": { "method": "credit_card", "status": "paid" },
-    "createdAt": "2026-01-18T09:00:00Z"
-  },
-  {
-    "id": "order-016",
-    "userId": "user-041",
-    "orderNumber": "SWOO-EG-116",
-    "status": "pending",
-    "items": [
-      {
-        "productId": "prod-080",
-        "name": "Sony HT-S40R Home Theater",
-        "quantity": 1,
-        "unitPrice": 499.99,
-        "totalPrice": 499.99,
-        "thumbnail": "../assets/images/products/sony-hometheater.png"
-      }
-    ],
-    "pricing": {
-      "subtotal": 499.99,
-      "shipping": 2.0,
-      "tax": 70.0,
-      "total": 571.99
+    {
+      "id": "order-008",
+      "userId": "user-062",
+      "orderNumber": "SWOO-EG-108",
+      "status": "shipped",
+      "items": [
+        {
+          "productId": "prod-026",
+          "name": "iPad Pro 12.9-inch (M2)",
+          "quantity": 1,
+          "unitPrice": 1099.0,
+          "totalPrice": 1099.0,
+          "thumbnail": "../assets/images/products/iPad Pro 12.9-inch (M2)/iPad Pro 12.9-inch (M2).jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 1099.0,
+        "shipping": 10.0,
+        "tax": 153.86,
+        "total": 1262.86
+      },
+      "shippingAddress": {
+        "fullName": "Nour El-Din",
+        "street": "Corniche El Nil",
+        "city": "Aswan",
+        "governorate": "Aswan",
+        "zipCode": "81111",
+        "country": "Egypt"
+      },
+      "payment": { "method": "instapay", "status": "paid" },
+      "createdAt": "2026-01-21T11:00:00Z"
     },
-    "shippingAddress": {
-      "fullName": "Laila Hassan",
-      "street": "Maadi Degla",
-      "city": "Cairo",
-      "governorate": "Cairo",
-      "zipCode": "11728",
-      "country": "Egypt"
+    {
+      "id": "order-009",
+      "userId": "user-018",
+      "orderNumber": "SWOO-EG-109",
+      "status": "processing",
+      "items": [
+        {
+          "productId": "prod-069",
+          "name": "Apple AirTag",
+          "quantity": 4,
+          "unitPrice": 29.99,
+          "totalPrice": 119.96,
+          "thumbnail": "../assets/images/products/Apple AirTag/Apple AirTag.png"
+        }
+      ],
+      "pricing": {
+        "subtotal": 119.96,
+        "shipping": 5.0,
+        "tax": 16.79,
+        "total": 141.75
+      },
+      "shippingAddress": {
+        "fullName": "Khaled Saeed",
+        "street": "Stanly Bridge St.",
+        "city": "Alexandria",
+        "governorate": "Alexandria",
+        "zipCode": "21500",
+        "country": "Egypt"
+      },
+      "payment": { "method": "cash_on_delivery", "status": "pending" },
+      "createdAt": "2026-01-23T08:30:00Z"
     },
-    "payment": { "method": "fawry", "status": "pending" },
-    "createdAt": "2026-01-24T17:30:00Z"
-  }
-]
+    {
+      "id": "order-010",
+      "userId": "user-099",
+      "orderNumber": "SWOO-EG-110",
+      "status": "delivered",
+      "items": [
+        {
+          "productId": "prod-045",
+          "name": "ASUS ROG Strix G16",
+          "quantity": 1,
+          "unitPrice": 1599.99,
+          "totalPrice": 1599.99,
+          "thumbnail": "../assets/images/products/ASUS ROG Strix G16/ASUS ROG Strix G16.png"
+        },
+        {
+          "productId": "prod-050",
+          "name": "Samsung Odyssey G5",
+          "quantity": 1,
+          "unitPrice": 399.99,
+          "totalPrice": 399.99,
+          "thumbnail": "../assets/images/products/Samsung Odyssey G5/Samsung Odyssey G5.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 1999.98,
+        "shipping": 5.0,
+        "tax": 280.0,
+        "total": 2284.98
+      },
+      "shippingAddress": {
+        "fullName": "Ziad Bakr",
+        "street": "Gomhouria St",
+        "city": "Damanhour",
+        "governorate": "Beheira",
+        "zipCode": "22511",
+        "country": "Egypt"
+      },
+      "payment": { "method": "credit_card", "status": "paid" },
+      "createdAt": "2026-01-05T12:00:00Z"
+    },
+    {
+      "id": "order-011",
+      "userId": "user-104",
+      "orderNumber": "SWOO-EG-111",
+      "status": "pending",
+      "items": [
+        {
+          "productId": "prod-074",
+          "name": "Fujifilm X-T5",
+          "quantity": 1,
+          "unitPrice": 1699.99,
+          "totalPrice": 1699.99,
+          "thumbnail": "../assets/images/products/Fujifilm X-T5/Fujifilm X-T5.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 1699.99,
+        "shipping": 9.0,
+        "tax": 238.0,
+        "total": 1946.99
+      },
+      "shippingAddress": {
+        "fullName": "Sara Mansour",
+        "street": "Nile View Towers",
+        "city": "Luxor",
+        "governorate": "Luxor",
+        "zipCode": "85811",
+        "country": "Egypt"
+      },
+      "payment": { "method": "fawry", "status": "pending" },
+      "createdAt": "2026-01-24T16:45:00Z"
+    },
+    {
+      "id": "order-012",
+      "userId": "user-022",
+      "orderNumber": "SWOO-EG-112",
+      "status": "delivered",
+      "items": [
+        {
+          "productId": "prod-068",
+          "name": "Samsung Galaxy Buds FE",
+          "quantity": 1,
+          "unitPrice": 99.99,
+          "totalPrice": 99.99,
+          "thumbnail": "../assets/images/products/Samsung Galaxy Buds FE/Samsung Galaxy Buds FE.jpg"
+        },
+        {
+          "productId": "prod-064",
+          "name": "Spigen Rugged Armor Case",
+          "quantity": 1,
+          "unitPrice": 24.99,
+          "totalPrice": 24.99,
+          "thumbnail": "../assets/images/products/Spigen Rugged Armor Case/Spigen Rugged Armor Case.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 124.98,
+        "shipping": 2.0,
+        "tax": 17.5,
+        "total": 144.48
+      },
+      "shippingAddress": {
+        "fullName": "Mostafa Gad",
+        "street": "Zamalek St",
+        "city": "Cairo",
+        "governorate": "Cairo",
+        "zipCode": "11211",
+        "country": "Egypt"
+      },
+      "payment": { "method": "credit_card", "status": "paid" },
+      "createdAt": "2026-01-10T10:00:00Z"
+    },
+    {
+      "id": "order-013",
+      "userId": "user-013",
+      "orderNumber": "SWOO-EG-113",
+      "status": "shipped",
+      "items": [
+        {
+          "productId": "prod-076",
+          "name": "GoPro HERO12 Black",
+          "quantity": 1,
+          "unitPrice": 399.99,
+          "totalPrice": 399.99,
+          "thumbnail": "../assets/images/products/GoPro HERO12 Black/GoPro HERO12 Black.jpg"
+        },
+        {
+          "productId": "prod-077",
+          "name": "Manfrotto Compact Tripod",
+          "quantity": 1,
+          "unitPrice": 89.99,
+          "totalPrice": 89.99,
+          "thumbnail": "../assets/images/products/Manfrotto Compact Tripod/Manfrotto Compact Tripod.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 489.98,
+        "shipping": 8.0,
+        "tax": 68.6,
+        "total": 566.58
+      },
+      "shippingAddress": {
+        "fullName": "Hany Ramzy",
+        "street": "Free Zone",
+        "city": "Qiena",
+        "governorate": "Qena",
+        "zipCode": "83511",
+        "country": "Egypt"
+      },
+      "payment": { "method": "instapay", "status": "paid" },
+      "createdAt": "2026-01-22T13:15:00Z"
+    },
+    {
+      "id": "order-014",
+      "userId": "user-009",
+      "orderNumber": "SWOO-EG-114",
+      "status": "processing",
+      "items": [
+        {
+          "productId": "prod-036",
+          "name": "Anker 737 Power Bank",
+          "quantity": 2,
+          "unitPrice": 149.99,
+          "totalPrice": 299.98,
+          "thumbnail": "../assets/images/products/Anker 737 Power Bank (PowerCore 24K)/Anker 737 Power Bank (PowerCore 24K).jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 299.98,
+        "shipping": 5.0,
+        "tax": 42.0,
+        "total": 346.98
+      },
+      "shippingAddress": {
+        "fullName": "Eman Fouad",
+        "street": "Smuoha",
+        "city": "Alexandria",
+        "governorate": "Alexandria",
+        "zipCode": "21641",
+        "country": "Egypt"
+      },
+      "payment": { "method": "cash_on_delivery", "status": "pending" },
+      "createdAt": "2026-01-23T20:00:00Z"
+    },
+    {
+      "id": "order-015",
+      "userId": "user-112",
+      "orderNumber": "SWOO-EG-115",
+      "status": "delivered",
+      "items": [
+        {
+          "productId": "prod-031",
+          "name": "Samsung Galaxy Tab S9 Ultra",
+          "quantity": 1,
+          "unitPrice": 1199.99,
+          "totalPrice": 1199.99,
+          "thumbnail": "../assets/images/products/Samsung Galaxy Tab S9 Ultra/Samsung Galaxy Tab S9 Ultra.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 1199.99,
+        "shipping": 12.0,
+        "tax": 168.0,
+        "total": 1379.99
+      },
+      "shippingAddress": {
+        "fullName": "Tarek Aziz",
+        "street": "Philae Port",
+        "city": "Aswan",
+        "governorate": "Aswan",
+        "zipCode": "81111",
+        "country": "Egypt"
+      },
+      "payment": { "method": "credit_card", "status": "paid" },
+      "createdAt": "2026-01-18T09:00:00Z"
+    },
+    {
+      "id": "order-016",
+      "userId": "user-041",
+      "orderNumber": "SWOO-EG-116",
+      "status": "pending",
+      "items": [
+        {
+          "productId": "prod-080",
+          "name": "Sony HT-S40R Home Theater",
+          "quantity": 1,
+          "unitPrice": 499.99,
+          "totalPrice": 499.99,
+          "thumbnail": "../assets/images/products/Sony HT-S40R Home Theater/Sony HT-S40R Home Theater.jpg"
+        }
+      ],
+      "pricing": {
+        "subtotal": 499.99,
+        "shipping": 2.0,
+        "tax": 70.0,
+        "total": 571.99
+      },
+      "shippingAddress": {
+        "fullName": "Laila Hassan",
+        "street": "Maadi Degla",
+        "city": "Cairo",
+        "governorate": "Cairo",
+        "zipCode": "11728",
+        "country": "Egypt"
+      },
+      "payment": { "method": "fawry", "status": "pending" },
+      "createdAt": "2026-01-24T17:30:00Z"
+    }
+  ]

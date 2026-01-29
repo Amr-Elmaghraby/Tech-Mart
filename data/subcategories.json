@@ -1,5 +1,4 @@
-{
-  "subcategories": [
+ [
     {
       "id": "subcat-001",
       "categoryId": "cat-001",
@@ -16,7 +15,7 @@
       "slug": "business-laptops",
       "description": "Professional laptops for work and productivity",
       "productCount": 2,
-      "image": "../assets/images/subcategories/business-laptops.png"
+      "image": "../assets/images/subcategories/Business Laptops.webp"
     },
     {
       "id": "subcat-003",
@@ -43,7 +42,7 @@
       "slug": "pc-accessories",
       "description": "Keyboards, mice, and other computer accessories",
       "productCount": 0,
-      "image": "../assets/images/subcategories/pc-accessories.png"
+      "image": "../assets/images/subcategories/pc-accessories.webp"
     },
     {
       "id": "subcat-006",
@@ -88,7 +87,7 @@
       "slug": "mobile-accessories",
       "description": "Cases, chargers, power banks, and more",
       "productCount": 14,
-      "image": "../assets/images/subcategories/mobile-accessories.png"
+      "image": "../assets/images/subcategories/Mobile Accessories.png"
     },
     {
       "id": "subcat-011",
@@ -169,7 +168,6 @@
       "slug": "soundbars",
       "description": "Premium soundbars for TV and entertainment",
       "productCount": 2,
-      "image": "../assets/images/subcategories/soundbars.png"
+      "image": "../assets/images/subcategories/soundbars.webp"
     }
   ]
-}

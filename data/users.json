@@ -1,5 +1,4 @@
-{
-  "users": [
+[
     {
       "id": "user-001",
       "name": "Amr Elmaghraby",
@@ -310,4 +309,3 @@
       ]
     }
   ]
-}

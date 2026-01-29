@@ -1,5 +1,4 @@
-{
-  "categories": [
+[
     {
       "id": "cat-001",
       "name": "Laptops & Computers",
@@ -45,4 +44,3 @@
       "displayOrder": 4
     }
   ]
-}

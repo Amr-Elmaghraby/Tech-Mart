@@ -1,13 +1,17 @@
 /* =====  Base - Load First  ===== */
-@import url("/css/base/reset.css");
-@import url("/css/base/variables.css");
-@import url("/css/base/typography.css");
+@import url("./base/reset.css");
+@import url("./base/variables.css");
+@import url("./base/typography.css");
 
-@import url("/css/components/fontawesome.css");
+@import url("./components/fontawesome.css");
 
 /* =====  Layout Styles  ===== */
-@import url("/css/layout/footer.css");
+@import url("./layout/footer.css");
 
-@import url("/css/layout/header.css");
+@import url("./layout/header.css");
 
+<<<<<<< HEAD
 @import url("/css/pages/index.css");
+=======
+@import url('./components/buttons.css');
+>>>>>>> origin/main

@@ -1,5 +1,4 @@
-{
-  "products": [
+[
     {
       "id": "prod-001",
       "categoryId": "cat-002",
@@ -1686,8 +1685,13 @@
       "rating": 4.4,
       "reviewCount": 612,
       "brand": "HP",
-      "images": ["../assets/images/products/hp-pavilion-desktop.png"],
-      "thumbnail": "../assets/images/products/hp-pavilion-desktop.png",
+      "images": [
+        "../assets/images/products/HP Pavilion Desktop/HP Pavilion Desktop.jpg",
+        "../assets/images/products/HP Pavilion Desktop/HP Pavilion Desktop-1.jpg",
+        "../assets/images/products/HP Pavilion Desktop/HP Pavilion Desktop-2.jpg",
+        "../assets/images/products/HP Pavilion Desktop/HP Pavilion Desktop-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/HP Pavilion Desktop/HP Pavilion Desktop.jpg",
       "description": "Reliable desktop PC for home and office use.",
       "specifications": {
         "Processor": "Intel Core i5-12400",
@@ -1712,8 +1716,13 @@
       "rating": 4.6,
       "reviewCount": 1402,
       "brand": "Samsung",
-      "images": ["../assets/images/products/odyssey-g5.png"],
-      "thumbnail": "../assets/images/products/odyssey-g5.png",
+      "images": [
+        "../assets/images/products/Samsung Odyssey G5/Samsung Odyssey G5.jpg",
+        "../assets/images/products/Samsung Odyssey G5/Samsung Odyssey G5-1.jpg",
+        "../assets/images/products/Samsung Odyssey G5/Samsung Odyssey G5-2.jpg",
+        "../assets/images/products/Samsung Odyssey G5/Samsung Odyssey G5-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Odyssey G5/Samsung Odyssey G5.jpg",
       "description": "Curved gaming monitor with high refresh rate.",
       "specifications": {
         "Size": "27-inch",
@@ -1738,8 +1747,13 @@
       "rating": 4.9,
       "reviewCount": 5421,
       "brand": "Logitech",
-      "images": ["../assets/images/products/mx-master-3s.png"],
-      "thumbnail": "../assets/images/products/mx-master-3s.png",
+      "images": [
+        "../assets/images/products/Logitech MX Master 3S/Logitech MX Master 3S.jpg",
+        "../assets/images/products/Logitech MX Master 3S/Logitech MX Master 3S-1.jpg",
+        "../assets/images/products/Logitech MX Master 3S/Logitech MX Master 3S-2.jpg",
+        "../assets/images/products/Logitech MX Master 3S/Logitech MX Master 3S-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Logitech MX Master 3S/Logitech MX Master 3S.jpg",
       "description": "Advanced wireless mouse for productivity and precision.",
       "specifications": {
         "Connectivity": "Bluetooth / USB Receiver",
@@ -1763,8 +1777,13 @@
       "rating": 4.8,
       "reviewCount": 3250,
       "brand": "Apple",
-      "images": ["../assets/images/products/iphone-15-pro.png"],
-      "thumbnail": "../assets/images/products/iphone-15-pro.png",
+      "images": [
+        "../assets/images/products/iPhone 15 Pro/iPhone 15 Pro.jpg",
+        "../assets/images/products/iPhone 15 Pro/iPhone 15 Pro-1.jpg",
+        "../assets/images/products/iPhone 15 Pro/iPhone 15 Pro-2.jpg",
+        "../assets/images/products/iPhone 15 Pro/iPhone 15 Pro-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/iPhone 15 Pro/iPhone 15 Pro.jpg",
       "description": "Apple flagship smartphone with A17 Pro chip.",
       "specifications": {
         "Display": "6.1-inch OLED",
@@ -1789,8 +1808,12 @@
       "rating": 4.9,
       "reviewCount": 2874,
       "brand": "Samsung",
-      "images": ["../assets/images/products/galaxy-s24-ultra.png"],
-      "thumbnail": "../assets/images/products/galaxy-s24-ultra.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy S24/Samsung Galaxy S24.png",
+        "../assets/images/products/Samsung Galaxy S24/Samsung Galaxy S24-1.png",
+        "../assets/images/products/Samsung Galaxy S24/Samsung Galaxy S24-2.png"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy S24/Samsung Galaxy S24.png",
       "description": "Premium Android smartphone with advanced AI features.",
       "specifications": {
         "Display": "6.8-inch AMOLED 120Hz",
@@ -1815,8 +1838,14 @@
       "rating": 4.7,
       "reviewCount": 1943,
       "brand": "Apple",
-      "images": ["../assets/images/products/ipad-air-5.png"],
-      "thumbnail": "../assets/images/products/ipad-air-5.png",
+      "images": [
+        "../assets/images/products/iPad Air 5/iPad Air 5.jpg",
+        "../assets/images/products/iPad Air 5/iPad Air 5-1.jpg",
+        "../assets/images/products/iPad Air 5/iPad Air 5-2.jpg",
+        "../assets/images/products/iPad Air 5/iPad Air 5-3.jpg",
+        "../assets/images/products/iPad Air 5/iPad Air 5-4.jpg"
+      ],
+      "thumbnail": "../assets/images/products/iPad Air 5/iPad Air 5.jpg",
       "description": "Powerful and lightweight tablet with M1 chip.",
       "specifications": {
         "Display": "10.9-inch Liquid Retina",
@@ -1840,8 +1869,12 @@
       "rating": 4.6,
       "reviewCount": 865,
       "brand": "Samsung",
-      "images": ["../assets/images/products/galaxy-tab-s9.png"],
-      "thumbnail": "../assets/images/products/galaxy-tab-s9.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy Tab S9/Samsung Galaxy Tab S9.jpg",
+        "../assets/images/products/Samsung Galaxy Tab S9/Samsung Galaxy Tab S9-1.jpg",
+        "../assets/images/products/Samsung Galaxy Tab S9/Samsung Galaxy Tab S9-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy Tab S9/Samsung Galaxy Tab S9.jpg",
       "description": "High-end Android tablet with AMOLED display.",
       "specifications": {
         "Display": "11-inch AMOLED",
@@ -1865,8 +1898,12 @@
       "rating": 4.7,
       "reviewCount": 1532,
       "brand": "Xiaomi",
-      "images": ["../assets/images/products/xiaomi-14-pro.png"],
-      "thumbnail": "../assets/images/products/xiaomi-14-pro.png",
+      "images": [
+        "../assets/images/products/Xiaomi 14 Pro/Xiaomi 14 Pro.jpg",
+        "../assets/images/products/Xiaomi 14 Pro/Xiaomi 14 Pro-1.jpg",
+        "../assets/images/products/Xiaomi 14 Pro/Xiaomi 14 Pro-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Xiaomi 14 Pro/Xiaomi 14 Pro.jpg",
       "description": "Flagship Android phone with Leica optics and powerful performance.",
       "specifications": {
         "Display": "6.73-inch AMOLED 120Hz",
@@ -1891,8 +1928,13 @@
       "rating": 4.6,
       "reviewCount": 1214,
       "brand": "OnePlus",
-      "images": ["../assets/images/products/oneplus-12.png"],
-      "thumbnail": "../assets/images/products/oneplus-12.png",
+      "images": [
+        "../assets/images/products/OnePlus 12/OnePlus 12.jpg",
+        "../assets/images/products/OnePlus 12/OnePlus 12-1.jpg",
+        "../assets/images/products/OnePlus 12/OnePlus 12-2.jpg",
+        "../assets/images/products/OnePlus 12/OnePlus 12-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/OnePlus 12/OnePlus 12.jpg",
       "description": "Smooth and fast Android experience with premium design.",
       "specifications": {
         "Display": "6.82-inch AMOLED 120Hz",
@@ -1917,8 +1959,12 @@
       "rating": 4.5,
       "reviewCount": 732,
       "brand": "Realme",
-      "images": ["../assets/images/products/realme-gt-5-pro.png"],
-      "thumbnail": "../assets/images/products/realme-gt-5-pro.png",
+      "images": [
+        "../assets/images/products/Realme GT 5 Pro/Realme GT 5 Pro.jpg",
+        "../assets/images/products/Realme GT 5 Pro/Realme GT 5 Pro-1.webp",
+        "../assets/images/products/Realme GT 5 Pro/Realme GT 5 Pro-2.webp"
+      ],
+      "thumbnail": "../assets/images/products/Realme GT 5 Pro/Realme GT 5 Pro.jpg",
       "description": "Performance-focused smartphone with fast charging.",
       "specifications": {
         "Display": "6.78-inch AMOLED 144Hz",
@@ -1943,8 +1989,12 @@
       "rating": 4.6,
       "reviewCount": 865,
       "brand": "Huawei",
-      "images": ["../assets/images/products/huawei-p60-pro.png"],
-      "thumbnail": "../assets/images/products/huawei-p60-pro.png",
+      "images": [
+        "../assets/images/products/Huawei P60 Pro/Huawei P60 Pro.jpg",
+        "../assets/images/products/Huawei P60 Pro/Huawei P60 Pro-1.webp",
+        "../assets/images/products/Huawei P60 Pro/Huawei P60 Pro-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Huawei P60 Pro/Huawei P60 Pro.jpg",
       "description": "Premium smartphone with exceptional camera capabilities.",
       "specifications": {
         "Display": "6.67-inch OLED 120Hz",
@@ -1969,8 +2019,12 @@
       "rating": 4.7,
       "reviewCount": 1987,
       "brand": "Google",
-      "images": ["../assets/images/products/pixel-8.png"],
-      "thumbnail": "../assets/images/products/pixel-8.png",
+      "images": [
+        "../assets/images/products/Google Pixel 8/Google Pixel 8.jpg",
+        "../assets/images/products/Google Pixel 8/Google Pixel 8-1.jpg",
+        "../assets/images/products/Google Pixel 8/Google Pixel 8-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Google Pixel 8/Google Pixel 8.jpg",
       "description": "Smart AI-powered phone with clean Android experience.",
       "specifications": {
         "Display": "6.2-inch OLED 120Hz",
@@ -1995,8 +2049,12 @@
       "rating": 4.8,
       "reviewCount": 6421,
       "brand": "Anker",
-      "images": ["../assets/images/products/anker-powercore.png"],
-      "thumbnail": "../assets/images/products/anker-powercore.png",
+      "images": [
+        "../assets/images/products/Anker PowerCore 20000/Anker PowerCore 20000.jpg",
+        "../assets/images/products/Anker PowerCore 20000/Anker PowerCore 20000-1.jpg",
+        "../assets/images/products/Anker PowerCore 20000/Anker PowerCore 20000-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Anker PowerCore 20000/Anker PowerCore 20000.jpg",
       "description": "High-capacity power bank with fast charging.",
       "specifications": {
         "Capacity": "20000mAh",
@@ -2020,8 +2078,13 @@
       "rating": 4.6,
       "reviewCount": 3892,
       "brand": "Apple",
-      "images": ["../assets/images/products/magsafe-charger.png"],
-      "thumbnail": "../assets/images/products/magsafe-charger.png",
+      "images": [
+        "../assets/images/products/Apple MagSafe Charger/Apple MagSafe Charger.jpg",
+        "../assets/images/products/Apple MagSafe Charger/Apple MagSafe Charger-1.jpg",
+        "../assets/images/products/Apple MagSafe Charger/Apple MagSafe Charger-2.jpg",
+        "../assets/images/products/Apple MagSafe Charger/Apple MagSafe Charger-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Apple MagSafe Charger/Apple MagSafe Charger.jpg",
       "description": "Wireless charger optimized for iPhone devices.",
       "specifications": {
         "Charging": "15W Wireless",
@@ -2044,8 +2107,13 @@
       "rating": 4.5,
       "reviewCount": 2110,
       "brand": "Samsung",
-      "images": ["../assets/images/products/samsung-45w-charger.png"],
-      "thumbnail": "../assets/images/products/samsung-45w-charger.png",
+      "images": [
+        "../assets/images/products/Samsung 45W Super Fast Charger/Samsung 45W Super Fast Charger.jpg",
+        "../assets/images/products/Samsung 45W Super Fast Charger/Samsung 45W Super Fast Charger-1.jpg",
+        "../assets/images/products/Samsung 45W Super Fast Charger/Samsung 45W Super Fast Charger-2.jpg",
+        "../assets/images/products/Samsung 45W Super Fast Charger/Samsung 45W Super Fast Charger-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung 45W Super Fast Charger/Samsung 45W Super Fast Charger.jpg",
       "description": "Super fast charging adapter for Samsung devices.",
       "specifications": {
         "Output": "45W",
@@ -2068,8 +2136,13 @@
       "rating": 4.7,
       "reviewCount": 5123,
       "brand": "Spigen",
-      "images": ["../assets/images/products/spigen-case.png"],
-      "thumbnail": "../assets/images/products/spigen-case.png",
+      "images": [
+        "../assets/images/products/Spigen Rugged Armor Case/Spigen Rugged Armor Case.jpg",
+        "../assets/images/products/Spigen Rugged Armor Case/Spigen Rugged Armor Case-1.jpg",
+        "../assets/images/products/Spigen Rugged Armor Case/Spigen Rugged Armor Case-2.jpg",
+        "../assets/images/products/Spigen Rugged Armor Case/Spigen Rugged Armor Case-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Spigen Rugged Armor Case/Spigen Rugged Armor Case.jpg",
       "description": "Durable protective case with shock absorption.",
       "specifications": {
         "Material": "TPU",
@@ -2092,8 +2165,13 @@
       "rating": 4.4,
       "reviewCount": 1840,
       "brand": "Baseus",
-      "images": ["../assets/images/products/baseus-cable.png"],
-      "thumbnail": "../assets/images/products/baseus-cable.png",
+      "images": [
+        "../assets/images/products/Baseus USB-C Cable/Baseus USB-C Cable.jpg",
+        "../assets/images/products/Baseus USB-C Cable/Baseus USB-C Cable-1.jpg",
+        "../assets/images/products/Baseus USB-C Cable/Baseus USB-C Cable-2.jpg",
+        "../assets/images/products/Baseus USB-C Cable/Baseus USB-C Cable-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Baseus USB-C Cable/Baseus USB-C Cable.jpg",
       "description": "Durable fast charging USB-C cable.",
       "specifications": {
         "Length": "1.5m",
@@ -2116,8 +2194,12 @@
       "rating": 4.5,
       "reviewCount": 990,
       "brand": "Belkin",
-      "images": ["../assets/images/products/belkin-wireless.png"],
-      "thumbnail": "../assets/images/products/belkin-wireless.png",
+      "images": [
+        "../assets/images/products/Belkin Wireless Charging Pad/Belkin Wireless Charging Pad.jpg",
+        "../assets/images/products/Belkin Wireless Charging Pad/Belkin Wireless Charging Pad-1.jpg",
+        "../assets/images/products/Belkin Wireless Charging Pad/Belkin Wireless Charging Pad-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Belkin Wireless Charging Pad/Belkin Wireless Charging Pad.jpg",
       "description": "Fast wireless charging pad for smartphones.",
       "specifications": {
         "Charging": "15W",
@@ -2140,8 +2222,12 @@
       "rating": 4.6,
       "reviewCount": 1345,
       "brand": "Ugreen",
-      "images": ["../assets/images/products/ugreen-car-charger.png"],
-      "thumbnail": "../assets/images/products/ugreen-car-charger.png",
+      "images": [
+        "../assets/images/products/Ugreen Car Charger 65W/Ugreen Car Charger 65W.jpg",
+        "../assets/images/products/Ugreen Car Charger 65W/Ugreen Car Charger 65W-1.jpg",
+        "../assets/images/products/Ugreen Car Charger 65W/Ugreen Car Charger 65W-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Ugreen Car Charger 65W/Ugreen Car Charger 65W.jpg",
       "description": "Dual-port fast car charger with USB-C support.",
       "specifications": {
         "Output": "65W",
@@ -2164,8 +2250,12 @@
       "rating": 4.5,
       "reviewCount": 2103,
       "brand": "Samsung",
-      "images": ["../assets/images/products/galaxy-buds-fe.png"],
-      "thumbnail": "../assets/images/products/galaxy-buds-fe.png",
+      "images": [
+        "../assets/images/products/Samsung Galaxy Buds FE/Samsung Galaxy Buds FE.jpg",
+        "../assets/images/products/Samsung Galaxy Buds FE/Samsung Galaxy Buds FE-1.png",
+        "../assets/images/products/Samsung Galaxy Buds FE/Samsung Galaxy Buds FE-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung Galaxy Buds FE/Samsung Galaxy Buds FE.jpg",
       "description": "Wireless earbuds with immersive sound.",
       "specifications": {
         "Battery": "Up to 30h",
@@ -2188,8 +2278,8 @@
       "rating": 4.8,
       "reviewCount": 8890,
       "brand": "Apple",
-      "images": ["../assets/images/products/airtag.png"],
-      "thumbnail": "../assets/images/products/airtag.png",
+      "images": ["../assets/images/products/Apple AirTag/Apple AirTag.png"],
+      "thumbnail": "../assets/images/products/Apple AirTag/Apple AirTag.png",
       "description": "Easily track your items with Apple's Find My network.",
       "specifications": {
         "Connectivity": "Bluetooth",
@@ -2212,8 +2302,11 @@
       "rating": 4.3,
       "reviewCount": 640,
       "brand": "Ringke",
-      "images": ["../assets/images/products/ringke-holder.png"],
-      "thumbnail": "../assets/images/products/ringke-holder.png",
+      "images": [
+        "../assets/images/products/Ringke Phone Holder/Ringke Phone Holder.jpg",
+        "../assets/images/products/Ringke Phone Holder/Ringke Phone Holder-1.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Ringke Phone Holder/Ringke Phone Holder.jpg",
       "description": "Adjustable phone holder for desk and car use.",
       "specifications": {
         "Material": "Aluminum",
@@ -2236,8 +2329,13 @@
       "rating": 4.7,
       "reviewCount": 1432,
       "brand": "Canon",
-      "images": ["../assets/images/products/canon-90d.png"],
-      "thumbnail": "../assets/images/products/canon-90d.png",
+      "images": [
+        "../assets/images/products/Canon EOS 90D/Canon EOS 90D.jpg",
+        "../assets/images/products/Canon EOS 90D/Canon EOS 90D-1.jpg",
+        "../assets/images/products/Canon EOS 90D/Canon EOS 90D-2.jpg",
+        "../assets/images/products/Canon EOS 90D/Canon EOS 90D-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Canon EOS 90D/Canon EOS 90D.jpg",
       "description": "High-resolution DSLR camera for enthusiasts and professionals.",
       "specifications": {
         "Sensor": "32.5MP APS-C",
@@ -2261,8 +2359,11 @@
       "rating": 4.6,
       "reviewCount": 982,
       "brand": "Nikon",
-      "images": ["../assets/images/products/nikon-d7500.png"],
-      "thumbnail": "../assets/images/products/nikon-d7500.png",
+      "images": [
+        "../assets/images/products/Nikon D7500/Nikon D7500.jpg",
+        "../assets/images/products/Nikon D7500/Nikon D7500-1.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Nikon D7500/Nikon D7500.jpg",
       "description": "Powerful DSLR camera with excellent low-light performance.",
       "specifications": {
         "Sensor": "20.9MP APS-C",
@@ -2286,8 +2387,15 @@
       "rating": 4.9,
       "reviewCount": 2145,
       "brand": "Sony",
-      "images": ["../assets/images/products/sony-a7-iv.png"],
-      "thumbnail": "../assets/images/products/sony-a7-iv.png",
+      "images": [
+        "../assets/images/products/Sony Alpha A7 IV/Sony Alpha A7 IV.jpg",
+        "../assets/images/products/Sony Alpha A7 IV/Sony Alpha A7 IV-1.jpg",
+        "../assets/images/products/Sony Alpha A7 IV/Sony Alpha A7 IV-2.jpg",
+        "../assets/images/products/Sony Alpha A7 IV/Sony Alpha A7 IV-3.jpg",
+        "../assets/images/products/Sony Alpha A7 IV/Sony Alpha A7 IV-4.jpg",
+        "../assets/images/products/Sony Alpha A7 IV/Sony Alpha A7 IV-5.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Sony Alpha A7 IV/Sony Alpha A7 IV.jpg",
       "description": "Full-frame mirrorless camera with outstanding autofocus.",
       "specifications": {
         "Sensor": "33MP Full Frame",
@@ -2311,8 +2419,15 @@
       "rating": 4.8,
       "reviewCount": 874,
       "brand": "Fujifilm",
-      "images": ["../assets/images/products/fuji-xt5.png"],
-      "thumbnail": "../assets/images/products/fuji-xt5.png",
+      "images": [
+        "../assets/images/products/Fujifilm X-T5/Fujifilm X-T5.jpg",
+        "../assets/images/products/Fujifilm X-T5/Fujifilm X-T5-1.jpg",
+        "../assets/images/products/Fujifilm X-T5/Fujifilm X-T5-2.jpg",
+        "../assets/images/products/Fujifilm X-T5/Fujifilm X-T5-3.jpg",
+        "../assets/images/products/Fujifilm X-T5/Fujifilm X-T5-4.jpg",
+        "../assets/images/products/Fujifilm X-T5/Fujifilm X-T5-5.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Fujifilm X-T5/Fujifilm X-T5.jpg",
       "description": "Compact mirrorless camera with classic design.",
       "specifications": {
         "Sensor": "40MP APS-C",
@@ -2336,8 +2451,16 @@
       "rating": 4.9,
       "reviewCount": 412,
       "brand": "Canon",
-      "images": ["../assets/images/products/canon-rf-lens.png"],
-      "thumbnail": ["../assets/images/products/canon-rf-lens.png"],
+      "images": [
+        "../assets/images/products/Canon RF 24-70mm Lens/Canon RF 24-70mm Lens.jpg",
+        "../assets/images/products/Canon RF 24-70mm Lens/Canon RF 24-70mm Lens-1.jpg",
+        "../assets/images/products/Canon RF 24-70mm Lens/Canon RF 24-70mm Lens-2.jpg",
+        "../assets/images/products/Canon RF 24-70mm Lens/Canon RF 24-70mm Lens-3.jpg",
+        "../assets/images/products/Canon RF 24-70mm Lens/Canon RF 24-70mm Lens-4.jpg"
+      ],
+      "thumbnail": [
+        "../assets/images/products/Canon RF 24-70mm Lens/Canon RF 24-70mm Lens.jpg"
+      ],
       "description": "Professional zoom lens for Canon RF mount.",
       "specifications": {
         "Focal Length": "24-70mm",
@@ -2361,8 +2484,14 @@
       "rating": 4.8,
       "reviewCount": 5321,
       "brand": "GoPro",
-      "images": ["../assets/images/products/gopro-hero12.png"],
-      "thumbnail": "../assets/images/products/gopro-hero12.png",
+      "images": [
+        "../assets/images/products/GoPro HERO12 Black/GoPro HERO12 Black.jpg",
+        "../assets/images/products/GoPro HERO12 Black/GoPro HERO12 Black-1.jpg",
+        "../assets/images/products/GoPro HERO12 Black/GoPro HERO12 Black-2.jpg",
+        "../assets/images/products/GoPro HERO12 Black/GoPro HERO12 Black-3.jpg",
+        "../assets/images/products/GoPro HERO12 Black/GoPro HERO12 Black-4.jpg"
+      ],
+      "thumbnail": "../assets/images/products/GoPro HERO12 Black/GoPro HERO12 Black.jpg",
       "description": "Waterproof action camera with advanced stabilization.",
       "specifications": {
         "Video": "5.3K",
@@ -2386,8 +2515,11 @@
       "rating": 4.6,
       "reviewCount": 1320,
       "brand": "Manfrotto",
-      "images": ["../assets/images/products/manfrotto-tripod.png"],
-      "thumbnail": "../assets/images/products/manfrotto-tripod.png",
+      "images": [
+        "../assets/images/products/Manfrotto Compact Tripod/Manfrotto Compact Tripod.jpg",
+        "../assets/images/products/Manfrotto Compact Tripod/Manfrotto Compact Tripod-1.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Manfrotto Compact Tripod/Manfrotto Compact Tripod.jpg",
       "description": "Lightweight and portable tripod for cameras.",
       "specifications": {
         "Max Height": "165cm",
@@ -2410,8 +2542,12 @@
       "rating": 4.9,
       "reviewCount": 7642,
       "brand": "Sony",
-      "images": ["../assets/images/products/sony-xm5.png"],
-      "thumbnail": "../assets/images/products/sony-xm5.png",
+      "images": [
+        "../assets/images/products/Sony WH-1000XM5/Sony WH-1000XM5.jpg",
+        "../assets/images/products/Sony WH-1000XM5/Sony WH-1000XM5-1.jpg",
+        "../assets/images/products/Sony WH-1000XM5/Sony WH-1000XM5-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Sony WH-1000XM5/Sony WH-1000XM5.jpg",
       "description": "Industry-leading noise canceling headphones.",
       "specifications": {
         "Noise Canceling": "Active",
@@ -2434,8 +2570,12 @@
       "rating": 4.7,
       "reviewCount": 3421,
       "brand": "JBL",
-      "images": ["../assets/images/products/jbl-charge-5.png"],
-      "thumbnail": "../assets/images/products/jbl-charge-5.png",
+      "images": [
+        "../assets/images/products/JBL Charge 5/JBL Charge 5.jpg",
+        "../assets/images/products/JBL Charge 5/JBL Charge 5-1.jpg",
+        "../assets/images/products/JBL Charge 5/JBL Charge 5-2.jpg"
+      ],
+      "thumbnail": "../assets/images/products/JBL Charge 5/JBL Charge 5.jpg",
       "description": "Portable Bluetooth speaker with powerful sound.",
       "specifications": {
         "Battery": "20 hours",
@@ -2458,8 +2598,13 @@
       "rating": 4.6,
       "reviewCount": 980,
       "brand": "Sony",
-      "images": ["../assets/images/products/sony-home-theater.png"],
-      "thumbnail": "../assets/images/products/sony-home-theater.png",
+      "images": [
+        "../assets/images/products/Sony HT-S40R Home Theater/Sony HT-S40R Home Theater.jpg",
+        "../assets/images/products/Sony HT-S40R Home Theater/Sony HT-S40R Home Theater-1.jpg",
+        "../assets/images/products/Sony HT-S40R Home Theater/Sony HT-S40R Home Theater-2.jpg",
+        "../assets/images/products/Sony HT-S40R Home Theater/Sony HT-S40R Home Theater-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Sony HT-S40R Home Theater/Sony HT-S40R Home Theater.jpg",
       "description": "5.1 channel home theater system with Dolby Audio.",
       "specifications": {
         "Channels": "5.1",
@@ -2482,8 +2627,13 @@
       "rating": 4.7,
       "reviewCount": 1120,
       "brand": "Samsung",
-      "images": ["../assets/images/products/samsung-soundbar.png"],
-      "thumbnail": "../assets/images/products/samsung-soundbar.png",
+      "images": [
+        "../assets/images/products/Samsung HW-Q700C Soundbar/Samsung HW-Q700C Soundbar.jpg",
+        "../assets/images/products/Samsung HW-Q700C Soundbar/Samsung HW-Q700C Soundbar-1.jpg",
+        "../assets/images/products/Samsung HW-Q700C Soundbar/Samsung HW-Q700C Soundbar-2.jpg",
+        "../assets/images/products/Samsung HW-Q700C Soundbar/Samsung HW-Q700C Soundbar-3.jpg"
+      ],
+      "thumbnail": "../assets/images/products/Samsung HW-Q700C Soundbar/Samsung HW-Q700C Soundbar.jpg",
       "description": "Dolby Atmos soundbar with immersive sound.",
       "specifications": {
         "Channels": "3.1.2",
@@ -2494,4 +2644,3 @@
       "createdAt": "2023-03-18T09:00:00Z"
     }
   ]
-}

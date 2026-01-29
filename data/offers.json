@@ -1,5 +1,4 @@
-{
-  "offers": [
+[
     {
       "id": "offer-001", 
       "title": "Owner's Executive Perk",
@@ -256,4 +255,3 @@
       "active": true
     }
   ]
-}
