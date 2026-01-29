@@ -252,10 +252,11 @@
 /* ===== PAGE LAYOUT ===== */
 .page {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 0 auto var(--space-lg) auto;
     padding: var(--space-lg);
     background-color: var(--color-bg-muted);
     font-family: var(--font-main);
+    
 }
 
 /* ===== HEADER ===== */
@@ -288,7 +289,7 @@
     display: flex;
     gap: var(--space-lg);
     align-items: center;
-    margin-bottom: 10%;
+    margin-bottom: 50px;
 }
 
 .banner {
