@@ -16,6 +16,11 @@
 
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/pages/index.css" />
+
+    <script>
+      const isGithub = location.hostname.includes("github.io");
+      document.write(`<base href="${isGithub ? "/Tech-Mart" : ""}">`);
+    </script>
   </head>
 
   <body data-page="index">
@@ -58,7 +63,10 @@
                 />
                 <div class="slider__content">
                   <h2 class="slider__title">iPhone 17 Pro</h2>
-                  <p class="slider__desc">iPhone 17 has a beautiful,<br>  durable design that's available in five refined colors</p>
+                  <p class="slider__desc">
+                    iPhone 17 has a beautiful,<br />
+                    durable design that's available in five refined colors
+                  </p>
                   <a class="slider__btn" href="#">Buy Now</a>
                 </div>
               </div>
@@ -69,7 +77,10 @@
                 />
                 <div class="slider__content">
                   <h2 class="slider__title">ROG Flow Z13</h2>
-                  <p class="slider__desc">COMPACT IS THE NEW IMPACT <br> The most powerful gaming tablet.</p>
+                  <p class="slider__desc">
+                    COMPACT IS THE NEW IMPACT <br />
+                    The most powerful gaming tablet.
+                  </p>
                   <a class="slider__btn" href="#">Buy Now</a>
                 </div>
               </div>
@@ -190,70 +201,70 @@
           </header>
 
           <div class="brand-grid">
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo1.svg"
                 alt="Apple logo"
                 loading="lazy"
               />
             </a>
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo2.svg"
                 alt="Samsung logo"
                 loading="lazy"
               />
             </a>
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo3.svg"
                 alt="Sony logo"
                 loading="lazy"
               />
             </a>
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo4.svg"
                 alt="LG logo"
                 loading="lazy"
               />
             </a>
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo5.svg"
                 alt="Dell logo"
                 loading="lazy"
               />
             </a>
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo6.svg"
                 alt="HP logo"
                 loading="lazy"
               />
             </a>
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo7.svg"
                 alt="Lenovo logo"
                 loading="lazy"
               />
             </a>
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo8.svg"
                 alt="Asus logo"
                 loading="lazy"
               />
             </a>
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo9.svg"
                 alt="Acer logo"
                 loading="lazy"
               />
             </a>
-            <a  class="brand-link">
+            <a class="brand-link">
               <img
                 src="/assets/images/Brands/brand-logo10.svg"
                 alt="MSI logo"
@@ -276,8 +287,7 @@
           <!-- Product Grid Container -->
           <div class="product-grid-container" id="productGrid">
             <!-- PAGE 1: Products 1-4 -->
-            <div class="product-page active">
-            </div>
+            <div class="product-page active"></div>
             <!-- <a href="/product/wireless- " class="categories-card">
               <img
                 src="/assets/images/categories/audio-video.png"
