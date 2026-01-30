@@ -88,8 +88,6 @@ async function renderTopCategories() {
 
       categoryElement.href = `products.html?category=${category.id}`;
       categoriesContainer.appendChild(categoryElement);
-
-
     });
   } catch (error) {
     console.error("Error loading categories:", error);
@@ -169,7 +167,6 @@ async function renderTopRatedProductsByCategory(categoryId, container) {
   }
 }
 
-
 function setupCarouselButtons() {
   document.querySelectorAll(".carousel").forEach((carousel) => {
     const track = carousel.querySelector(".carousel__track");
@@ -216,6 +213,7 @@ function displayProducts(product, container) {
 }
 
 function createProductCard(product) {
+  const BASE_URL = window.location.origin;
   const card = document.createElement("div");
   card.className = "product-card";
   const hasDiscount = product.discount > 0 && product.originalPrice;
@@ -265,10 +263,12 @@ function createProductCard(product) {
   ${product.stock > 0 ? "In stock" : "Out of stock"}
   </div>
   `;
+
+  card.addEventListener("click", () => {
+    window.location.href = `${BASE_URL}/pages/single-product.html?productId=${product.id}`;
+  });
   return card;
 }
-
-
 
 function renderSlider() {
   const HeroSlider = {

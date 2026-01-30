@@ -50,10 +50,8 @@ export const initHeader = async () => {
     categoryId = subcategoriesSelector.value;
     search(query, categoryId);
   });
-  
 
-
- await initSearch();
+  await initSearch();
 };
 
 // Update placeholder
@@ -72,12 +70,11 @@ document.addEventListener("click", (e) => {
   }
 });
 
-
 //Search function
 export const initSearch = async () => {
   searchInput.addEventListener("input", async () => {
-     query = searchInput.value.trim().toLowerCase();
-     categoryId = subcategoriesSelector.value;
+    query = searchInput.value.trim().toLowerCase();
+    categoryId = subcategoriesSelector.value;
 
     await search(query, categoryId);
   });
@@ -113,13 +110,14 @@ const renderResults = (searchedproducts, resultsContainer) => {
   }
 
   searchedproducts.forEach((product) => {
+    const BASE_URL = window.location.origin;
     const li = document.createElement("li");
     li.innerHTML = `
-      <a href="product.html?id=${product.id}" class="search-result-item">
-        <img src="${product.thumbnail || 'default-product.png'}" alt="${product.name}" class="result-image" />
+      <a href="${BASE_URL}/pages/single-product.html?productId=${product.id}" class="search-result-item">
+        <img src="${product.thumbnail || "default-product.png"}" alt="${product.name}" class="result-image" />
         <div class="result-info">
           <h4 class="result-name">${product.name}</h4>
-          <p class="result-brand">${product.brand || 'Unknown Brand'}</p>
+          <p class="result-brand">${product.brand || "Unknown Brand"}</p>
           <p class="result-price">$${product.price.toFixed(2)}</p>
         </div>
       </a>
