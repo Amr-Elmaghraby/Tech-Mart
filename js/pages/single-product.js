@@ -1,5 +1,7 @@
 import { getUserById } from "../services/userService.js";
 import { getProductById } from "../services/productService.js";
+import { updateCartBadge } from "../components/header.js";
+
 
 // Config const
 const CONFIG = {
@@ -308,7 +310,7 @@ class ProductSection {
 
     /**Add To cart button event listeners */
     const addToCartBtn = this.elements.addToCartBtn;
-    addToCartBtn.addEventListener("click", () => {
+    addToCartBtn.addEventListener("click", async() =>  {
       const quantity = Number(this.elements.quantity.textContent);
       const newItem = new CartItem(
         this.productId,
@@ -320,6 +322,7 @@ class ProductSection {
 
       this.updateCart(newItem);
       this.addToCart();
+      await updateCartBadge();
     });
   }
 

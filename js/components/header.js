@@ -75,7 +75,7 @@ const updatePlaceholder = () => {
   searchInput.placeholder = `Search in ${selectedText}...`;
 };
 
-async function updateCartBadge() {
+export async function updateCartBadge() {
   var itemCount = await getCartItemCount();
   if (itemCount > 0) {
     cartbadge.classList.remove("hidden");
