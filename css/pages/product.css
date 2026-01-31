@@ -32,7 +32,7 @@
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 24px;
-    padding: 24px;
+    padding: 24px 24px 24px 0;;
 }
 
 .banner {
