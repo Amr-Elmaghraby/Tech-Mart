@@ -1,21 +1,18 @@
 import * as userService from "../services/userService.js";
 
 export async function init() {
-  const form = document.querySelector(".register-form");
-  const nameInput = document.getElementById("name");
+  const form = document.querySelector(".forgetPasword-form");
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
   const confirmPasswordInput = document.getElementById("confirmPassword");
   const togglePasswordBtns = document.querySelectorAll(".toggle-password");
 
-  const nameError = document.getElementById("nameError");
   const emailError = document.getElementById("emailError");
   const passwordError = document.getElementById("passwordError");
   const confirmPasswordError = document.getElementById("confirmPasswordError");
 
   var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   var passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
-
 
   // Toggle password visibility
   togglePasswordBtns.forEach((toggleBtn) => {
@@ -39,18 +36,6 @@ export async function init() {
   });
 
   // Live validation
-  nameInput.addEventListener("input", () => {
-    if (nameInput.value.trim().length >= 3) {
-      nameInput.classList.add("valid");
-      nameInput.classList.remove("invalid");
-      nameError.textContent = "";
-    } else {
-      nameInput.classList.add("invalid");
-      nameInput.classList.remove("valid");
-      nameError.textContent = "Name must be at least 3 characters";
-    }
-  });
-
   emailInput.addEventListener("input", () => {
     if (emailPattern.test(emailInput.value)) {
       emailInput.classList.add("valid");
@@ -91,45 +76,43 @@ export async function init() {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const userName = nameInput.value.trim();
-    const registerEmail = emailInput.value.trim().toLowerCase();
-    const registerPassword = passwordInput.value;
-    const registerConfirmPassword = confirmPasswordInput.value;
+    const email = emailInput.value.trim().toLowerCase();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
 
-    if (
-      !form ||
-      !nameInput ||
-      !emailInput ||
-      !passwordInput ||
-      !confirmPasswordInput
-    ) {
+    if (!form || !emailInput || !passwordInput || !confirmPasswordInput) {
       return;
     }
 
     // Validation before submitting
-    if (userName.length < 3) return;
-    if (!emailPattern.test(registerEmail)) return;
-    if (!passwordPattern.test(registerPassword)) return;
-    if (registerPassword !== registerConfirmPassword) return;
+    if (!emailPattern.test(email)) return;
+    if (!passwordPattern.test(password)) return;
+    if (password !== confirmPassword) return;
 
-    // Check if email already exists
-    const existingUser = await userService.emailExists(registerEmail);
-    if (existingUser) {
-      emailInput.classList.add("invalid");
-      emailError.textContent = "Email already registered";
+    //Reset Password
+    const resetPasswordResponse = await userService.resetPassword(
+      email,
+      password,
+    );
+    if (!resetPasswordResponse.success) {
+      console.error(resetPasswordResponse.message);
       return;
     }
 
-    try {
-      const newUser = {
-        email: registerEmail,
-        password: registerPassword,
-        name: nameInput.value.trim(),
-      };
-      await userService.register(newUser);
-      window.location.replace("login.html");
-    } catch (error) {
-      console.error("Error registering user:", error);
-    }
+    // Success
+    alert("Password reset successful! You can now login.");
+    window.location.replace("./login.html");
   });
 }
+
+// try {
+//   const newUser = {
+//     email: email,
+//     password: password,
+//     name: nameInput.value.trim(),
+//   };
+//   await userService.register(newUser);
+//   window.location.replace("login.html");
+// } catch (error) {
+//   console.error("Error registering user:", error);
+// }

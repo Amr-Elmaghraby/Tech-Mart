@@ -72,10 +72,10 @@
 
         <!-- change nav bar -->
         <ul>
-              <li><a href="../../index.html" class="active">Home</a></li>
-              <li><a href="page.html" class="">Pages</a></li>
-              <li><a href="product.html" class="">About us</a></li>
-              <li><a href="contact.html" class="">Contact</a></li>
+          <li><a href="../../index.html" class="active">Home</a></li>
+          <li><a href="page.html" class="">Pages</a></li>
+          <li><a href="product.html" class="">About us</a></li>
+          <li><a href="contact.html" class="">Contact</a></li>
         </ul>
       </nav>
 
@@ -87,26 +87,34 @@
           <div class="icon-circle">
             <a href=""><i class="fa-solid fa-heart"></i></a>
           </div>
-          <div class="icon-circle">
-            <a href=""><i class="fa-solid fa-user"></i></a>
+          <div class="icon-circle user-icon-wrapper">
+            <a class="user-icon" href="">
+              <i class="fa-solid fa-user"></i>
+            </a>
           </div>
+          <img class="user-image hidden" src="" alt="user-icon" />
         </div>
 
         <div class="user-account">
-          <span class="label">WELCOME</span>
-          <strong class="value"><a href="/pages/login.html">LOG IN </a> / <a href="/pages/register.html">REGISTER</a></strong>
+          <span class="welcome-label hidden">WELCOME</span>
+          <strong class="user-name"
+            ><a href="/pages/login.html">LOG IN </a> /
+            <a href="/pages/register.html">REGISTER</a></strong
+          >
         </div>
 
         <div class="cart-section">
           <div class="cart-icon-wrapper">
-            <a href=""><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge hidden">20</span></a>
+            <a href=""
+              ><i class="fa-solid fa-cart-shopping"></i
+              ><span class="cart-badge hidden">20</span></a
+            >
           </div>
 
           <div class="cart-text">
             <span class="label">CART</span>
             <strong class="cart-amount">$0.00</strong>
           </div>
-
         </div>
       </div>
     </div>
@@ -123,8 +131,7 @@
           placeholder="Search in all categories..."
         />
         <button class="search-btn"><i class="fa fa-search"></i></button>
-      
-      
+
         <!-- Dropdown -->
         <div class="dropdown hidden">
           <div class="section keep-shopping">
@@ -135,9 +142,6 @@
             <ul class="suggestions"></ul>
           </div>
         </div>
-
-
-
       </div>
 
       <div class="promo-texts">
