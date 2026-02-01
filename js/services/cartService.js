@@ -1,6 +1,5 @@
 import APP_CONFIG from "../core/config.js";
 import * as storage from "../core/storage.js";
-import { generateId } from "../core/utils.js";
 
 const CART_KEY = APP_CONFIG.storageKeys.cart;
 
@@ -15,7 +14,8 @@ const saveCart = (cart) => {
   return storage.set(CART_KEY, cart);
 };
 
-// Add product to cart
+// Add product to cart. Store items as flat product-like objects
+// { id, name, price, quantity, thumbnail, description, ... }
 export const addToCart = (product, quantity = 1) => {
   try {
     if (!product || !product.id) {
@@ -29,21 +29,19 @@ export const addToCart = (product, quantity = 1) => {
     }
 
     const cart = getCart();
-    const existingItemIndex = cart.findIndex(
+
+    const existingIndex = cart.findIndex(
       (item) => String(item.id) === String(product.id),
     );
 
-    if (existingItemIndex > -1) {
-      // Product exists, update quantity
-      cart[existingItemIndex].quantity += quantity;
+    if (existingIndex > -1) {
+      cart[existingIndex].quantity =
+        (cart[existingIndex].quantity || 0) + quantity;
+      // keep other product fields up-to-date
+      cart[existingIndex] = { ...cart[existingIndex], ...product };
     } else {
-      // New product, add to cart
-      cart.push({
-        id: generateId(),
-        product: { ...product }, // Clone to avoid reference issues
-        quantity: quantity,
-        addedAt: new Date().toISOString(),
-      });
+      const newItem = { ...product, quantity };
+      cart.push(newItem);
     }
 
     return saveCart(cart);
@@ -53,7 +51,7 @@ export const addToCart = (product, quantity = 1) => {
   }
 };
 
-// Remove product from cart
+// Remove product from cart by product id
 export const removeFromCart = (productId) => {
   try {
     const cart = getCart();
@@ -67,12 +65,10 @@ export const removeFromCart = (productId) => {
   }
 };
 
-
- // Update product quantity in cart
+// Update product quantity in cart
 export const updateQuantity = (productId, quantity) => {
   try {
     if (quantity <= 0) {
-      // If quantity is 0 or negative, remove item
       return removeFromCart(productId);
     }
 
@@ -94,8 +90,7 @@ export const updateQuantity = (productId, quantity) => {
   }
 };
 
-
- // Clear entire cart
+// Clear entire cart
 export const clearCart = () => {
   try {
     return storage.remove(CART_KEY);
@@ -105,30 +100,27 @@ export const clearCart = () => {
   }
 };
 
-
- // Get cart item count (total items, not unique products)
+// Get cart item count (total items, not unique products)
 export const getCartItemCount = () => {
   const cart = getCart();
-  return cart.reduce((total, item) => total + item.quantity, 0);
+  return cart.reduce((total, item) => total + (item.quantity || 0), 0);
 };
 
-
- // Calculate cart subtotal (before tax and shipping)
+// Calculate cart subtotal (before tax and shipping)
 export const getCartSubtotal = () => {
   const cart = getCart();
   return cart.reduce((total, item) => {
     const price = item.price || 0;
-    return total + price * item.quantity;
+    const qty = item.quantity || 0;
+    return total + price * qty;
   }, 0);
 };
 
-
- // Calculate cart total with tax and shipping
+// Calculate cart total with tax and shipping
 export const getCartTotal = () => {
   const subtotal = getCartSubtotal();
   const tax = subtotal * APP_CONFIG.pricing.taxRate;
 
-  // Free shipping if subtotal exceeds threshold
   const shipping =
     subtotal >= APP_CONFIG.pricing.freeShippingThreshold
       ? 0
@@ -145,19 +137,26 @@ export const getCartTotal = () => {
   };
 };
 
-
- // Check if product is in cart
+// Check if product is in cart
 export const isInCart = (productId) => {
   const cart = getCart();
   return cart.some((item) => String(item.id) === String(productId));
 };
 
-
-
- // Get specific cart item by product ID
+// Get specific cart item by product ID
 export const getCartItem = (productId) => {
   const cart = getCart();
-  return (
-    cart.find((item) => String(item.id) === String(productId)) || null
-  );
+  return cart.find((item) => String(item.id) === String(productId)) || null;
+};
+
+// Basic promo validation - extend as needed
+export const validatePromoCode = (code) => {
+  if (!code) return 0;
+  const c = String(code).trim().toUpperCase();
+  const promos = {
+    SAVE10: 10,
+    SAVE15: 15,
+    FREESHIP: 0,
+  };
+  return promos[c] || 0;
 };

@@ -4,10 +4,6 @@
   font-weight: 500;
   margin-top: 5px;
 }
-.input-error {
-  border: 2px solid #ff0000 !important;
-  background-color: rgba(255, 255, 255, 0.15);
-}
 
 .weak {
   border: 2px solid #e63946;

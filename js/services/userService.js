@@ -75,7 +75,7 @@ export const login = async (email, password) => {
 // Logout current user
 export const logout = () => {
   try {
-    storage.remove(USER_KEY);
+    storage.remove(SESSION_KEY);
     return true;
   } catch (error) {
     console.error("Logout error:", error);
@@ -85,7 +85,7 @@ export const logout = () => {
 
 // Get currently logged in user from session
 export const getCurrentUser = () => {
-  return storage.get(USER_KEY);
+  return storage.get(SESSION_KEY);
 };
 
 // Check if user is authenticated
@@ -409,33 +409,41 @@ export const emailExists = async (email) => {
 };
 
 // Reset password (simulation)
-export const resetPassword = async (email) => {
+export const resetPassword = async (email, newPassword) => {
   try {
-    if (!email) {
+    if (!email || !newPassword) {
       return {
         success: false,
-        message: "Email is required",
+        message: "Email and new password are required",
       };
     }
 
+    // Fetch all users
     const users = await fetchUsers();
-    const user = users.find(
+
+    // Find user by email
+    const userIndex = users.findIndex(
       (u) => u.email.toLowerCase() === email.toLowerCase(),
     );
 
-    if (!user) {
+    if (userIndex === -1) {
       // For security, don't reveal if email exists
       return {
         success: true,
-        message:
-          "If this email is registered, you will receive password reset instructions",
+        message: "If this email is registered, the password has been reset",
       };
     }
 
-    // In real app, would generate token and send email
+    // Update the password
+    users[userIndex].password = newPassword;
+
+    // Save back to localStorage
+    storage.set(USER_KEY, users);
+    // localStorage.setItem(USER_KEY, JSON.stringify(users));
+
     return {
       success: true,
-      message: "Password reset instructions sent to your email",
+      message: "Password has been reset successfully",
     };
   } catch (error) {
     console.error("Error resetting password:", error);
@@ -445,6 +453,7 @@ export const resetPassword = async (email) => {
     };
   }
 };
+
 
 // Get user by ID from JSON file
 export const getUserById = async (userId) => {

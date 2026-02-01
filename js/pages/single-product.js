@@ -58,6 +58,8 @@ class CartItem {
     price,
     quantity,
     totalPrice,
+    thumbnail = null,
+    description = null,
     addedAt = new Date().toISOString(),
   ) {
     this.id = id;
@@ -65,6 +67,8 @@ class CartItem {
     this.price = price;
     this.quantity = quantity;
     this.totalPrice = totalPrice;
+    this.thumbnail = thumbnail;
+    this.description = description;
     this.addedAt = addedAt;
   }
 }
@@ -312,12 +316,18 @@ class ProductSection {
     const addToCartBtn = this.elements.addToCartBtn;
     addToCartBtn.addEventListener("click", async() =>  {
       const quantity = Number(this.elements.quantity.textContent);
+      // Convert relative image path to absolute
+      const thumbnail = this.product.thumbnail 
+        ? this.product.thumbnail.replace(/^\.\.\//, '/').replace(/^\/\/$/, '/')
+        : null;
       const newItem = new CartItem(
         this.productId,
         this.product.name,
         Number(this.product.price),
         quantity,
         Number(this.product.price * this.elements.quantity.innerText),
+        thumbnail,
+        this.product.description,
       );
 
       this.updateCart(newItem);

@@ -1,4 +1,5 @@
 import * as userService from "../services/userService.js";
+import {updateUser} from "../components/header.js";
 
 export async function init() {
   const BASE_URL = window.location.origin;
@@ -70,11 +71,20 @@ export async function init() {
     }
 
     // Success login
-    await userService.login(email, password);
+   var response = await userService.login(email, password);
+
+    if (!response.success) {
+      loginError.textContent = response.message;
+      emailInput.classList.add("invalid");
+      passwordInput.classList.add("invalid");
+      return;
+    }
     // window.location.replace(`${BASE_URL}/index.html`); // Redirect to home
 
     history.replaceState(null, null, `${BASE_URL}/index.html`);
     window.location.reload();
     
   });
+
+  await updateUser();
 }

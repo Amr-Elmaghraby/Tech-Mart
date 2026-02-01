@@ -392,7 +392,7 @@
   flex-shrink: 0;
 }
 
-.icon-circle a{
+.icon-circle a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -401,14 +401,27 @@
   flex-shrink: 0;
 }
 
+.user-image {
+  width: 40px;
+  height: 40px;
+  padding: 2px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-
+.user-image:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
 
 @media (min-width: 768px) {
-  .icon-circle {
+  .icon-circle{
     width: 40px;
     height: 40px;
   }
+
 }
 
 .icon-circle i,
@@ -526,6 +539,7 @@
 
 .cart-badge.bump {
   animation: bump 0.3s ease;
+  
 }
 
 @keyframes bump {
@@ -542,10 +556,71 @@
 
 .user-account,
 .cart-text {
-  display: none; /* Hide text on mobile */
+  display: flex; /* Hide text on mobile */
   flex-direction: column;
   line-height: 1.5;
 }
+
+.user-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+
+.profile-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  min-width: 120px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 6px 0;
+  z-index: 1000;
+}
+
+.profile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-menu li a,
+.profile-menu li button {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.profile-menu li a:hover,
+.profile-menu li button:hover {
+  background: #f3f4f6;
+}
+
+.hidden {
+  display: none !important;
+}
+/* 
+.profile-menu{
+ position: absolute;
+  top: 150px;
+  right: 100px;
+  min-width: 160px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  z-index: 1000;
+} */
+
 
 /* Show cart/user text on tablet+ */
 @media (min-width: 768px) {
@@ -561,25 +636,25 @@
   cursor: pointer;
 }
 
-.label {
+.welcome-label {
   font-size: 9px;
   color: var(--color-text-muted);
 }
 
 @media (min-width: 768px) {
-  .label {
+  .welcome-label {
     font-size: 10px;
   }
 }
 
-.value,
+.user-name,
 .cart-amount {
   font-size: 11px;
   font-weight: bold;
 }
 
 @media (min-width: 768px) {
-  .value,
+  .user-name,
   .cart-amount {
     font-size: 12px;
   }
@@ -758,7 +833,6 @@
 /* Show on tablet with reduced gap */
 @media (min-width: 768px) {
   .promo-texts {
-   
     gap: var(--space-xl);
     margin: 0 var(--space-md);
   }
@@ -767,7 +841,7 @@
 /* Full spacing on desktop */
 @media (min-width: 1025px) {
   .promo-texts {
-     display: flex;
+    display: flex;
     gap: 3rem;
     margin: 0 var(--space-xl);
   }
@@ -1080,7 +1154,6 @@
   input,
   select,
   textarea {
-
     font-size: 16px !important;
   }
 }
@@ -1089,7 +1162,6 @@
 .dropdown {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-
 }
 
 /* Better touch targets on mobile */
@@ -1112,8 +1184,8 @@ select:focus-visible,
 input:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-      border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 /* Reduced motion */

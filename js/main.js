@@ -39,8 +39,13 @@ const loadPageModule = async (pageName) => {
         break;
 
       case "register":
-        const  registerPage = await import("./pages/register.js");
+        const registerPage = await import("./pages/register.js");
         if (registerPage.init) await registerPage.init();
+        break;
+
+      case "forget-password":
+        const forgetPasswordPage = await import("./pages/forget-password.js");
+        if (forgetPasswordPage.init) await forgetPasswordPage.init();
         break;
 
       // case "product-detail":
