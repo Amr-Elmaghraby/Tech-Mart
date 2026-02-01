@@ -1,5 +1,8 @@
 import * as productService from "../services/productService.js";
-const subcategoriesContainer = document.querySelector(".categories-links");
+// const subcategoriesContainer = document.querySelector(".categories-links");
+
+// For test
+const subcategoriesContainers = document.querySelectorAll(".categories-links");
 const productsContainer = document.getElementById("productsContainer");
 
 
@@ -33,24 +36,49 @@ await renderSubcategories();
       }
     }
 
+//get all subcategories
+// async function renderSubcategories() {
+//   if (!subcategoriesContainer) return;
+
+//   try {
+//     const subcategories = await productService.getAllSubcategories();
+
+//     subcategoriesContainer.innerHTML = "";
+
+//     subcategories.forEach((subcategory) => {
+//       const subcategoryElement = document.createElement("a");
+//       subcategoryElement.classList.add("subcategory");
+//       subcategoryElement.textContent = subcategory.name;
+//       subcategoryElement.href = `products.html?subcategory=${subcategory.id}`;
+
+//       subcategoriesContainer.appendChild(subcategoryElement);
+//     });
+//   } catch (error) {
+//     console.error("Error loading subcategories:", error);
+//   }
+// }
 
 
+// for test
 async function renderSubcategories() {
-    if (!subcategoriesContainer) return;
+    if (!subcategoriesContainers.length) return;
 
     try {
         const subcategories = await productService.getAllSubcategories();
 
-        subcategoriesContainer.innerHTML = "";
+        subcategoriesContainers.forEach(container => {
+            container.innerHTML = "";
 
-        subcategories.forEach((subcategory) => {
-            const subcategoryElement = document.createElement("a");
-            subcategoryElement.classList.add("subcategory");
-            subcategoryElement.textContent = subcategory.name;
-            subcategoryElement.href = `products.html?subcategory=${subcategory.id}`;
+            subcategories.forEach(subcategory => {
+                const subcategoryElement = document.createElement("a");
+                subcategoryElement.classList.add("subcategory");
+                subcategoryElement.textContent = subcategory.name;
+                subcategoryElement.href = `products.html?subcategory=${subcategory.id}`;
 
-            subcategoriesContainer.appendChild(subcategoryElement);
+                container.appendChild(subcategoryElement);
+            });
         });
+
     } catch (error) {
         console.error("Error loading subcategories:", error);
     }
