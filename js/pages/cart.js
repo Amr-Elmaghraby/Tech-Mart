@@ -14,8 +14,8 @@
 // Import existing services
 import * as cartService from '../services/cartService.js';
 import { getProductById } from '../services/productService.js';
+import * as userService from '../services/userService.js';
 import { formatPrice } from '../core/utils.js';
-import { loadPartial } from '../core/utils.js';
 import { updateCartBadge } from '../components/header.js';
 
 /* ============================================
@@ -246,7 +246,7 @@ class CartPage {
               data-cart-id="${cartItem.id}"
               ${quantity <= 1 ? 'disabled' : ''}
             >
-              −
+            
             </button>
             <span class="quantity-value">${quantity}</span>
             <button 
@@ -453,9 +453,16 @@ class CartPage {
       this.showNotification('Your cart is empty', 'error');
       return;
     }
-    
+    // Require user to be logged in before proceeding
+    if (!userService.isAuthenticated()) {
+      this.showNotification('Please login to proceed to checkout', 'error');
+      setTimeout(() => {
+        window.location.href = '../pages/login.html';
+      }, 1000);
+      return;
+    }
+
     this.showNotification('Proceeding to checkout...', 'success');
-    
     setTimeout(() => {
       window.location.href = '../pages/checkout.html';
     }, 1000);
