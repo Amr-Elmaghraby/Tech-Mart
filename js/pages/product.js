@@ -24,7 +24,6 @@ rangeMax.addEventListener("input", () => {
     }
     priceMax.value = rangeMax.value;
 });
-
 priceMin.value = rangeMin.value;
 priceMax.value = rangeMax.value;
 
@@ -35,6 +34,23 @@ document.querySelectorAll('.shop-sidebar__color').forEach(color => {
         .querySelectorAll('.shop-sidebar__color')
         .forEach(c => c.classList.remove('is-active'));
         color.classList.add('is-active');
+    });
+});
+
+
+const trigger = document.querySelector('.custom-select__trigger');
+const options = document.querySelector('.custom-select__options');
+trigger.addEventListener('click', () => {
+    options.style.display =
+        options.style.display === 'block' ? 'none' : 'block';
+});
+
+options.querySelectorAll('li').forEach(option => {
+    option.addEventListener('click', () => {
+        trigger.childNodes[0].textContent = option.textContent;
+        options.querySelectorAll('li').forEach(o => o.classList.remove('is-active'));
+        option.classList.add('is-active');
+        options.style.display = 'none';
     });
 });
 
