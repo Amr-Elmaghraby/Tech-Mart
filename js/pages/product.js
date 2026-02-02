@@ -6,6 +6,39 @@ const subcategoriesContainers = document.querySelectorAll(".categories-links");
 const productsContainer = document.getElementById("productsContainer");
 
 
+const rangeMin = document.getElementById("priceRangeMin");
+const rangeMax = document.getElementById("priceRangeMax");
+const priceMin = document.getElementById("priceMin");
+const priceMax = document.getElementById("priceMax");
+
+rangeMin.addEventListener("input", () => {
+    if (+rangeMin.value > +rangeMax.value) {
+        rangeMin.value = rangeMax.value;
+    }
+    priceMin.value = rangeMin.value;
+});
+
+rangeMax.addEventListener("input", () => {
+    if (+rangeMax.value < +rangeMin.value) {
+        rangeMax.value = rangeMin.value;
+    }
+    priceMax.value = rangeMax.value;
+});
+
+priceMin.value = rangeMin.value;
+priceMax.value = rangeMax.value;
+
+
+document.querySelectorAll('.shop-sidebar__color').forEach(color => {
+    color.addEventListener('click', () => {
+    document
+        .querySelectorAll('.shop-sidebar__color')
+        .forEach(c => c.classList.remove('is-active'));
+        color.classList.add('is-active');
+    });
+});
+
+
 //get all subcategories
 await renderSubcategories();
 

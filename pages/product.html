@@ -194,13 +194,258 @@
                     </section>
                 </div>
                 <section class="fullcategory">
-                    <section class="product__dashboard-categories">
-                        <aside class="product__dashboard-sidebar">
-                        <h3>Categories</h3>
-                        <div class="categories-links"></div>
+                    <section class="shop-sidebar">
+                        <aside class="shop-sidebar__container">
+                            <div class="shop-sidebar__top">
+                                <div class="shop-sidebar__top-header">
+                                    <h3 class="shop-sidebar__title">CATEGORIES</h3>
+                                    <button class="shop-sidebar__reset">Reset All</button>
+                                </div>
+                                <div class="shop-sidebar__tags">
+                                    <span class="shop-sidebar__tag">Min: $45.00</span>
+                                    <span class="shop-sidebar__tag">10.9 inch</span>
+                                    <span class="shop-sidebar__tag">Color: Red</span>
+                                    <span class="shop-sidebar__tag">128GB</span>
+                                </div>
+                            </div>
+                            <div class="shop-sidebar__block shop-sidebar__block--brands">
+                                <h4 class="shop-sidebar__block-title">By Brands</h4>
+                                <input type="text" class="shop-sidebar__search" />
+                                <ul class="shop-sidebar__brands">
+                                    <li class="shop-sidebar__brand">
+                                        <label class="shop-sidebar__brand-label">
+                                            <input type="checkbox" class="shop-sidebar__checkbox">
+                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--envato"></span>
+                                            <span class="shop-sidebar__brand-count">(14)</span>
+                                        </label>
+                                    </li>
+                                    <li class="shop-sidebar__brand">
+                                        <label class="shop-sidebar__brand-label">
+                                            <input type="checkbox" class="shop-sidebar__checkbox">
+                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--codecanyon"></span>
+                                            <span class="shop-sidebar__brand-count">(6)</span>
+                                        </label>
+                                    </li>
+                                    <li class="shop-sidebar__brand">
+                                        <label class="shop-sidebar__brand-label">
+                                            <input type="checkbox" class="shop-sidebar__checkbox">
+                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--videohive"></span>
+                                            <span class="shop-sidebar__brand-count">(7)</span>
+                                        </label>
+                                    </li>
+                                    <li class="shop-sidebar__brand">
+                                        <label class="shop-sidebar__brand-label">
+                                            <input type="checkbox" class="shop-sidebar__checkbox">
+                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--photodune"></span>
+                                            <span class="shop-sidebar__brand-count">(18)</span>
+                                        </label>
+                                    </li>
+                                    <li class="shop-sidebar__brand">
+                                        <label class="shop-sidebar__brand-label">
+                                            <input type="checkbox" class="shop-sidebar__checkbox">
+                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--microlancer"></span>
+                                            <span class="shop-sidebar__brand-count">(1)</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="shop-sidebar__block shop-sidebar__block--price">
+                                <h4 class="shop-sidebar__block-title">By Price</h4>
+                                <input
+                                    type="range"
+                                    id="priceRangeMin"
+                                    min="0"
+                                    max="10000"
+                                    value="0"
+                                    step="50"
+                                    class="shop-sidebar__range"
+                                />
+                                <input
+                                    type="range"
+                                    id="priceRangeMax"
+                                    min="0"
+                                    max="10000"
+                                    value="10000"
+                                    step="50"
+                                    class="shop-sidebar__range"
+                                />
+                                <div class="shop-sidebar__price-row">
+                                    <div class="shop-sidebar__price-box">
+                                        <span>$</span>
+                                        <input type="text" value="0" disabled id="priceMin">
+                                    </div>
+                                    <span class="shop-sidebar__price-separator">-</span>
+                                    <div class="shop-sidebar__price-box">
+                                        <span>$</span>
+                                        <input type="text" value="10000" disabled id="priceMax">
+                                    </div>
+                                    <button class="shop-sidebar__price-btn">Go</button>
+                                </div>
+                            </div>
+                            <div class="shop-sidebar__block shop-sidebar__block--rating">
+                                <h4 class="shop-sidebar__block-title">By Rating</h4>
+                                <ul class="shop-sidebar__rating-list">
+                                    <li class="shop-sidebar__rating-item">
+                                        <label class="shop-sidebar__rating-label">
+                                            <input type="checkbox" class="shop-sidebar__checkbox">
+                                            <span class="shop-sidebar__stars">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="shop-sidebar__rating-count">(52)</span>
+                                        </label>
+                                        </li>
+                                    <li class="shop-sidebar__rating-item">
+                                        <label class="shop-sidebar__rating-label">
+                                            <input type="checkbox" class="shop-sidebar__checkbox">
+                                            <span class="shop-sidebar__stars">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="shop-sidebar__rating-count">(24)</span>
+                                        </label>
+                                    </li>
+                                    <li class="shop-sidebar__rating-item">
+                                        <label class="shop-sidebar__rating-label">
+                                            <input type="checkbox" class="shop-sidebar__checkbox">
+                                            <span class="shop-sidebar__stars">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="shop-sidebar__rating-count">(5)</span>
+                                        </label>
+                                    </li>
+                                    <li class="shop-sidebar__rating-item">
+                                        <label class="shop-sidebar__rating-label">
+                                            <input type="checkbox" class="shop-sidebar__checkbox">
+                                            <span class="shop-sidebar__stars">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            </span>
+                                            <span class="shop-sidebar__rating-count">(1)</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="shop-sidebar__block shop-sidebar__block--screen">
+                                <h4 class="shop-sidebar__block-title">By Screen Size</h4>
+                                <div class="shop-sidebar__screen-list">
+                                    <button class="shop-sidebar__screen-chip">7” &amp; Under</button>
+                                    <button class="shop-sidebar__screen-chip">7.1” – 8.9”</button>
+                                    <button class="shop-sidebar__screen-chip">9” – 10.9”</button>
+                                    <button class="shop-sidebar__screen-chip">11” &amp; Greater</button>
+                                </div>
+                            </div>
+                            <div class="shop-sidebar__block shop-sidebar__block--color">
+                                <h4 class="shop-sidebar__block-title">By Color</h4>
+                                <div class="shop-sidebar__color-list">
+                                    <span class="shop-sidebar__color shop-sidebar__color--red"></span>
+                                    <span class="shop-sidebar__color shop-sidebar__color--navy"></span>
+                                    <span class="shop-sidebar__color shop-sidebar__color--blue"></span>
+                                    <span class="shop-sidebar__color shop-sidebar__color--black"></span>
+                                    <span class="shop-sidebar__color shop-sidebar__color--white"></span>
+                                    <span class="shop-sidebar__color shop-sidebar__color--green"></span>
+                                    <span class="shop-sidebar__color shop-sidebar__color--gray"></span>
+                                    <span class="shop-sidebar__color shop-sidebar__color--purple"></span>
+                                </div>
+                            </div>
+                            <div class="shop-sidebar__block shop-sidebar__block--memory">
+                                <h4 class="shop-sidebar__block-title">By Memory</h4>
+                                <div class="shop-sidebar__memory-grid">
+                                    <label class="shop-sidebar__memory-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__memory-label">12GB</span>
+                                        <span class="shop-sidebar__memory-count">(4)</span>
+                                    </label>
+                                    <label class="shop-sidebar__memory-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__memory-label">1.5GB</span>
+                                        <span class="shop-sidebar__memory-count">(1)</span>
+                                    </label>
+                                    <label class="shop-sidebar__memory-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__memory-label">8GB</span>
+                                        <span class="shop-sidebar__memory-count">(3)</span>
+                                    </label>
+                                    <label class="shop-sidebar__memory-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__memory-label">1GB</span>
+                                        <span class="shop-sidebar__memory-count">(1)</span>
+                                    </label>
+                                    <label class="shop-sidebar__memory-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__memory-label">6GB</span>
+                                        <span class="shop-sidebar__memory-count">(12)</span>
+                                        </label>
+                                    <label class="shop-sidebar__memory-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__memory-label">512MB</span>
+                                        <span class="shop-sidebar__memory-count">(2)</span>
+                                    </label>
+                                    <label class="shop-sidebar__memory-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__memory-label">4GB</span>
+                                        <span class="shop-sidebar__memory-count">(6)</span>
+                                    </label>
+                                    <label class="shop-sidebar__memory-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__memory-label">3GB</span>
+                                        <span class="shop-sidebar__memory-count">(7)</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="shop-sidebar__block shop-sidebar__block--condition">
+                                <h4 class="shop-sidebar__block-title">By Conditions</h4>
+                                <div class="shop-sidebar__condition-list">
+                                    <label class="shop-sidebar__condition-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__condition-label">New</span>
+                                        <span class="shop-sidebar__condition-count">(21)</span>
+                                    </label>
+                                    <label class="shop-sidebar__condition-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__condition-label">Like New</span>
+                                        <span class="shop-sidebar__condition-count">(2)</span>
+                                    </label>
+                                    <label class="shop-sidebar__condition-item">
+                                        <input type="checkbox" class="shop-sidebar__checkbox">
+                                        <span class="shop-sidebar__condition-label">Open Box</span>
+                                        <span class="shop-sidebar__condition-count">(38)</span>
+                                    </label>
+                                </div>
+                            </div>
                         </aside>
                     </section>
                     <section class="product__filter">
+                        <div class="shop-results-bar">
+                            <div class="shop-results-bar__left">
+                                <span class="shop-results-bar__count">
+                                1 - 40 <span>of 120 results</span>
+                                </span>
+                            </div>
+                            <div class="shop-results-bar__center">
+                                <span class="shop-results-bar__label">Show item</span>
+                                <div class="shop-results-bar__numbers">
+                                    <button class="shop-results-bar__num is-active">24</button>
+                                    <button class="shop-results-bar__num">48</button>
+                                    <button class="shop-results-bar__num">72</button>
+                                </div>
+                            </div>
+                            <div class="shop-results-bar__right">
+                                <span class="shop-results-bar__label">Show item</span>
+                                <select class="shop-results-bar__select">
+                                    <option>Default</option>
+                                    <option>Price</option>
+                                    <option>Rating</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="products__grid">
                             <div class="product-card product-card--grid">
                                 <div class="badge">
