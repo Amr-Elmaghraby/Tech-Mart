@@ -1,6 +1,7 @@
 import { getUserById } from "../services/userService.js";
-import { getProductById } from "../services/productService.js";
 import { updateCartBadge } from "../components/header.js";
+import { getProductsBySubcategory,getProductById } from "../services/productService.js";
+import { formatPrice } from "../core/utils.js";
 
 
 // Config const
@@ -16,15 +17,15 @@ const CONFIG = {
  * Performance: Memoize locale string formatting to avoid repeated ICU formatting
  * Reduces CPU cost of quantity changes from ~50ms to <1ms
  */
-const formatPrice = (() => {
-  const cache = new Map();
-  return (price) => {
-    if (cache.has(price)) return cache.get(price);
-    const formatted = price.toLocaleString(CONFIG.LOCALE, CONFIG.NUMBER_FORMAT);
-    cache.set(price, formatted);
-    return formatted;
-  };
-})();
+// const formatPrice = (() => {
+//   const cache = new Map();
+//   return (price) => {
+//     if (cache.has(price)) return cache.get(price);
+//     const formatted = price.toLocaleString(CONFIG.LOCALE, CONFIG.NUMBER_FORMAT);
+//     cache.set(price, formatted);
+//     return formatted;
+//   };
+// })();
 
 function isWithin60Days(isoString) {
   // isoString is in format "YYYY-MM-DD", make it a date
@@ -49,6 +50,14 @@ function getCartSubTotal() {
   } catch (error) {
     console.error("Error calculating cart subtotal: ", error);
   }
+}
+
+function updateBuyNow(itemsToMerge){  
+  localStorage.setItem('buyNow', JSON.stringify(itemsToMerge));
+  // redirect to checkout
+  const url = new URL('../pages/checkout.html', window.location.origin);
+  url.searchParams.set('buyNow', 'true');
+  window.location.href = url.href;
 }
 
 class CartItem {
@@ -92,6 +101,7 @@ class ProductSection {
       purchaseTitle: null,
       purchaseBtnsContainer: null,
       productPrice: null,
+      quantityBtnsContainer: null,
       quantityBtns: null,
       quantity: null,
       addToCartBtn: null,
@@ -126,10 +136,9 @@ class ProductSection {
     this.elements.productPrice = document.querySelector(
       ".single-product__purchase-price",
     );
-    this.elements.quantityBtns = document.querySelectorAll(
-      ".single-product__quant-btn",
+    this.elements.quantityBtnsContainer = document.querySelector(
+      ".single-product__quant-btn--container",
     );
-
     this.elements.addToCartBtn = document.querySelector(
       ".single-product__add-btn",
     );
@@ -213,30 +222,57 @@ class ProductSection {
   }
 
   attachImageHoverHandlers(){
-    const{subImageContainer,mainImage} = this.elements;
+    const { subImageContainer, mainImage } = this.elements;
+    if (!subImageContainer) return;
+
     const originalSrc = mainImage.src;
 
-    const handleHover = (event)=>{
-      if(event.target.tagName == "IMG"){
-        if(event.type === 'mouseenter'){
-          mainImage.src = event.target.dataset.ImageURL;
-          console.log(event.target.dataset.ImageURL);
-          
-        }else if(event.type === 'mouseleave'){
-          mainImage.src = originalSrc;
-        }
+    // Helpers to detect hover-capable devices
+    const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // mouse hover behavior (desktop)
+    const handleMouseEnter = (event) => {
+      if (event.target && event.target.tagName === 'IMG') {
+        mainImage.src = event.target.dataset.ImageURL || event.target.src;
       }
-    }
+    };
+    const handleMouseLeave = (event) => {
+      mainImage.src = originalSrc;
+    };
 
-    subImageContainer.addEventListener('mouseenter',handleHover,true);
-    subImageContainer.addEventListener('mouseleave',handleHover,true);
+    // touch/click behavior (mobile) - tap sub image to set main image
+    const handleClick = (event) => {
+      const img = event.target.closest('img');
+      if (!img) return;
+      mainImage.src = img.dataset.ImageURL || img.src;
+    };
 
-    // Track listener for cleanup
-    this.listeners.push({
-      element: subImageContainer,
-      handler: handleHover,
-      events: ['mouseenter', 'mouseleave'],
-    });
+    // Resize handler to rebind appropriate handlers when viewport changes
+    const resizeHandler = () => {
+      // remove previously attached listeners (if any)
+      subImageContainer.removeEventListener('mouseenter', handleMouseEnter, true);
+      subImageContainer.removeEventListener('mouseleave', handleMouseLeave, true);
+      subImageContainer.removeEventListener('click', handleClick, true);
+
+      if (canHover()) {
+        subImageContainer.addEventListener('mouseenter', handleMouseEnter, true);
+        subImageContainer.addEventListener('mouseleave', handleMouseLeave, true);
+      } else {
+        subImageContainer.addEventListener('click', handleClick, true);
+      }
+    };
+
+    // Initial bind
+    resizeHandler();
+
+    // Track listeners for cleanup
+    this.listeners.push({ element: subImageContainer, handler: handleMouseEnter, events: ['mouseenter'] });
+    this.listeners.push({ element: subImageContainer, handler: handleMouseLeave, events: ['mouseleave'] });
+    this.listeners.push({ element: subImageContainer, handler: handleClick, events: ['click'] });
+
+    // Track resize so we can rebind on orientation/viewport changes
+    window.addEventListener('resize', resizeHandler);
+    this.listeners.push({ element: window, handler: resizeHandler, events: ['resize'] });
   }
 
   renderInfo() {
@@ -246,7 +282,14 @@ class ProductSection {
     // product info
     this.elements.productInfo.innerHTML = `
     <h2 class="single-product__info-name">${this.product.name}</h2>
-    <h3 class="single-product__info-price">${formatPrice( this.product.price)} $</h3>
+    <h3 class="single-product__info-price">
+    ${this.product.discount !==0 ? 
+      ` 
+      <span class="price_after_discount">(${formatPrice(this.product.price)}) </span>
+      <span class="price_before_discount">${formatPrice(this.product.originalPrice)}</span>
+      <span class="price_discount"> (${this.product.discount}%) OFF</span>
+      ` : `${formatPrice(this.product.price)}`}
+    </h3>
     <p class="single-product__info-description">${this.product.description}</p>
     <hr>
     <p class="single-product__info-features"><strong>features:</strong>
@@ -257,46 +300,41 @@ class ProductSection {
 
   renderPurchase() {
     // product purchase
-    this.elements.productPrice.textContent = `${formatPrice(this.product.price)} $`;
+    this.elements.productPrice.textContent = `${formatPrice(this.product.price)}`;
   }
 
   attachEventListeners() {
-    /** Quantity buttons event listeners */
-    const quantBtn = this.elements.quantityBtns;
+    /** Quantity buttons event listeners */  
+    this.elements.quantityBtnsContainer.addEventListener("click",(e)=>{
+      const btn = e.target.closest(".single-product__quant-btn");
+      if(!btn)return;
+      const isPlus = btn.innerText === "+";
+      let currentQty = Number(this.elements.quantity.innerText);
 
-    quantBtn.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (btn.innerText === "+") {
-          if (Number(this.elements.quantity.innerText) === this.product.stock)
-            return;
-          this.elements.quantity.innerText =
-            Number(this.elements.quantity.innerText) + 1;
-        } else {
-          if (Number(this.elements.quantity.innerText) === 1) return;
-          this.elements.quantity.innerText =
-            Number(this.elements.quantity.innerText) - 1;
-        }
-        this.elements.productPrice.innerText = `${formatPrice(
-          this.product.price * this.elements.quantity.innerText
-        )} $`;
-        this.listeners.push({element:btn,handler: none, events: ['click']});
-      });
-    });
+      if(isPlus && currentQty < this.product.stock){
+        currentQty ++;
+      }else if (!isPlus && currentQty > 1)
+      {
+        currentQty --;
+      }
+      this.elements.quantity.innerText = currentQty;
+      this.elements.productPrice.innerText = formatPrice(this.product.price * currentQty);
+    })
 
     /**Go to basket button */
     const goToBasketBtn = this.elements.goToBasketBtn;
 
     goToBasketBtn.addEventListener("mouseenter", () => {
       if (localStorage.getItem("cart")) {
-        goToBasketBtn.classList.add("active");
+        goToBasketBtn.classList.add("active");        
       } else {
         goToBasketBtn.classList.remove("active");
       }
     });
 
-    goToBasketBtn.addEventListener("click", () => {
-      if (goToBasketBtn.classList.contains("active")) {
-        window.location.href = "../pages/card.html";
+    goToBasketBtn.addEventListener("click", () => {      
+      if (goToBasketBtn.classList.contains("active")) {  
+        window.location.href = "/../../pages/cart.html";
       }
     });
     this.listeners.push(
@@ -307,8 +345,19 @@ class ProductSection {
     /**buy now button event listeners */
     const buyNowBtn = this.elements.buyNowBtn;
     buyNowBtn.addEventListener("click", () => {
-      if (buyNowBtn.classList.contains("active")) {
-        window.location.href = "../pages/card.html";
+      if(localStorage.getItem("current_user")){        
+        const item = new CartItem(
+          this.productId,
+          this.product.name,
+          Number(this.product.price),
+          1,
+          Number(this.product.price),
+          this.product.thumbnail,
+          this.product.description
+        )
+        updateBuyNow(item);
+      }else{
+        window.location.href = "/../../pages/login.html";
       }
     });
 
@@ -363,7 +412,7 @@ class ProductSection {
 
     this.elements.addedToCart.innerHTML += `<p>item: ${this.product.name} </p>`;
     this.elements.addedToCart.style.display = "block";
-    this.elements.productInfo.style.display="none";
+    this.elements.productInfo.remove();
 
     this.elements.galleryContainer
       .querySelectorAll(
@@ -373,7 +422,7 @@ class ProductSection {
         item.remove();
       });
     this.elements.purchaseTitle.textContent = `Cart subtotal: ${getCartSubTotal()} $`;
-    this.elements.addToCartBtn.style.display = "none";
+    this.elements.addToCartBtn.remove();
     this.elements.goToBasketBtn.style.display = "block";
     this.elements.purchaseBtnsContainer.classList.add("added_to_cart");
     console.log(this.elements.purchase.children);
@@ -567,6 +616,375 @@ class ReviewSection {
   }
 }
 
+class FrequencySection
+{
+  constructor(product){
+    this.Items = [product];
+    this.listeners = [];
+    this.totalPrice = product.price;
+    this.checked = 1;
+    this.elements = {
+      frequencyContainer: null,
+      frequencyImgContainer: null,
+      frequencyCheckBoxContainer: null,
+      frequencyPurchaseContainer: null,
+      frequencyPurchaseTotalPrice: null,
+    };
+  }
+
+
+  async init()
+  { 
+    try{
+      await this.cacheElements();
+      await this.fetchSubProducts();
+      await this.render();
+    }catch(error){
+      console.error('FrequencySection Error:',error);
+    }
+  }
+
+  subCatFreqSuggestions()
+  {
+    const arrayOfSuggestions = ["subcat-010","subcat-016","subcat-017"];
+    return arrayOfSuggestions[this.generateRandomNumber(0,arrayOfSuggestions.length-1)];
+  }
+
+  async cacheElements(){
+    try{
+      this.elements.frequencyContainer = document.getElementById('.single-product__frequency-container');
+      this.elements.frequencyImgContainer = document.querySelector('.single-product__freq-items-imgs--container');
+      this.elements.frequencyCheckBoxContainer = document.querySelector('.single-product__freq-items-checkbox--container');
+      this.elements.frequencyPurchaseContainer = document.querySelector('.single-product__freq-purchase');      
+      this.elements.frequencyPurchaseTotalPrice = this.elements.frequencyPurchaseContainer.querySelector('.single-product__purchase-price');
+      // Purchase buttons & containers inside the frequency purchase area
+      this.elements.frequencyPurchaseBtnsContainer = this.elements.frequencyPurchaseContainer.querySelector('.single-product__btns-container');
+      this.elements.frequencyAddBtn = this.elements.frequencyPurchaseContainer.querySelector('.single-product__add-btn');
+      this.elements.frequencyGoToBasketBtn = this.elements.frequencyPurchaseContainer.querySelector('.single-product__basket-btn');
+      this.elements.frequencyBuyNowBtn = this.elements.frequencyPurchaseContainer.querySelector('.single-product__buy-now-btn');
+            
+    }catch(error){
+      console.error('FrequencySection Error:',error);
+    }
+  }
+
+  async fetchSubProducts(){
+    try{
+      let productBySub_1 = await getProductsBySubcategory(this.subCatFreqSuggestions());
+      this.Items.push(productBySub_1[this.generateRandomNumber(0,productBySub_1.length-1)]);
+      let productBySub_2 = await getProductsBySubcategory(this.subCatFreqSuggestions());
+      this.Items.push(productBySub_2[this.generateRandomNumber(0,productBySub_2.length-1)]);
+    }catch(error){
+      console.error('FrequencySection Error:',error);
+    }
+  }
+
+  generateRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+
+  async render(){
+    try
+    {
+      await Promise.all([
+        this.renderItems(),
+        this.renderCheckBox(),
+        this.renderPurchase(),
+      ])
+    }catch(error){
+      console.error('FrequencySection Error:',error);
+    }
+  }
+
+  async renderItems(){
+    try{
+      const imgContainer = this.elements.frequencyImgContainer;
+      const fragment = document.createDocumentFragment();
+      console.log(this.Items);
+      this.Items.forEach((item,index)=>
+        {
+          const img = document.createElement('img');
+          img.src = item.thumbnail;
+          img.alt = item.name;
+          img.setAttribute('data-id',item.id);
+          if(index != 0){
+            img.classList.add('not_checked');
+          }
+          fragment.appendChild(img);
+          if(index != this.Items.length - 1){
+            const plus = document.createElement('span');
+            plus.classList.add('single-product__freq-items-imgs-plus');
+            plus.textContent = '+';
+            fragment.appendChild(plus);
+          }
+        })  
+      imgContainer.appendChild(fragment);
+      
+      // imgContainer.children[0].src = product.img;
+    } catch(error){
+      console.error('FrequencySection Error:',error);
+    }
+  }
+
+  async renderCheckBox(){
+    try{
+      const checkboxContainer = this.elements.frequencyCheckBoxContainer;
+      const fragment = document.createDocumentFragment();
+      this.Items.forEach((item,index)=>
+        {
+          const label = document.createElement('label');
+          const checkbox = document.createElement('input');
+          const bold = document.createElement('b');
+          bold.textContent = 'This item: ';
+          checkbox.type = 'checkbox';
+          checkbox.name = 'freq-item';
+          checkbox.setAttribute('data-id',item.id);
+          label.appendChild(checkbox);
+          if(index != 0){
+            checkbox.classList.add('not_checked');
+          }else{
+            checkbox.checked = true;
+            label.appendChild(bold);
+          }
+          // Extract one specification from the object key, value pair
+          const [specKey, specValue] = Object.entries(item.specifications)[0] || [0];
+          const specText = specKey? `, ${specKey}: ${specValue}`: '';
+
+          // Discount string
+          const discountContainer = document.createElement('span');
+          const discountHTML = `
+          ${item.discount !==0 ? 
+            ` 
+            <span class="price_after_discount">(${formatPrice(item.price)}) </span> 
+            <span class="price_before_discount">${formatPrice(item.originalPrice)}</span>
+            <span class="price_discount"> (${item.discount}%) OFF</span>
+            ` : `(${formatPrice(item.price)})`}
+          `.trim();
+          discountContainer.innerHTML = discountHTML;
+
+          // Update Label
+          label.appendChild(document.createTextNode(` ${item.name}${specText} `));
+          label.appendChild(discountContainer);
+
+          fragment.appendChild(label);
+        })  
+      checkboxContainer.appendChild(fragment);
+      this.handleCheckboxListeners();
+    } catch(error){
+      console.error('FrequencySection Error:',error);
+    }
+  }
+
+  async renderPurchase(){
+    const purchaseContainer = this.elements.frequencyPurchaseContainer;
+    const totalPrice = this.elements.frequencyPurchaseTotalPrice;
+    totalPrice.textContent = formatPrice(this.totalPrice);
+    this.attachPurchaseListeners();
+  }
+
+  updateTotalPrice(){
+    this.totalPrice = 0;
+    this.elements.frequencyCheckBoxContainer.querySelectorAll('input[type="checkbox"]:not(.not_checked)').forEach(input=>{      
+      this.Items.forEach(item=>{
+        if(input.dataset.id == item.id){
+          this.totalPrice += item.price;
+          }
+        })       
+      })
+      
+      this.elements.frequencyPurchaseTotalPrice.textContent = formatPrice(this.totalPrice);            
+  }
+
+  handleCheckboxListeners(){
+    const checkBoxContainer = this.elements.frequencyCheckBoxContainer;
+
+    const handleEvent = (event)=>{
+      if(event.target.tagName == 'INPUT'){
+        const img = this.elements.frequencyImgContainer.querySelector(`img[data-id="${event.target.dataset.id}"]`);
+        if(event.target.checked){
+          event.target.classList.remove('not_checked');
+          event.target.checked = true;
+          img.classList.remove('not_checked');
+          this.checked++;
+        }else{
+          event.target.classList.add('not_checked');
+          img.classList.add('not_checked');
+          this.checked--;
+        }
+        this.updateTotalPrice();
+        this.updateAddBtn();  
+      }
+    }
+    checkBoxContainer.addEventListener('click',handleEvent,true);
+    this.listeners.push({element:checkBoxContainer,handler:handleEvent,events:['click']});
+  }  
+
+  updateAddBtn(){
+    if(this.checked === 0){
+      this.elements.frequencyAddBtn.classList.add('disabled');
+      this.elements.frequencyGoToBasketBtn.classList.add('disabled');
+      this.elements.frequencyBuyNowBtn.classList.add('disabled');
+    }else{
+      this.elements.frequencyAddBtn.classList.remove('disabled');
+      this.elements.frequencyGoToBasketBtn.classList.remove('disabled');
+      this.elements.frequencyBuyNowBtn.classList.remove('disabled');
+    }
+  }
+  attachPurchaseListeners(){
+    try{
+      const addBtn = this.elements.frequencyAddBtn;
+      const goToBasketBtn = this.elements.frequencyGoToBasketBtn;
+      const buyNowBtn = this.elements.frequencyBuyNowBtn;
+
+      if(!addBtn) return;
+
+      const handleAdd = async () => {
+        // gather selected products from checkboxes
+        const itemsToMerge =  this.updateItemsToMerge();
+        this.updateCartFromFrequency(itemsToMerge);
+
+        // UI transitions: remove unchecked items (both checkbox labels and images)
+        try{
+          const inputsAll = Array.from(this.elements.frequencyCheckBoxContainer.querySelectorAll('input[type="checkbox"]'));
+          const imgsAll = Array.from(this.elements.frequencyImgContainer.children);
+          console.log(this.elements.frequencyImgContainer.children);
+          
+          imgsAll.forEach((img,index,array)=>{
+            if(index%2 !==0){return;}
+              if(img.dataset.id === inputsAll[index/2].dataset.id && !inputsAll[index/2].checked){
+                // to check + button before or after img to be removed from Live
+                // DOM using ElementSibling not static array it self so accessing 
+                // a ghost + button to remove that already was deleted before
+                const buttonToRemove = img.previousElementSibling || img.nextElementSibling;
+                img.remove();
+                // insure chosen sibling is a button not an img with attribute data-id
+                if(buttonToRemove && !buttonToRemove.hasAttribute('data-id'))
+                  {
+                    //document.startViewTransition(()=>{
+                    buttonToRemove.remove();//});
+                  }
+              }else{
+                img.classList.add("checked_remaining");
+              }
+          })
+        }catch(e){/* ignore UI cleanup errors */}
+
+        // update purchase UI
+        try{
+          const titleEl = this.elements.frequencyPurchaseContainer.querySelector('.single-product__purchase-title');
+          titleEl.classList.add('added_to_cart');
+          titleEl.textContent = `Cart subtotal: ${getCartSubTotal()} $`;
+          addBtn.style.display = 'none';
+          if(goToBasketBtn) goToBasketBtn.style.display = 'block';
+          this.elements.frequencyPurchaseBtnsContainer?.classList.add('added_to_cart');
+          this.elements.frequencyCheckBoxContainer.remove();
+        }catch(e){}
+
+        await updateCartBadge();
+      };
+
+      addBtn.addEventListener('click', handleAdd);
+      this.listeners.push({element:addBtn, handler: handleAdd, events: ['click']});
+
+      if(buyNowBtn){
+        const handleBuy = async ()=>{
+          // reuse add behavior to ensure items are in cart
+          if(localStorage.getItem('current_user')){
+          const itemsToMerge =  this.updateItemsToMerge();
+          updateBuyNow(itemsToMerge);
+          }else{
+            window.location.href = '../pages/login.html';
+          }
+        };
+        buyNowBtn.addEventListener('click', handleBuy);
+        this.listeners.push({element:buyNowBtn, handler: handleBuy, events: ['click']});
+      }
+
+      if(goToBasketBtn){
+        // handle clicking
+        const handleGo = ()=>{
+          if(goToBasketBtn.classList.contains('active') || goToBasketBtn.style.display === 'block'){
+            window.location.href = '../pages/checkout.html';
+          }
+        };
+        goToBasketBtn.addEventListener('click', handleGo);
+        this.listeners.push({element:goToBasketBtn, handler: handleGo, events: ['click']});
+        // handle hover
+        const basketBtn = ()=>
+        {
+          if(localStorage.getItem('cart'))
+            {
+              goToBasketBtn.classList.add('active');
+            }
+        }
+        goToBasketBtn.addEventListener('mouseenter', basketBtn);
+        this.listeners.push({element:goToBasketBtn, handler: basketBtn, events: ['mouseenter']});
+      }
+
+    }catch(error){
+      console.error('attachPurchaseListeners error:', error);
+    }
+  }
+
+  updateItemsToMerge(){
+    if(this.checked === 0) return;          
+      const inputs = Array.from(this.elements.frequencyCheckBoxContainer.querySelectorAll('input[type="checkbox"]'));
+      const checked = inputs.filter(i=>i.checked);
+      const productsToAdd = [];
+      checked.forEach((input)=>{
+        const prodId = input.dataset.id;
+        console.log(prodId);
+        const prod = this.Items.find(p=>p.id === prodId);
+        if(prod) productsToAdd.push(prod);
+        });
+
+      // create CartItem objects and merge into cart
+      const itemsToMerge = productsToAdd.map(p=> new CartItem(
+        p.id,
+        p.name,
+        Number(p.price),
+        1,
+        Number(p.price * 1),
+        p.thumbnail,
+        p.description
+      ));
+      return itemsToMerge;
+  }
+
+  updateCartFromFrequency(itemsArray){
+    try{
+      const cartJson = localStorage.getItem('cart');
+      let cart = cartJson ? JSON.parse(cartJson) : [];
+      itemsArray.forEach(newItem=>{
+        const existing = cart.find(i=>i.id === newItem.id);
+        if(existing){
+          existing.quantity = (existing.quantity || 0) + (newItem.quantity || 1);
+          existing.totalPrice = Number(existing.totalPrice || 0) + Number(newItem.totalPrice || (newItem.price * newItem.quantity));
+        } else {
+          cart.push(newItem);
+        }
+      });
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }catch(error){
+      console.error('Error updating cart from frequency:', error);
+      alert('Failed to add items to cart. Please try again.');
+    }
+  }
+
+
+  cleanup(){
+    this.listeners.forEach(({element,handler,events})=>{
+      events.forEach(event=>{
+        element.removeEventListener(event,handler);
+      });
+    });
+    this.listeners = [];
+  }
+
+}
+
+
 // run when page is loaded
 document.addEventListener("DOMContentLoaded", async () => {
   
@@ -581,12 +999,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     const prod = new ProductSection(productId);
     await prod.init();
 
+    const freq = new FrequencySection(prod.product);
+    await freq.init();
+
     const rev = new ReviewSection(productId);
     await rev.init();
 
     //Cleanup listeners on page unload
     window.addEventListener('beforeunload',()=>{
       prod.cleanup();
+      freq.cleanup();
     })
   }catch(error){
     console.log('Page initialization error:',error);
