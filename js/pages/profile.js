@@ -295,53 +295,57 @@ function updateProfileInfo() {
   const originalPhone = currentUser.phone;
 
   const inputs = [
-    { el: firstName, type: "firstName" },
-    { el: lastName, type: "lastName" },
-    { el: phone, type: "phone" },
+    { el: firstName, type: "firstName", required: true },
+    { el: lastName, type: "lastName", required: true },
+    { el: phone, type: "phone", required: false },
   ];
 
   const checkChanges = () => {
     const newName = firstName.value.trim() + " " + lastName.value.trim();
     const newPhone = phone.value.trim();
 
-    const changed = newName !== originalName || newPhone !== originalPhone;
+    // Enable submit if name changed OR phone changed
+    const changed =
+      newName !== originalName || (newPhone && newPhone !== originalPhone);
 
     submitBtn.disabled = !changed;
     submitBtn.classList.toggle("disabled", !changed);
   };
 
-  inputs.forEach(({ el, type }) => {
+  // Live validation
+  inputs.forEach(({ el, type, required }) => {
     el.addEventListener("input", () => {
       const value = el.value.trim();
-      if (
-        (type === "phone" && internationalPhoneRegex.test(value)) ||
-        value.length >= 3
-      ) {
-        el.classList.add("valid");
-        el.classList.remove("invalid");
-      } else {
-        el.classList.add("invalid");
-        el.classList.remove("valid");
+      let isValid = true;
+
+      if (type === "phone" && value) {
+        isValid = internationalPhoneRegex.test(value); // validation only if entered
+      } else if (required) {
+        isValid = value.length >= 3;
       }
+
+      el.classList.toggle("valid", isValid);
+      el.classList.toggle("invalid", !isValid);
+
       checkChanges();
     });
   });
 
+  // Submit form
   activeForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const userName = firstName.value.trim() + " " + lastName.value.trim();
     const phonenumber = phone.value.trim();
 
-    if (userName.length < 3 || !internationalPhoneRegex.test(phonenumber))
-      return;
+    if (userName.length < 3) return; // name required
+    if (phonenumber && !internationalPhoneRegex.test(phonenumber)) return; // phone optional
+
+    const updates = { id: currentUser.id, name: userName };
+    if (phonenumber) updates.phone = phonenumber; // update phone only if entered
 
     try {
-      const updatedUser = await userService.updateProfile({
-        id: currentUser.id,
-        name: userName,
-        phone: phonenumber,
-      });
+      const updatedUser = await userService.updateProfile(updates);
 
       if (updatedUser.success) {
         submitBtn.disabled = true;
