@@ -1,886 +1,427 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="Tech-mart" />
-        <meta name="description" content="" />
-        <meta name="keywords" content="" />
-        <title>Products - Tech-Mart</title>
-        <link
-            rel="icon"
-            href="../assets/images/logo/logo.svg"
-            type="image/x-icon"
-        />
-        <link rel="stylesheet" href="../css/main.css" />
-        <link rel="stylesheet" href="../css/pages/product.css">
-    </head>
-    <body>
-        <div id="header"></div>
-        <main class="product__main">
-            <nav class="product__path">
-                <a href="../index.html" class="product__path-link--home">Home</a>
-                <span class="product__path-separator"> / </span><a class="product__path-link--shop" href="">Shop</a>
-                <span class="product__path-separator"> / </span><a href="" class="product__path-link--category">Products</a>
-            </nav>
-            <div class="page">
-                <header class="product__header">
-                    <h1 class="product__title">TOP CELLPHONES & TABLETS</h1>
-                </header>
-                <section class="banners">
-                    <div class="banner">
-                        <img
-                            src="/assets/videos/Apple.gif"
-                            alt="banner"
-                            class="banner-image"
-                        />
-                    </div>
-                    <div class="banner second-banner">
-                        <img
-                            src="/assets/images/banners/main-top-cellphone/product-main-cellphone.svg"
-                            alt="banner"
-                            class="banner-image"
-                        />
-                        <div class="banner-content">
-                            <div class="banner-content__text">
-                                <h2>Redmi Note 12<br />Pro+ 5G</h2>
-                                <p>Rise to the challenge</p>
-                            </div>
-                            <a href="#" class="shop-btn">Shop Now</a>
-                        </div>
-                    </div>
-                </section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Tech-mart" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Products - Tech-Mart</title>
+    <link
+      rel="icon"
+      href="../assets/images/logo/logo.svg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/pages/product.css" />
+  </head>
+  <body data-page="product">
+    <div id="header"></div>
+    <main class="product__main">
+      <nav class="product__path">
+        <a href="../index.html" class="product__path-link--home">Home</a>
+        <span class="product__path-separator"> / </span
+        ><a class="product__path-link--shop" href="">Shop</a>
+        <span class="product__path-separator"> / </span
+        ><a href="" class="product__path-link--category">Products</a>
+      </nav>
+      <div class="page">
+        <header class="product__header">
+          <h1 class="product__title">TOP CELLPHONES & TABLETS</h1>
+        </header>
+        <section class="banners">
+          <div class="banner">
+            <img
+              src="/assets/videos/Apple.gif"
+              alt="banner"
+              class="banner-image"
+            />
+          </div>
+          <div class="banner second-banner">
+            <img
+              src="/assets/images/banners/main-top-cellphone/product-main-cellphone.svg"
+              alt="banner"
+              class="banner-image"
+            />
+            <div class="banner-content">
+              <div class="banner-content__text">
+                <h2>Redmi Note 12<br />Pro+ 5G</h2>
+                <p>Rise to the challenge</p>
+              </div>
+              <a href="#" class="shop-btn">Shop Now</a>
             </div>
-            <div class="page">
-                <section class="product__popular-categories">
-                    <h1 class="product__title">POPULAR CATEGORIES</h1>
-                    <div class="categories">
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/iPhone (iOS).svg"
-                                alt="iPhone"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">iPhone (iOS)</h4>
-                                <p class="category__count">74 Items</p>
-                            </div>
-                        </div>
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/Andriod.svg"
-                                alt="Android"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">Android</h4>
-                                <p class="category__count">85 Items</p>
-                            </div>
-                        </div>
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/5G Support.svg"
-                                alt="5G"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">5G Support</h4>
-                                <p class="category__count">12 Items</p>
-                            </div>
-                        </div>
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/Apple Tablets.svg"
-                                alt="Accessories"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">Apple Tablets</h4>
-                                <p class="category__count">22 Items</p>
-                            </div>
-                        </div>
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/Smartphone Charegers.svg"
-                                alt="Accessories"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">Smartphone <br> Chargers</h4>
-                                <p class="category__count">33 Items</p>
-                            </div>
-                        </div>
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/Gaming.svg"
-                                alt="Gaming"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">Gaming</h4>
-                                <p class="category__count">9 Items</p>
-                            </div>
-                        </div>
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/Xiaomi.svg"
-                                alt="Xiaomi"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">Xiaomi</h4>
-                                <p class="category__count">52 Items</p>
-                            </div>
-                        </div>
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/Accessories.svg"
-                                alt="Accessories"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">Accessories</h4>
-                                <p class="category__count">23 Items</p>
-                            </div>
-                        </div>
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/Samsung Tablets.svg"
-                                alt="Accessories"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">Samsung Tablets</h4>
-                                <p class="category__count">26 Items</p>
-                            </div>
-                        </div>
-                        <div class="category">
-                            <img
-                                src="/assets/images/banners/main-top-cellphone/eReader.svg"
-                                alt="Accessories"
-                                class="category__icon"
-                            />
-                            <div class="category__info">
-                                <h4 class="category__name">eReader</h4>
-                                <p class="category__count">5 Items</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+          </div>
+        </section>
+      </div>
+      <div class="page hidden">
+        <section class="product__popular-categories">
+          <h1 class="product__title">POPULAR CATEGORIES</h1>
+          <div class="categories">
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/iPhone (iOS).svg"
+                alt="iPhone"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">iPhone (iOS)</h4>
+                <p class="category__count">74 Items</p>
+              </div>
             </div>
-            <div class="page">
-                <div class="best-seller__categories">
-                    <section class="product__dashboard-categories">
-                        <aside class="product__dashboard-sidebar">
-                            <h3>Categories</h3>
-                            <div class="categories-links"></div>
-                        </aside>
-                    </section>
-                    <section class="product__best-seller">
-                        <h1 class="product__title">BEST SELLER IN THIS CATEGORIES</h1>
-                        <div class="carousel">
-                            <button class="carousel__button carousel__button--prev">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
-                            <button class="carousel__button carousel__button--next">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </button>
-                            <div class="carousel__wrapper">
-                                <div class="carousel__track" id="productsContainer"></div>
-                            </div>
-                        </div>
-                        <hr>
-                    </section>
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/Andriod.svg"
+                alt="Android"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">Android</h4>
+                <p class="category__count">85 Items</p>
+              </div>
+            </div>
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/5G Support.svg"
+                alt="5G"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">5G Support</h4>
+                <p class="category__count">12 Items</p>
+              </div>
+            </div>
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/Apple Tablets.svg"
+                alt="Accessories"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">Apple Tablets</h4>
+                <p class="category__count">22 Items</p>
+              </div>
+            </div>
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/Smartphone Charegers.svg"
+                alt="Accessories"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">
+                  Smartphone <br />
+                  Chargers
+                </h4>
+                <p class="category__count">33 Items</p>
+              </div>
+            </div>
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/Gaming.svg"
+                alt="Gaming"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">Gaming</h4>
+                <p class="category__count">9 Items</p>
+              </div>
+            </div>
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/Xiaomi.svg"
+                alt="Xiaomi"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">Xiaomi</h4>
+                <p class="category__count">52 Items</p>
+              </div>
+            </div>
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/Accessories.svg"
+                alt="Accessories"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">Accessories</h4>
+                <p class="category__count">23 Items</p>
+              </div>
+            </div>
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/Samsung Tablets.svg"
+                alt="Accessories"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">Samsung Tablets</h4>
+                <p class="category__count">26 Items</p>
+              </div>
+            </div>
+            <div class="category">
+              <img
+                src="/assets/images/banners/main-top-cellphone/eReader.svg"
+                alt="Accessories"
+                class="category__icon"
+              />
+              <div class="category__info">
+                <h4 class="category__name">eReader</h4>
+                <p class="category__count">5 Items</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="page">
+        <div class="best-seller__categories">
+          <section class="product__dashboard-categories">
+            <aside class="product__dashboard-sidebar">
+              <h3>Categories</h3>
+              <div class="categories-links"></div>
+            </aside>
+          </section>
+          <section class="product__best-seller">
+            <h1 class="product__title">BEST SELLER IN THIS CATEGORIES</h1>
+            <div class="carousel">
+              <button class="carousel__button carousel__button--prev">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <button class="carousel__button carousel__button--next">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <div class="carousel__wrapper">
+                <div class="carousel__track" id="productsContainer"></div>
+              </div>
+            </div>
+            <hr />
+          </section>
+        </div>
+        <section class="fullcategory">
+          <section class="shop-sidebar">
+            <aside class="shop-sidebar__container">
+              <div class="shop-sidebar__top">
+                <div class="shop-sidebar__top-header">
+                  <h3 class="shop-sidebar__title">Filters</h3>
+                  <button class="shop-sidebar__reset">Reset All</button>
                 </div>
-                <section class="fullcategory">
-                    <section class="shop-sidebar">
-                        <aside class="shop-sidebar__container">
-                            <div class="shop-sidebar__top">
-                                <div class="shop-sidebar__top-header">
-                                    <h3 class="shop-sidebar__title">CATEGORIES</h3>
-                                    <button class="shop-sidebar__reset">Reset All</button>
-                                </div>
-                                <div class="shop-sidebar__tags">
-                                    <span class="shop-sidebar__tag">Min: $45.00</span>
-                                    <span class="shop-sidebar__tag">10.9 inch</span>
-                                    <span class="shop-sidebar__tag">Color: Red</span>
-                                    <span class="shop-sidebar__tag">128GB</span>
-                                </div>
-                            </div>
-                            <div class="shop-sidebar__block shop-sidebar__block--brands">
-                                <h4 class="shop-sidebar__block-title">By Brands</h4>
-                                <input type="text" class="shop-sidebar__search" />
-                                <ul class="shop-sidebar__brands">
-                                    <li class="shop-sidebar__brand">
-                                        <label class="shop-sidebar__brand-label">
-                                            <input type="checkbox" class="shop-sidebar__checkbox">
-                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--envato"></span>
-                                            <span class="shop-sidebar__brand-count">(14)</span>
-                                        </label>
-                                    </li>
-                                    <li class="shop-sidebar__brand">
-                                        <label class="shop-sidebar__brand-label">
-                                            <input type="checkbox" class="shop-sidebar__checkbox">
-                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--codecanyon"></span>
-                                            <span class="shop-sidebar__brand-count">(6)</span>
-                                        </label>
-                                    </li>
-                                    <li class="shop-sidebar__brand">
-                                        <label class="shop-sidebar__brand-label">
-                                            <input type="checkbox" class="shop-sidebar__checkbox">
-                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--videohive"></span>
-                                            <span class="shop-sidebar__brand-count">(7)</span>
-                                        </label>
-                                    </li>
-                                    <li class="shop-sidebar__brand">
-                                        <label class="shop-sidebar__brand-label">
-                                            <input type="checkbox" class="shop-sidebar__checkbox">
-                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--photodune"></span>
-                                            <span class="shop-sidebar__brand-count">(18)</span>
-                                        </label>
-                                    </li>
-                                    <li class="shop-sidebar__brand">
-                                        <label class="shop-sidebar__brand-label">
-                                            <input type="checkbox" class="shop-sidebar__checkbox">
-                                            <span class="shop-sidebar__brand-logo shop-sidebar__brand-logo--microlancer"></span>
-                                            <span class="shop-sidebar__brand-count">(1)</span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shop-sidebar__block shop-sidebar__block--price">
-                                <h4 class="shop-sidebar__block-title">By Price</h4>
-                                <input
-                                    type="range"
-                                    id="priceRangeMin"
-                                    min="0"
-                                    max="10000"
-                                    value="0"
-                                    step="50"
-                                    class="shop-sidebar__range"
-                                />
-                                <input
-                                    type="range"
-                                    id="priceRangeMax"
-                                    min="0"
-                                    max="10000"
-                                    value="10000"
-                                    step="50"
-                                    class="shop-sidebar__range"
-                                />
-                                <div class="shop-sidebar__price-row">
-                                    <div class="shop-sidebar__price-box">
-                                        <span>$</span>
-                                        <input type="text" value="0" disabled id="priceMin">
-                                    </div>
-                                    <span class="shop-sidebar__price-separator">-</span>
-                                    <div class="shop-sidebar__price-box">
-                                        <span>$</span>
-                                        <input type="text" value="10000" disabled id="priceMax">
-                                    </div>
-                                    <button class="shop-sidebar__price-btn">Go</button>
-                                </div>
-                            </div>
-                            <div class="shop-sidebar__block shop-sidebar__block--rating">
-                                <h4 class="shop-sidebar__block-title">By Rating</h4>
-                                <ul class="shop-sidebar__rating-list">
-                                    <li class="shop-sidebar__rating-item">
-                                        <label class="shop-sidebar__rating-label">
-                                            <input type="checkbox" class="shop-sidebar__checkbox">
-                                            <span class="shop-sidebar__stars">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            </span>
-                                            <span class="shop-sidebar__rating-count">(52)</span>
-                                        </label>
-                                        </li>
-                                    <li class="shop-sidebar__rating-item">
-                                        <label class="shop-sidebar__rating-label">
-                                            <input type="checkbox" class="shop-sidebar__checkbox">
-                                            <span class="shop-sidebar__stars">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            </span>
-                                            <span class="shop-sidebar__rating-count">(24)</span>
-                                        </label>
-                                    </li>
-                                    <li class="shop-sidebar__rating-item">
-                                        <label class="shop-sidebar__rating-label">
-                                            <input type="checkbox" class="shop-sidebar__checkbox">
-                                            <span class="shop-sidebar__stars">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            </span>
-                                            <span class="shop-sidebar__rating-count">(5)</span>
-                                        </label>
-                                    </li>
-                                    <li class="shop-sidebar__rating-item">
-                                        <label class="shop-sidebar__rating-label">
-                                            <input type="checkbox" class="shop-sidebar__checkbox">
-                                            <span class="shop-sidebar__stars">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            </span>
-                                            <span class="shop-sidebar__rating-count">(1)</span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shop-sidebar__block shop-sidebar__block--screen">
-                                <h4 class="shop-sidebar__block-title">By Screen Size</h4>
-                                <div class="shop-sidebar__screen-list">
-                                    <button class="shop-sidebar__screen-chip">7” &amp; Under</button>
-                                    <button class="shop-sidebar__screen-chip">7.1” – 8.9”</button>
-                                    <button class="shop-sidebar__screen-chip">9” – 10.9”</button>
-                                    <button class="shop-sidebar__screen-chip">11” &amp; Greater</button>
-                                </div>
-                            </div>
-                            <div class="shop-sidebar__block shop-sidebar__block--color">
-                                <h4 class="shop-sidebar__block-title">By Color</h4>
-                                <div class="shop-sidebar__color-list">
-                                    <span class="shop-sidebar__color shop-sidebar__color--red"></span>
-                                    <span class="shop-sidebar__color shop-sidebar__color--navy"></span>
-                                    <span class="shop-sidebar__color shop-sidebar__color--blue"></span>
-                                    <span class="shop-sidebar__color shop-sidebar__color--black"></span>
-                                    <span class="shop-sidebar__color shop-sidebar__color--white"></span>
-                                    <span class="shop-sidebar__color shop-sidebar__color--green"></span>
-                                    <span class="shop-sidebar__color shop-sidebar__color--gray"></span>
-                                    <span class="shop-sidebar__color shop-sidebar__color--purple"></span>
-                                </div>
-                            </div>
-                            <div class="shop-sidebar__block shop-sidebar__block--memory">
-                                <h4 class="shop-sidebar__block-title">By Memory</h4>
-                                <div class="shop-sidebar__memory-grid">
-                                    <label class="shop-sidebar__memory-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__memory-label">12GB</span>
-                                        <span class="shop-sidebar__memory-count">(4)</span>
-                                    </label>
-                                    <label class="shop-sidebar__memory-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__memory-label">1.5GB</span>
-                                        <span class="shop-sidebar__memory-count">(1)</span>
-                                    </label>
-                                    <label class="shop-sidebar__memory-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__memory-label">8GB</span>
-                                        <span class="shop-sidebar__memory-count">(3)</span>
-                                    </label>
-                                    <label class="shop-sidebar__memory-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__memory-label">1GB</span>
-                                        <span class="shop-sidebar__memory-count">(1)</span>
-                                    </label>
-                                    <label class="shop-sidebar__memory-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__memory-label">6GB</span>
-                                        <span class="shop-sidebar__memory-count">(12)</span>
-                                        </label>
-                                    <label class="shop-sidebar__memory-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__memory-label">512MB</span>
-                                        <span class="shop-sidebar__memory-count">(2)</span>
-                                    </label>
-                                    <label class="shop-sidebar__memory-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__memory-label">4GB</span>
-                                        <span class="shop-sidebar__memory-count">(6)</span>
-                                    </label>
-                                    <label class="shop-sidebar__memory-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__memory-label">3GB</span>
-                                        <span class="shop-sidebar__memory-count">(7)</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="shop-sidebar__block shop-sidebar__block--condition">
-                                <h4 class="shop-sidebar__block-title">By Conditions</h4>
-                                <div class="shop-sidebar__condition-list">
-                                    <label class="shop-sidebar__condition-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__condition-label">New</span>
-                                        <span class="shop-sidebar__condition-count">(21)</span>
-                                    </label>
-                                    <label class="shop-sidebar__condition-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__condition-label">Like New</span>
-                                        <span class="shop-sidebar__condition-count">(2)</span>
-                                    </label>
-                                    <label class="shop-sidebar__condition-item">
-                                        <input type="checkbox" class="shop-sidebar__checkbox">
-                                        <span class="shop-sidebar__condition-label">Open Box</span>
-                                        <span class="shop-sidebar__condition-count">(38)</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </aside>
-                    </section>
-                    <section class="product__filter">
-                        <div class="shop-results-bar">
-                            <div class="shop-results-bar__left">
-                                <span class="shop-results-bar__count">
-                                1 - 40 <span>of 120 results</span>
-                                </span>
-                            </div>
-                            <div class="shop-results-bar__center">
-                                <span class="shop-results-bar__label">Show item</span>
-                                <div class="shop-results-bar__numbers">
-                                    <button class="shop-results-bar__num is-active">24</button>
-                                    <button class="shop-results-bar__num">48</button>
-                                    <button class="shop-results-bar__num">72</button>
-                                </div>
-                            </div>
-                            <div class="shop-results-bar__right">
-                                <span class="shop-results-bar__label">Show item</span>
-                                <div class="custom-select">
-                                    <button class="custom-select__trigger">
-                                        Default
-                                        <i class="fa fa-chevron-down"></i>
-                                    </button>
-                                    <ul class="custom-select__options">
-                                        <li class="is-active">Default</li>
-                                        <li>Price</li>
-                                        <li>Rating</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="products__grid">
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Huawei P60 Pro/Huawei P60 Pro-1.webp"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Samsung Galaxy M54/Samsung Galaxy M54-1.jpg"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Realme GT 5 Pro/Realme GT 5 Pro-1.webp"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Samsung Galaxy S24 Ultra/Samsung Galaxy S24 Ultra.webp"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Samsung Galaxy S22 Refurbished/Samsung Galaxy S22 Refurbishedwebp-1.webp"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/iPhone 14 Plus/iPhone 14 Plus-1.jpg"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Samsung Galaxy Buds FE/Samsung Galaxy Buds FE-1.png"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/OnePlus 12/OnePlus 12-1.jpg"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Xiaomi 14 Pro/Xiaomi 14 Pro-1.jpg"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/iPhone 17 Pro Max/iphone-17-pm.png"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Galaxy S24 Ultra S Pen/Galaxy S24 Ultra S Pen-1.webp"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/45W USB-C Fast Charger/45W USB-C Fast Charger-1.jpg"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Anker 737 Power Bank (PowerCore 24K)/Anker 737 Power Bank (PowerCore 24K)-1.jpg"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Samsung Galaxy Tab S9 Ultra/Samsung Galaxy Tab S9 Ultra-1.jpg"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/iPad Pro 12.9-inch (M2)/iPad Pro 12.9-inch (M2)-1.jpg"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                            <div class="product-card product-card--grid">
-                                <div class="badge">
-                                    <span class="badge__label">SAVE</span>
-                                    <span class="badge__price">$110.00</span>
-                                </div>
-                                <div class="product-card__image-container">
-                                    <img class="product-card__image"
-                                        src="/assets/images/products/Apple MagSafe Battery Pack/Apple MagSafe Battery Pack-1.jpg"
-                                        alt="Huawei P60 Pro"
-                                        onerror="this.src='placeholder.png'">
-                                </div>
-                                <div class="product-card__reviews">(24)</div>
-                                <h3 class="product-card__title">Huawei P60 Pro</h3>
-                                <div class="product-card__price">
-                                    <span class="product-card__price-new">$579.00</span>
-                                    <span class="product-card__price-original">$689.00</span>
-                                </div>
-                                <div class="product-card__shipping">
-                                    <span class="product-card__shipping--free">FREE SHIPPING</span>
-                                    <span class="gift-tag">FREE GIFT</span>
-                                </div>
-                                <div class="status status--in-stock">
-                                    <span class="status__indicator"></span>
-                                    In stock
-                                </div>
-                            </div>
-                        </div>
-                        <div class="products__pagination">
-                            <button class="products__page products__page--active">1</button>
-                            <button class="products__page">2</button>
-                            <button class="products__page">3</butto>
-                            <button class="products__page">Next</button>
-                        </div>
-                    </section>
-                </section>
+              </div>
+              <div class="shop-sidebar__block shop-sidebar__block--brands">
+                <h4 class="shop-sidebar__block-title">By Brands</h4>
+                <ul class="shop-sidebar__brands">
+                  <li class="shop-sidebar__brand">
+                    <label class="shop-sidebar__brand-label">
+                      <input type="checkbox" class="shop-sidebar__checkbox" />
+                      <span
+                        class="shop-sidebar__brand-logo shop-sidebar__brand-logo--envato"
+                      ></span>
+                      <span class="shop-sidebar__brand-count">(14)</span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <div class="shop-sidebar__block shop-sidebar__block--price">
+                <h4 class="shop-sidebar__block-title">By Price</h4>
+                <input
+                  type="range"
+                  id="priceRangeMin"
+                  min="0"
+                  max="10000"
+                  value="0"
+                  step="50"
+                  class="shop-sidebar__range"
+                />
+                <input
+                  type="range"
+                  id="priceRangeMax"
+                  min="0"
+                  max="10000"
+                  value="10000"
+                  step="50"
+                  class="shop-sidebar__range"
+                />
+                <div class="shop-sidebar__price-row">
+                  <div class="shop-sidebar__price-box">
+                    <span>$</span>
+                    <input type="text" value="0" disabled id="priceMin" />
+                  </div>
+                  <span class="shop-sidebar__price-separator">-</span>
+                  <div class="shop-sidebar__price-box">
+                    <span>$</span>
+                    <input type="text" value="10000" disabled id="priceMax" />
+                  </div>
+                  <button class="shop-sidebar__price-btn">Go</button>
+                </div>
+              </div>
+              <div class="shop-sidebar__block shop-sidebar__block--rating">
+                <h4 class="shop-sidebar__block-title">By Rating</h4>
+                <ul class="shop-sidebar__rating-list"></ul>
+              </div>
+
+              <div class="shop-sidebar__block shop-sidebar__block--discount">
+                <h4 class="shop-sidebar__block-title">By Discount</h4>
+                <div class="shop-sidebar__block shop-sidebar__block--list">
+custom-select__trigger
+                </div>
+              </div>
+
+              <!-- <div class="shop-sidebar__block shop-sidebar__block--screen">
+                <h4 class="shop-sidebar__block-title">By Screen Size</h4>
+                <div class="shop-sidebar__screen-list">
+                  <button class="shop-sidebar__screen-chip">
+                    7” &amp; Under
+                  </button>
+                  <button class="shop-sidebar__screen-chip">7.1” – 8.9”</button>
+                  <button class="shop-sidebar__screen-chip">9” – 10.9”</button>
+                  <button class="shop-sidebar__screen-chip">
+                    11” &amp; Greater
+                  </button>
+                </div>
+              </div> -->
+
+              <div class="shop-sidebar__block shop-sidebar__block--color">
+                <h4 class="shop-sidebar__block-title">By Color</h4>
+                <div class="shop-sidebar__color-list">
+                  <span
+                    class="shop-sidebar__color shop-sidebar__color--red"
+                  ></span>
+                  <span
+                    class="shop-sidebar__color shop-sidebar__color--navy"
+                  ></span>
+                  <span
+                    class="shop-sidebar__color shop-sidebar__color--blue"
+                  ></span>
+                  <span
+                    class="shop-sidebar__color shop-sidebar__color--black"
+                  ></span>
+                  <span
+                    class="shop-sidebar__color shop-sidebar__color--white"
+                  ></span>
+                  <span
+                    class="shop-sidebar__color shop-sidebar__color--green"
+                  ></span>
+                  <span
+                    class="shop-sidebar__color shop-sidebar__color--gray"
+                  ></span>
+                  <span
+                    class="shop-sidebar__color shop-sidebar__color--purple"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- <div class="shop-sidebar__block shop-sidebar__block--memory">
+                <h4 class="shop-sidebar__block-title">By Memory</h4>
+                <div class="shop-sidebar__memory-grid">
+                  <label class="shop-sidebar__memory-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__memory-label">12GB</span>
+                    <span class="shop-sidebar__memory-count">(4)</span>
+                  </label>
+                  <label class="shop-sidebar__memory-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__memory-label">1.5GB</span>
+                    <span class="shop-sidebar__memory-count">(1)</span>
+                  </label>
+                  <label class="shop-sidebar__memory-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__memory-label">8GB</span>
+                    <span class="shop-sidebar__memory-count">(3)</span>
+                  </label>
+                  <label class="shop-sidebar__memory-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__memory-label">1GB</span>
+                    <span class="shop-sidebar__memory-count">(1)</span>
+                  </label>
+                  <label class="shop-sidebar__memory-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__memory-label">6GB</span>
+                    <span class="shop-sidebar__memory-count">(12)</span>
+                  </label>
+                  <label class="shop-sidebar__memory-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__memory-label">512MB</span>
+                    <span class="shop-sidebar__memory-count">(2)</span>
+                  </label>
+                  <label class="shop-sidebar__memory-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__memory-label">4GB</span>
+                    <span class="shop-sidebar__memory-count">(6)</span>
+                  </label>
+                  <label class="shop-sidebar__memory-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__memory-label">3GB</span>
+                    <span class="shop-sidebar__memory-count">(7)</span>
+                  </label>
+                </div>
+              </div> -->
+              
+              <!-- <div class="shop-sidebar__block shop-sidebar__block--condition">
+                <h4 class="shop-sidebar__block-title">By Conditions</h4>
+                <div class="shop-sidebar__condition-list">
+                  <label class="shop-sidebar__condition-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__condition-label">New</span>
+                    <span class="shop-sidebar__condition-count">(21)</span>
+                  </label>
+                  <label class="shop-sidebar__condition-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__condition-label">Like New</span>
+                    <span class="shop-sidebar__condition-count">(2)</span>
+                  </label>
+                  <label class="shop-sidebar__condition-item">
+                    <input type="checkbox" class="shop-sidebar__checkbox" />
+                    <span class="shop-sidebar__condition-label">Open Box</span>
+                    <span class="shop-sidebar__condition-count">(38)</span>
+                  </label>
+                </div>
+              </div> -->
+            </aside>
+          </section>
+
+          <section class="product__filter">
+            <!-- <div class="shop-results-bar">
+              <div class="shop-results-bar__left">
+                <span class="shop-results-bar__count">
+                  1 - 40 <span>of 120 results</span>
+                </span>
+              </div>
+              <div class="shop-results-bar__center">
+                <span class="shop-results-bar__label">Show item</span>
+                <div class="shop-results-bar__numbers">
+                  <button class="shop-results-bar__num is-active">24</button>
+                  <button class="shop-results-bar__num">48</button>
+                  <button class="shop-results-bar__num">72</button>
+                </div>
+              </div>
+              <div class="shop-results-bar__right">
+                <span class="shop-results-bar__label">Show item</span>
+                <div class="custom-select">
+                  <button class="custom-select__trigger">
+                    Default
+                    <i class="fa fa-chevron-down"></i>
+                  </button>
+                  <ul class="custom-select__options">
+                    <li class="is-active">Default</li>
+                    <li>Price</li>
+                    <li>Rating</li>
+                  </ul>
+                </div>
+              </div>
+            </div> -->
+            <div class="products__grid">
+              <!-- Add Products -->
             </div>
-        </main>
-        <div id="footer"></div>
-        <script type="module" src="../js/main.js"></script>
-        <script type="module" src="../js/pages/product.js"></script>
-    </body>
+            <div class="products__pagination">
+              <button class="products__page products__page--active">1</button>
+              <button class="products__page">2</button>
+              <button class="products__page">3</button>
+              <button class="products__page">Next</button>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+    <div id="footer"></div>
+    <script type="module" src="../js/main.js"></script>
+  </body>
 </html>
