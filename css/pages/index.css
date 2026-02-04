@@ -133,8 +133,8 @@
   margin-top: var(--space-md);
   width: fit-content;
   padding: 14px 32px;
-  background-color: var(--text-inverse);
-  color: var(--color-text-strong);
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
   border-radius: 25px;
   text-decoration: none;
   font-size: 1rem;
@@ -144,10 +144,10 @@
 }
 
 .slider__btn:hover {
-  background-color: var(--color-primary);
-  color: var(--text-inverse);
+  background-color: var(--color-primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: bolder;
 }
 
 /* ===== SLIDER CONTROLS ===== */
@@ -313,8 +313,9 @@
 }
 
 .dashboard__content a:hover {
-  color: var(--color-primary);
-
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: bolder;
 }
 
 .dashboard__card--right .dashboard__content {
@@ -327,8 +328,8 @@
   width: fit-content;
   padding: 10px 16px;
   border-radius: 20px;
-  background: var(--color-text-strong);
-  color: var(--text-inverse);
+  background: var(--color-primary);
+  color: var(--color-text-white);
   text-decoration: none;
   font-size: 13px;
 }
@@ -489,6 +490,7 @@
   flex-direction: column;
   text-decoration: none;
   border-radius: var(--radius-md);
+  background-color: var(--color-bg-muted);
   overflow: hidden;
   transition: 0.3s;
 }
@@ -887,7 +889,7 @@
   max-width: 1400px;
   margin: 0 auto var(--space-lg) auto;
   padding: var(--space-lg);
-  background-color: var(--color-bg-soft);
+  background-color: var(--color-bg-muted);
   font-family: var(--font-main);
   border-radius: var(--radius-xxl);
 }
@@ -979,7 +981,7 @@
 
 .banner-content a {
   color: var(--color-bg);
-  background-color: var(--color-text);
+  background-color: var(--color-primary);
   padding: var(--space-sm) 25px;
   border-radius: var(--radius-lg);
   transition: 0.3s;
@@ -987,6 +989,7 @@
 
 .banner-content a:hover {
   background-color: var(--color-primary-hover);
+  font-weight: bolder;
 }
 
 .categories {
@@ -1340,7 +1343,7 @@
   max-width: 1400px;
   margin: 0 auto 20px auto;
   padding: var(--space-lg);
-  background-color: var(--color-bg-soft);
+  background-color: var(--color-bg-muted);
   border-radius: var(--radius-xxl);
 }
 
@@ -1508,7 +1511,7 @@
 .deals-main__title {
   font-size: 24px;
   font-weight: 900;
-  color: var(--color-text-strong);
+  color: var(--color-text-white);
   margin: 0;
   letter-spacing: 1px;
 }
@@ -1541,7 +1544,7 @@
 .timer-value {
   font-size: 20px;
   font-weight: 700;
-  color: var(--text-inverse);
+  color: var(--color-text-white);
   line-height: 1;
 }
 
