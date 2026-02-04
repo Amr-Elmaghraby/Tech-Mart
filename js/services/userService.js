@@ -4,13 +4,12 @@ import * as storage from "../core/storage.js";
 const USER_KEY = APP_CONFIG.storageKeys.user; // Array of all registered users
 const SESSION_KEY = APP_CONFIG.storageKeys.session; // Logged-in session
 
-
 // let usersCache = null;
 
 // Fetch users from JSON file
 export const fetchUsers = async () => {
   try {
-    const users = storage.get(USER_KEY); 
+    const users = storage.get(USER_KEY);
 
     return Array.isArray(users) ? users : [];
   } catch (error) {
@@ -96,31 +95,36 @@ export const isAuthenticated = () => {
 // Update user profile in session
 export const updateProfile = (updates) => {
   try {
-    const currentUser = getCurrentUser();
+    const currentUser = storage.get(SESSION_KEY);
     if (!currentUser) {
-      return {
-        success: false,
-        message: "No user logged in",
-      };
+      return { success: false, message: "No user logged in" };
     }
 
-    // Merge updates with existing data
-    const updatedUser = {
+    const sessionUser = {
       ...currentUser,
       ...updates,
-      // Prevent overwriting critical fields
       id: currentUser.id,
       email: currentUser.email,
       loginTime: currentUser.loginTime,
     };
+    delete sessionUser.password;
 
-    // Update session in localStorage
-    storage.set(USER_KEY, updatedUser);
+    storage.set(SESSION_KEY, sessionUser);
+
+    const users = storage.get(USER_KEY) || [];
+    const userIndex = users.findIndex((u) => u.id === currentUser.id);
+    if (userIndex !== -1) {
+      users[userIndex] = {
+        ...users[userIndex],
+        ...updates,
+      };
+      storage.set(USER_KEY, users);
+    }
 
     return {
       success: true,
       message: "Profile updated successfully",
-      user: updatedUser,
+      user: sessionUser,
     };
   } catch (error) {
     console.error("Error updating profile:", error);
@@ -298,40 +302,39 @@ export const addAddress = (address) => {
 // Update address in user profile
 // Updates session only
 
-export const updateAddress = (addressId, updates) => {
+export const updateAddress = (updatedAddresses) => {
   try {
-    const currentUser = getCurrentUser();
-    if (!currentUser) {
-      return {
-        success: false,
-        message: "Please login first",
-      };
+    const sessionUser = storage.get(SESSION_KEY);
+    if (!sessionUser) {
+      return { success: false, message: "Please login first" };
     }
 
-    const addresses = currentUser.address || [];
-    const addressIndex = addresses.findIndex((addr) => addr.id === addressId);
+    const users = storage.get(USER_KEY) || [];
+    const userIndex = users.findIndex((u) => u.id === sessionUser.id);
 
-    if (addressIndex === -1) {
-      return {
-        success: false,
-        message: "Address not found",
-      };
+    if (userIndex === -1) {
+      return { success: false, message: "User not found" };
     }
 
-    addresses[addressIndex] = {
-      ...addresses[addressIndex],
-      ...updates,
-    };
+    users[userIndex].address = updatedAddresses;
 
-    return updateProfile({ address: addresses });
-  } catch (error) {
-    console.error("Error updating address:", error);
+    const newSessionUser = { ...sessionUser, address: updatedAddresses };
+    delete newSessionUser.password;
+
+    storage.set(USER_KEY, users);
+    storage.set(SESSION_KEY, newSessionUser);
+
     return {
-      success: false,
-      message: "An error occurred",
+      success: true,
+      message: "Addresses updated",
+      user: newSessionUser,
     };
+  } catch (error) {
+    console.error("Error updating addresses:", error);
+    return { success: false, message: "An error occurred" };
   }
 };
+
 
 // Remove address from user profile
 // Updates session only
@@ -454,7 +457,6 @@ export const resetPassword = async (email, newPassword) => {
   }
 };
 
-
 // Get user by ID from JSON file
 export const getUserById = async (userId) => {
   try {
@@ -471,5 +473,52 @@ export const getUserById = async (userId) => {
   } catch (error) {
     console.error("Error getting user by ID:", error);
     return null;
+  }
+};
+
+export const changePassword = ({ oldPassword, newPassword }) => {
+  try {
+    const sessionUser = storage.get(SESSION_KEY);
+    if (!sessionUser) {
+      return { success: false, message: "No user logged in" };
+    }
+
+    const users = storage.get(USER_KEY) || [];
+    const userIndex = users.findIndex((u) => u.id === sessionUser.id);
+
+    if (userIndex === -1) {
+      return { success: false, message: "User not found" };
+    }
+
+    const realUser = users[userIndex];
+
+    if (realUser.password !== oldPassword) {
+      return { success: false, message: "Old password is incorrect" };
+    }
+
+    // if (oldPassword === newPassword) {
+    //   return { success: false, message: "New password must be different" };
+    // }
+
+    users[userIndex] = {
+      ...realUser,
+      password: newPassword,
+    };
+    storage.set(USER_KEY, users);
+
+    const newSessionUser = { ...sessionUser };
+    delete newSessionUser.password;
+    storage.set(SESSION_KEY, newSessionUser);
+
+    return {
+      success: true,
+      message: "Password changed successfully",
+    };
+  } catch (error) {
+    console.error("Error changing password:", error);
+    return {
+      success: false,
+      message: "An error occurred while changing password",
+    };
   }
 };

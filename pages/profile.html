@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Account Info</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/pages/profile.css" />
+  </head>
+  <body data-page="profile">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <div class="account-page">
+      <aside class="sidebar">
+        <div class="user-info">
+          <div
+            class="user-avatar-wrapper"
+          >
+            <img
+              id="userAvatar"
+              src="/assets/images/users/default-avatar.png"
+              alt="User Avatar"
+            />
+            <label
+              for="avatarInput"
+              class="edit-avatar"
+            >
+              <i class="fa-solid fa-pencil"></i>
+            </label>
+            <input
+              type="file"
+              id="avatarInput"
+              accept="image/*"
+              style="display: none"
+            />
+          </div>
+
+          <strong class="user-name">Mark Cole</strong>
+          <span class="user-email">swoo@gmail.com</span>
+        </div>
+
+        <ul class="menu">
+          <li class="active" data-target="account-info">
+            Account info <i class="fa-solid fa-arrow-right-long"></i>
+          </li>
+          <li data-target="my-order">
+            My order <i class="fa-solid fa-arrow-right-long"></i>
+          </li>
+          <li data-target="my-address">
+            My address <i class="fa-solid fa-arrow-right-long"></i>
+          </li>
+          <li data-target="change-password">
+            Change password <i class="fa-solid fa-arrow-right-long"></i>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="content">
+        <form id="account-info" class="form active">
+          <h2>Account Info</h2>
+          <div class="row">
+            <div class="field">
+              <label for="firstName">First Name <span>*</span></label>
+              <input type="text" id="firstName" placeholder="Mark" required />
+            </div>
+
+            <div class="field">
+              <label for="lastName">Last Name <span>*</span></label>
+              <input type="text" id="lastName" placeholder="Cole" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Email Address <span>*</span></label>
+            <input
+              type="email"
+              id="email"
+              placeholder="swoo@gmail.com"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone Number (optional)</label>
+            <input type="text" id="phone" placeholder="+1 0231 4554 452" />
+          </div>
+
+          <button type="submit" class="btn">Save</button>
+        </form>
+
+        <form id="my-order" class="form">
+          <h2>My Order</h2>
+          <div id="orderList"></div>
+          <!-- Your order fields here -->
+          <div id="noOrdersMsg" class="hidden">
+            <p>You have no orders yet 🛒</p>
+          </div>
+        </form>
+
+        <form id="my-address" class="form">
+          <h2>My Address</h2>
+          <div class="field">
+            <label for="address1">Address 1 (Main)</label>
+            <textarea
+              id="address1"
+              rows="3"
+              placeholder="Street name, Building number, Area, City "
+              required
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="address2">Address 2 (Optional)</label>
+            <textarea
+              id="address2"
+              rows="3"
+              placeholder="Street name, Building number, Area, City "
+            ></textarea>
+          </div>
+          <button type="submit" class="btn">Save</button>
+        </form>
+
+        <form id="change-password" class="form">
+          <h2>Change Password</h2>
+
+          <!-- Old Password -->
+          <div class="field">
+            <label for="password">Old Password</label>
+            <div class="input-wrapper">
+              <input
+                type="password"
+                id="oldpassword"
+                placeholder="••••••••"
+                required
+              />
+              <i class="fa-solid fa-eye-slash toggle-password"></i>
+            </div>
+          </div>
+          <!-- New Password -->
+          <div class="field">
+            <label for="password">New Password</label>
+            <div class="input-wrapper">
+              <input
+                type="password"
+                id="newpassword"
+                placeholder="••••••••"
+                required
+              />
+              <i class="fa-solid fa-eye-slash toggle-password"></i>
+            </div>
+          </div>
+          <!-- Confirm Password -->
+          <div class="field">
+            <label for="password">Confirm New Password</label>
+            <div class="input-wrapper">
+              <input
+                type="password"
+                id="confirmpassword"
+                placeholder="••••••••"
+                required
+              />
+              <i class="fa-solid fa-eye-slash toggle-password"></i>
+            </div>
+            <div>
+              <span class="error-message" id="passwordError"></span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn disabled">Change Password</button>
+          <!-- Your password fields here -->
+        </form>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script type="module" src="../js/main.js"></script>
+  </body>
+</html>
