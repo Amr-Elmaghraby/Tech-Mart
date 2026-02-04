@@ -147,7 +147,7 @@ async function updateProfileData(currentUser) {
   userAvatar.src =
     currentUser.avatar || "../assets/images/users/default-avatar.png";
   userName.innerText =
-    currentUser.name.split(" ")[0] + " " + currentUser.name.split(" ")[1] || "";
+(currentUser.name.split(" ")[0] + " ") + (currentUser.name.split(" ")[1] || "");
   userEmail.textContent = currentUser.email;
 }
 

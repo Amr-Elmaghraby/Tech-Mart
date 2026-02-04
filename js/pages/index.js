@@ -12,9 +12,11 @@ const laptopbsproductsContainer = document.getElementById(
 
 const bestseller = document.getElementById("bestseller");
 const popular = document.getElementById("popular");
+const BASE_URL = window.location.origin;
 
 export async function init() {
   console.log("Home page initialized");
+
   renderSlider();
   await renderSubcategories();
   await renderTopCategories();
@@ -58,7 +60,7 @@ async function renderSubcategories() {
       const subcategoryElement = document.createElement("a");
       subcategoryElement.classList.add("subcategory");
       subcategoryElement.textContent = subcategory.name;
-      subcategoryElement.href = `products.html?subcategory=${subcategory.id}`;
+      subcategoryElement.href = `${BASE_URL}/pages/product.html?categoryId=${subcategory.categoryId}`;
 
       subcategoriesContainer.appendChild(subcategoryElement);
     });
@@ -213,7 +215,6 @@ function displayProducts(product, container) {
 }
 
 function createProductCard(product) {
-  const BASE_URL = window.location.origin;
   const card = document.createElement("div");
   card.className = "product-card";
   const hasDiscount = product.discount > 0 && product.originalPrice;
@@ -369,54 +370,53 @@ function renderSlider() {
   window.HeroSlider = HeroSlider;
 }
 
-
 // ===================================
 // DEALS OF THE DAY
 // ===================================
 
-console.log('Deals JS loaded');
+console.log("Deals JS loaded");
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initDeals);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initDeals);
 } else {
   initDeals();
 }
 
 function initDeals() {
-  console.log('Initializing deals...');
-  
-  const countdownElements = document.querySelectorAll('.countdown-unit');
-  const timerBlocks = document.querySelectorAll('.timer-block');
-  const thumbnails = document.querySelectorAll('.thumbnail-item');
-  const mainImage = document.querySelector('.deals-main__image img');
-  
-  console.log('Countdown elements:', countdownElements.length);
-  console.log('Timer blocks:', timerBlocks.length);
-  console.log('Thumbnails:', thumbnails.length);
-  console.log('Main image found:', mainImage ? 'Yes' : 'No');
-  
+  console.log("Initializing deals...");
+
+  const countdownElements = document.querySelectorAll(".countdown-unit");
+  const timerBlocks = document.querySelectorAll(".timer-block");
+  const thumbnails = document.querySelectorAll(".thumbnail-item");
+  const mainImage = document.querySelector(".deals-main__image img");
+
+  console.log("Countdown elements:", countdownElements.length);
+  console.log("Timer blocks:", timerBlocks.length);
+  console.log("Thumbnails:", thumbnails.length);
+  console.log("Main image found:", mainImage ? "Yes" : "No");
+
   // Always call these functions
   startCountdown();
   setupThumbnails();
   setupProgressBar();
-  
-  console.log('✓ Deals section initialized');
+
+  console.log("✓ Deals section initialized");
 }
 
 function startCountdown() {
-  console.log('Starting countdown timer...');
-  
+  console.log("Starting countdown timer...");
+
   const now = new Date();
   const endDate = new Date(
-    now.getTime() + 
-    (162 * 24 * 60 * 60 * 1000) + // 162 days
-    (9 * 60 * 60 * 1000) +        // 9 hours
-    (32 * 60 * 1000) +             // 32 minutes
-    (4 * 1000)                     // 4 seconds
+    now.getTime() +
+      162 * 24 * 60 * 60 * 1000 + // 162 days
+      9 * 60 * 60 * 1000 + // 9 hours
+      32 * 60 * 1000 + // 32 minutes
+      4 * 1000, // 4 seconds
   );
-  
-  console.log('Countdown will end at:', endDate);
-  
+
+  console.log("Countdown will end at:", endDate);
+
   updateTimers(endDate);
   setInterval(() => updateTimers(endDate), 1000);
 }
@@ -424,125 +424,129 @@ function startCountdown() {
 function updateTimers(endDate) {
   const now = new Date().getTime();
   const distance = endDate.getTime() - now;
-  
+
   if (distance < 0) {
-    console.log('Countdown expired');
+    console.log("Countdown expired");
     return;
   }
-  
+
   const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+  );
   const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
+
   // Update product countdown (d, h, m, s)
-  const countdownUnits = document.querySelectorAll('.countdown-unit');
+  const countdownUnits = document.querySelectorAll(".countdown-unit");
   if (countdownUnits.length >= 4) {
-    const numbers = countdownUnits[0].querySelectorAll('.countdown-number');
+    const numbers = countdownUnits[0].querySelectorAll(".countdown-number");
     if (numbers.length > 0) {
-      countdownUnits[0].querySelector('.countdown-number').textContent = days;
-      countdownUnits[1].querySelector('.countdown-number').textContent = hours;
-      countdownUnits[2].querySelector('.countdown-number').textContent = minutes;
-      countdownUnits[3].querySelector('.countdown-number').textContent = seconds;
+      countdownUnits[0].querySelector(".countdown-number").textContent = days;
+      countdownUnits[1].querySelector(".countdown-number").textContent = hours;
+      countdownUnits[2].querySelector(".countdown-number").textContent =
+        minutes;
+      countdownUnits[3].querySelector(".countdown-number").textContent =
+        seconds;
     }
   }
-  
+
   // Update header timer (DAYS, HOURS, MINS, SECS)
-  const timerBlocks = document.querySelectorAll('.timer-block');
+  const timerBlocks = document.querySelectorAll(".timer-block");
   if (timerBlocks.length >= 4) {
-    const values = timerBlocks[0].querySelectorAll('.timer-value');
+    const values = timerBlocks[0].querySelectorAll(".timer-value");
     if (values.length > 0) {
-      timerBlocks[0].querySelector('.timer-value').textContent = days;
-      timerBlocks[1].querySelector('.timer-value').textContent = hours;
-      timerBlocks[2].querySelector('.timer-value').textContent = minutes;
-      timerBlocks[3].querySelector('.timer-value').textContent = seconds;
+      timerBlocks[0].querySelector(".timer-value").textContent = days;
+      timerBlocks[1].querySelector(".timer-value").textContent = hours;
+      timerBlocks[2].querySelector(".timer-value").textContent = minutes;
+      timerBlocks[3].querySelector(".timer-value").textContent = seconds;
     }
   }
 }
 
 function setupThumbnails() {
-  console.log('Setting up thumbnail switcher...');
-  
-  const thumbnails = document.querySelectorAll('.thumbnail-item');
-  const mainImage = document.querySelector('.deals-main__image img');
-  
+  console.log("Setting up thumbnail switcher...");
+
+  const thumbnails = document.querySelectorAll(".thumbnail-item");
+  const mainImage = document.querySelector(".deals-main__image img");
+
   if (!mainImage) {
-    console.log('Main image not found');
+    console.log("Main image not found");
     return;
   }
-  
+
   if (thumbnails.length === 0) {
-    console.log('No thumbnails found');
+    console.log("No thumbnails found");
     return;
   }
-  
+
   // Store the currently locked image
   let lockedImageSrc = mainImage.src;
   let isHovering = false;
-  
+
   // Add transition to main image
-  mainImage.style.transition = 'opacity 0.2s ease';
-  
+  mainImage.style.transition = "opacity 0.2s ease";
+
   thumbnails.forEach((thumbnail, index) => {
-    const thumbImg = thumbnail.querySelector('img');
+    const thumbImg = thumbnail.querySelector("img");
     if (!thumbImg) return;
-    
+
     // HOVER - Preview image immediately
-    thumbnail.addEventListener('mouseenter', function() {
+    thumbnail.addEventListener("mouseenter", function () {
       isHovering = true;
-      console.log('Hovering thumbnail:', index);
-      
+      console.log("Hovering thumbnail:", index);
+
       // Change image instantly (no fade on hover)
       mainImage.src = thumbImg.src;
     });
-    
+
     // MOUSE LEAVE - Return to locked image
-    thumbnail.addEventListener('mouseleave', function() {
+    thumbnail.addEventListener("mouseleave", function () {
       isHovering = false;
-      console.log('Left thumbnail:', index);
-      
+      console.log("Left thumbnail:", index);
+
       // Return to locked image if not active
-      if (!this.classList.contains('thumbnail-item--active')) {
+      if (!this.classList.contains("thumbnail-item--active")) {
         mainImage.src = lockedImageSrc;
       }
     });
-    
+
     // CLICK - Lock this image as selected
-    thumbnail.addEventListener('click', function(e) {
+    thumbnail.addEventListener("click", function (e) {
       e.preventDefault();
-      console.log('Thumbnail clicked and locked:', index);
-      
+      console.log("Thumbnail clicked and locked:", index);
+
       // Remove active from all
-      thumbnails.forEach(t => t.classList.remove('thumbnail-item--active'));
-      
+      thumbnails.forEach((t) => t.classList.remove("thumbnail-item--active"));
+
       // Add active to this one
-      this.classList.add('thumbnail-item--active');
-      
+      this.classList.add("thumbnail-item--active");
+
       // Lock this image as the selected one
       lockedImageSrc = thumbImg.src;
       mainImage.src = lockedImageSrc;
     });
   });
-  
-  console.log('✓ Thumbnails ready (hover enabled)');
+
+  console.log("✓ Thumbnails ready (hover enabled)");
 }
 
 function setupProgressBar() {
-  console.log('Setting up progress bar...');
-  
-  const progressBar = document.querySelector('.progress-bar__fill');
-  
+  console.log("Setting up progress bar...");
+
+  const progressBar = document.querySelector(".progress-bar__fill");
+
   if (!progressBar) {
-    console.log('Progress bar not found');
+    console.log("Progress bar not found");
     return;
   }
-  
-  const targetWidth = progressBar.style.width || '38%';
-  progressBar.style.width = '0%';
-  progressBar.style.transition = 'width 1s ease';
-  
+
+  const targetWidth = progressBar.style.width || "38%";
+  progressBar.style.width = "0%";
+  progressBar.style.transition = "width 1s ease";
+
   setTimeout(() => {
     progressBar.style.width = targetWidth;
-    console.log('✓ Progress bar animated to:', targetWidth);
+    console.log("✓ Progress bar animated to:", targetWidth);
   }, 500);
 }

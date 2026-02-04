@@ -132,7 +132,7 @@ export async function updateUser() {
   const authStatus = await isAuthenticated(); // rename variable
   if (authStatus) {
     const user = await getCurrentUser();
-    var name = user.name.split(" ")[0] + " " + user.name.split(" ")[1] || "";
+    var name = (user.name.split(" ")[0] || "" )+ " " +( user.name.split(" ")[1] || "");
     welcomeLabel.classList.remove("hidden");
     userName.textContent = name;
     // Show user image
