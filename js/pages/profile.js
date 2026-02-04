@@ -1,4 +1,5 @@
 import * as userService from "../services/userService.js";
+import * as orderService from "../services/orderService.js";
 
 let menuItems;
 let forms;
@@ -18,6 +19,8 @@ let passwordError;
 let addressInput;
 let avatarInput;
 let userAvatar;
+let orderList;
+let noOrdersMsg;
 const internationalPhoneRegex = /^\+?\d{1,3}[\s-]?\d{1,4}([\s-]?\d{2,4}){2,3}$/;
 var passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 let currentUser;
@@ -42,6 +45,8 @@ export async function init() {
   addressInput = document.querySelectorAll("#my-address textarea");
   avatarInput = document.getElementById("avatarInput");
   userAvatar = document.getElementById("userAvatar");
+  orderList = document.getElementById("orderList");
+  noOrdersMsg = document.getElementById("noOrdersMsg");
 
   submitBtn.classList.add("disabled");
 
@@ -88,7 +93,7 @@ export async function init() {
         updateProfileInfo();
       } else if (target === "my-order") {
         submitBtn.classList.add("disabled");
-        renderOrders(orders);
+         await renderOrders();
       } else if (target === "my-address") {
         submitBtn.classList.add("disabled");
         renderAddresses();
@@ -101,7 +106,6 @@ export async function init() {
     const file = e.target.files[0];
     if (!file) return;
 
-    
     if (!file.type.startsWith("image/")) {
       alert("Please select a valid image file");
       return;
@@ -111,7 +115,6 @@ export async function init() {
     reader.onload = async function (event) {
       const base64Image = event.target.result;
 
-      
       userAvatar.src = base64Image;
 
       try {
@@ -146,25 +149,6 @@ async function updateProfileData(currentUser) {
   userName.innerText =
     currentUser.name.split(" ")[0] + " " + currentUser.name.split(" ")[1] || "";
   userEmail.textContent = currentUser.email;
-}
-
-function renderOrders(orders) {
-  const orderList = document.getElementById("orderList");
-  const noOrdersMsg = document.getElementById("noOrdersMsg");
-  orderList.innerHTML = "";
-
-  if (orders.length === 0) {
-    noOrdersMsg.classList.remove("hidden");
-  } else {
-    noOrdersMsg.classList.add("hidden");
-
-    orders.forEach((order) => {
-      const div = document.createElement("div");
-      div.classList.add("order-item");
-      div.textContent = `Order #${order.id} - ${order.productName}`;
-      orderList.appendChild(div);
-    });
-  }
 }
 
 function changePassword() {
@@ -404,4 +388,34 @@ function renderAddresses() {
       alert(err.message || "Something went wrong ❌");
     }
   };
+}
+
+async function renderOrders() {
+  const orders = await orderService.getOrdersForCurrentUser();
+  orderList.innerHTML = ""; 
+
+  if (!orders || orders.length === 0) {
+    noOrdersMsg.classList.remove("hidden");
+    return;
+  } else {
+    noOrdersMsg.classList.add("hidden");
+  }
+
+  orders.forEach((order) => {
+    const orderDiv = document.createElement("div");
+    orderDiv.classList.add("order-card");
+
+    orderDiv.innerHTML = `
+      <div class="order-info">
+        <p><strong>Order ID:</strong> ${order.id}</p>
+        <p><strong>Status:</strong> ${order.status}</p>
+        <p><strong>Created:</strong> ${new Date(order.createdAt).toLocaleDateString()} ${new Date(order.createdAt).toLocaleTimeString()}</p>
+      </div>
+      <div class="order-total">
+        $${order.summary.total.toFixed(2)}
+      </div>
+    `;
+
+    orderList.appendChild(orderDiv);
+  });
 }

@@ -522,3 +522,4 @@ export const changePassword = ({ oldPassword, newPassword }) => {
     };
   }
 };
+

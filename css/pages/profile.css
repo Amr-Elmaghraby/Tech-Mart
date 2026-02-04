@@ -256,3 +256,47 @@ label {
   opacity: 0.9;
   box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.15);
 }
+
+
+.orders-container {
+  max-height: 400px; /* ارتفاع قابل للتعديل */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 5px;
+}
+
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.order-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.order-total {
+  font-weight: bold;
+  color: #28a745;
+}
