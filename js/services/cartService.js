@@ -162,6 +162,7 @@ export const validatePromoCode = (code) => {
     SAVE10: 10,
     SAVE15: 15,
     FREESHIP: 0,
+    OMNIA_ELSHEIKH: 70,
   };
   return promos[c] || 0;
 };

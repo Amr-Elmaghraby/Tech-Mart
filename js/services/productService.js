@@ -95,10 +95,7 @@ export const getProductsByCategory = async (categoryId) => {
   }
 };
 
-/**
- * Search products by query string
- * Searches in name, description, and category
- **/
+
 export const searchProducts = async (loadedProducts = [], query) => {
   try {
     if (!query || query.trim() === "") {

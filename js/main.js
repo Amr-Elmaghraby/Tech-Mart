@@ -53,6 +53,11 @@ const loadPageModule = async (pageName) => {
         if (profilePage.init) await profilePage.init();
         break;
 
+      case "product":
+        const productPage = await import("./pages/product.js");
+        if (productPage.init) await productPage.init();
+        break;
+
       // case "product-detail":
       //   const { initProductDetailPage } =
       //     await import("./pages/productDetail.js");
