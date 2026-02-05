@@ -223,6 +223,7 @@
   /*Hide on mobile*/
   flex-direction: column;
   line-height: 1.2;
+  color: var(--color-primary);
 }
 
 .logo-text span {
