@@ -423,7 +423,7 @@ class ProductSection {
       .forEach((item) => {
         item.remove();
       });
-    this.elements.purchaseTitle.textContent = `Cart subtotal: ${getCartSubTotal()} $`;
+    this.elements.purchaseTitle.textContent = `Cart subtotal: ${getCartSubTotal()}`;
     this.elements.addToCartBtn.remove();
     this.elements.goToBasketBtn.style.display = "block";
     this.elements.purchaseBtnsContainer.classList.add("added_to_cart");
@@ -880,7 +880,7 @@ class FrequencySection
         try{
           const titleEl = this.elements.frequencyPurchaseContainer.querySelector('.single-product__purchase-title');
           titleEl.classList.add('added_to_cart');
-          titleEl.textContent = `Cart subtotal: ${getCartSubTotal()} $`;
+          titleEl.textContent = `Cart subtotal: ${getCartSubTotal()}`;
           addBtn.style.display = 'none';
           if(goToBasketBtn) goToBasketBtn.style.display = 'block';
           this.elements.frequencyPurchaseBtnsContainer?.classList.add('added_to_cart');

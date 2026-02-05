@@ -1,7 +1,11 @@
 import * as productService from "../services/productService.js";
 import { formatPrice } from "../core/utils.js";
 import { getCartItemCount, getCartSubtotal } from "../services/cartService.js";
-import { isAuthenticated, getCurrentUser, logout } from "../services/userService.js";
+import {
+  isAuthenticated,
+  getCurrentUser,
+  logout,
+} from "../services/userService.js";
 
 let subcategoriesSelector;
 let searchInput;
@@ -37,7 +41,7 @@ export const initHeader = async () => {
   usericonwrapper = document.querySelector(".user-icon-wrapper");
   userWrapper = document.querySelector(".user-wrapper");
   profileMenu = document.querySelector(".profile-menu");
-
+  
   if (
     !subcategoriesSelector ||
     !searchInput ||
@@ -98,7 +102,35 @@ export const initHeader = async () => {
   }
 
   await initSearch();
+  setActiveNav();
 };
+
+// Set `.active` on nav links based on current URL
+function setActiveNav() {
+  const navLinks = document.querySelectorAll(".header__nav a");
+  if (!navLinks || navLinks.length === 0) return;
+
+  const currentFile = (
+    window.location.pathname.split("/").pop() || "index.html"
+  ).toLowerCase();
+
+  navLinks.forEach((a) => {
+    try {
+      const linkFile = (
+        new URL(a.getAttribute("href"), window.location.href).pathname
+          .split("/")
+          .pop() || "index.html"
+      ).toLowerCase();
+      if (linkFile === currentFile) {
+        a.classList.add("active");
+      } else {
+        a.classList.remove("active");
+      }
+    } catch (err) {
+      // ignore invalid URLs
+    }
+  });
+}
 
 // Update placeholder
 const updatePlaceholder = () => {
@@ -153,10 +185,10 @@ export async function updateUser() {
     });
 
     userImage.addEventListener("click", (e) => {
-            if (!user) return;
-            e.stopPropagation();
-            profileMenu.classList.toggle("hidden");
-    })
+      if (!user) return;
+      e.stopPropagation();
+      profileMenu.classList.toggle("hidden");
+    });
 
     // Logout
     document.getElementById("logoutBtn").addEventListener("click", async () => {
@@ -171,7 +203,6 @@ export async function updateUser() {
         alert("Something went wrong while logging out. Try again.");
       }
     });
-
   } else {
     welcomeLabel.classList.add("hidden");
     // Hide user image

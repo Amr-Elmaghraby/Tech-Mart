@@ -220,14 +220,14 @@ body {
 
 .single-product__basket-btn {
     width: 100%;
-    color: var(--text-inverse);
+    color: var(--color-bg-gray);
     background-color: var(--color-bucket-btn);
     font-size: 1em;
     transition: background-color 0.3s ease-in-out;
     display: none;
 }
-
-.single-product__basket-btn.active:hover {
+.single-product__basket-btn.active:hover
+{
     background-color: var(--color-bucket-btn-hover);
 }
 
@@ -439,6 +439,12 @@ body {
 
 .single-product__freq-aside img {
     height: 50%;
+}
+
+.single-product__freq-aside img:hover{
+    transform: scale(1.02) translateY(-3px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
 }
 
 .single-product__freq-main {

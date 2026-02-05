@@ -45,7 +45,7 @@
 
 .progress-step.active .step-number {
   background: var(--color-primary);
-  color: var(--text-inverse);
+  color: var(--color-text-white);
 }
 
 .step-label {
@@ -135,7 +135,7 @@
   font-family: var(--font-main);
   transition: all 0.2s ease;
   background: var(--color-bg);
-  color: var(--color-text);
+  color: var(--color-text-toggle);
 }
 
 .form-field input:focus,
@@ -218,7 +218,7 @@
   width: 100%;
   padding: var(--space-md) var(--space-lg);
   background: var(--color-primary);
-  color: var(--text-inverse);
+  color: var(--color-text-white);
   border: none;
   border-radius: 6px;
   font-size: var(--font-size-base);
@@ -232,6 +232,7 @@
   background: var(--color-primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(43, 191, 75, 0.3);
+  font-weight: bolder;
 }
 
 .btn-place-order:disabled {
@@ -385,6 +386,7 @@
 .btn-apply-promo {
   padding: var(--space-md) var(--space-lg);
   background: var(--color-bg-soft);
+  color: var(--color-text-toggle);
   border: 1px solid var(--color-border);
   border-radius: 6px;
   font-size: var(--font-size-sm);
@@ -416,8 +418,8 @@
 }
 
 .continue-shopping:hover {
-  background: rgba(43, 191, 75, 0.1);
-  color: var(--color-primary-hover);
+  background: rgba(43, 191, 75, 0.8);
+  color: var(--color-text-toggle);
   border-color: var(--color-primary-hover);
 }
 

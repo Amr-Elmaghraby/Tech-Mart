@@ -246,7 +246,7 @@ class CartPage {
               data-cart-id="${cartItem.id}"
               ${quantity <= 1 ? 'disabled' : ''}
             >
-            
+              -
             </button>
             <span class="quantity-value">${quantity}</span>
             <button 
