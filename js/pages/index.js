@@ -88,7 +88,7 @@ async function renderTopCategories() {
       categoryElement.appendChild(categoryImage);
       categoryElement.appendChild(categoryTitle);
 
-      categoryElement.href = `products.html?category=${category.id}`;
+      categoryElement.href = `/pages/product.html?categoryId=${category.id}`;
       categoriesContainer.appendChild(categoryElement);
     });
   } catch (error) {

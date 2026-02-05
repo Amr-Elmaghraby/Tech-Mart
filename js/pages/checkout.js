@@ -1,4 +1,5 @@
 import * as storage from "../core/storage.js";
+import APP_CONFIG from "../core/config.js";
 import * as productService from "../services/productService.js";
 import * as cartService from "../services/cartService.js";
 import * as userService from "../services/userService.js";
@@ -29,9 +30,7 @@ let orderSummary = {
 
 // ===== INITIALIZATION =====
 document.addEventListener("DOMContentLoaded", initCheckout);
-window.addEventListener("beforeunload", () => {
-  
-});
+window.addEventListener("beforeunload", () => {});
 
 async function initCheckout() {
   // Check if this is a "Buy Now" flow
@@ -44,7 +43,7 @@ async function initCheckout() {
     // Load cart items normally
     loadCart();
   }
-  
+
   // Load user data if logged in
   const currentUser = userService.getCurrentUser();
   if (currentUser) {
@@ -54,6 +53,29 @@ async function initCheckout() {
   // Update summary
   updateOrderSummary();
 
+  // Restore promo applied in cart (if any) only when NOT a buyNow flow
+  if (!isBuyNow) {
+    try {
+      const storedPromo = storage.get("promo");
+      if (storedPromo && storedPromo.percent) {
+        // apply discount as amount
+        orderSummary.discount =
+          orderSummary.subtotal * (storedPromo.percent / 100);
+        if (promoInput) {
+          promoInput.value = storedPromo.code || "";
+          promoInput.disabled = true;
+        }
+        updateOrderSummary();
+        showNotification(
+          `Promo code applied: ${storedPromo.percent}% off`,
+          "success",
+        );
+      }
+    } catch (err) {
+      // ignore storage errors
+    }
+  }
+
   // Attach event listeners
   checkoutForm.addEventListener("submit", handleCheckoutSubmit);
   applyPromoBtn.addEventListener("click", handleApplyPromo);
@@ -62,19 +84,18 @@ async function initCheckout() {
 // ===== LOAD BUY NOW =====
 function loadBuyNow() {
   try {
-      cartItems = cartService.getBuyNow();
-      console.log(cartItems);
-      
-      if(cartItems.length === 0 ){
-          summaryItems.innerHTML = '<p class="empty-message">No items in order</p>';
-          return;
-        }
-        else{
-          renderCartItems();
-          // Clean up buyNow data
-          localStorage.removeItem("buyNow");
-        }
-    } catch (error) {
+    cartItems = cartService.getBuyNow();
+    console.log(cartItems);
+
+    if (cartItems.length === 0) {
+      summaryItems.innerHTML = '<p class="empty-message">No items in order</p>';
+      return;
+    } else {
+      renderCartItems();
+      // Clean up buyNow data
+      localStorage.removeItem("buyNow");
+    }
+  } catch (error) {
     console.error("Error loading buy now data:", error);
     summaryItems.innerHTML = '<p class="empty-message">Error loading order</p>';
   }
@@ -83,7 +104,7 @@ function loadBuyNow() {
 // ===== LOAD CART =====
 function loadCart() {
   cartItems = cartService.getCart();
-  
+
   if (cartItems.length === 0) {
     summaryItems.innerHTML = '<p class="empty-message">Your cart is empty</p>';
     return;
@@ -101,7 +122,7 @@ function renderCartItems() {
 
 function createCartItemElement(item) {
   // Support both cart items and buyNow items
-  const itemTotal = item.totalPrice || ((item.price || 0) * (item.quantity || 1));
+  const itemTotal = item.totalPrice || (item.price || 0) * (item.quantity || 1);
   const quantity = item.quantity || 1;
   const thumbnail =
     item.thumbnail || item.image || "../assets/images/icons/no-image.png";
@@ -125,15 +146,19 @@ function createCartItemElement(item) {
 function updateOrderSummary() {
   // Calculate subtotal - support both cart items and buyNow items
   orderSummary.subtotal = cartItems.reduce((sum, item) => {
-    const itemTotal = item.totalPrice || ((item.price || 0) * (item.quantity || 1));
+    const itemTotal =
+      item.totalPrice || (item.price || 0) * (item.quantity || 1);
     return sum + itemTotal;
   }, 0);
 
-  // Calculate tax (assume 10% tax)
-  orderSummary.tax = orderSummary.subtotal * 0.1;
+  // Tax (use centralized config)
+  orderSummary.tax = orderSummary.subtotal * APP_CONFIG.pricing.taxRate;
 
-  // Shipping (free above $100)
-  orderSummary.shipping = orderSummary.subtotal > 100 ? 0 : 10;
+  // Shipping (use centralized config and same threshold logic as cart)
+  orderSummary.shipping =
+    orderSummary.subtotal >= APP_CONFIG.pricing.freeShippingThreshold
+      ? 0
+      : APP_CONFIG.pricing.shippingCost;
 
   // Calculate total
   orderSummary.total =
@@ -146,9 +171,7 @@ function updateOrderSummary() {
   subtotalEl.textContent = formatPrice(orderSummary.subtotal);
   taxEl.textContent = formatPrice(orderSummary.tax);
   shippingEl.textContent =
-    orderSummary.shipping === 0
-      ? "FREE"
-      : formatPrice(orderSummary.shipping);
+    orderSummary.shipping === 0 ? "FREE" : formatPrice(orderSummary.shipping);
   totalEl.textContent = formatPrice(Math.max(orderSummary.total, 0));
 }
 
@@ -214,6 +237,12 @@ async function handleCheckoutSubmit(e) {
 
     // Clear cart
     cartService.clearCart();
+    // Clear stored promo after successful order
+    try {
+      storage.remove("promo");
+    } catch (err) {
+      console.warn("Could not remove promo from storage:", err);
+    }
 
     // Show success modal
     hideLoadingModal();
@@ -232,22 +261,18 @@ async function handleCheckoutSubmit(e) {
 
 // ===== HANDLE PROMO CODE =====
 function handleApplyPromo() {
-  const code = promoInput.value.trim().toUpperCase();
+  const code = promoInput.value.trim();
 
   if (!code) {
     showNotification("Please enter a promo code", "error");
     return;
   }
 
-  // Simple promo code logic (expand as needed)
-  const promoCodes = {
-    SAVE10: 0.1, // 10% off
-    SAVE20: 0.2, // 20% off
-    WELCOME: 0.15, // 15% off
-  };
+  // Use central cartService validation so promos match cart behavior
+  const percent = cartService.validatePromoCode(code);
 
-  if (promoCodes[code]) {
-    const discountAmount = orderSummary.subtotal * promoCodes[code];
+  if (percent > 0) {
+    const discountAmount = orderSummary.subtotal * (percent / 100);
     orderSummary.discount = discountAmount;
 
     showNotification(
