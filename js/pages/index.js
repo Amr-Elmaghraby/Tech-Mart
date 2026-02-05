@@ -409,7 +409,7 @@ function startCountdown() {
   const now = new Date();
   const endDate = new Date(
     now.getTime() +
-      162 * 24 * 60 * 60 * 1000 + // 162 days
+      1 * 24 * 60 * 60 * 1000 + // 162 days
       9 * 60 * 60 * 1000 + // 9 hours
       32 * 60 * 1000 + // 32 minutes
       4 * 1000, // 4 seconds
