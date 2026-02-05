@@ -228,7 +228,8 @@ body {
 }
 
 .single-product__basket-btn.active:hover {
-    background-color: var(--color-bucket-btn-hover);
+    background-color: var(--color-primary-hover);
+    color: var(--color-text-white);
 }
 
 .single-product__buy-now-btn {
@@ -439,6 +440,12 @@ body {
 
 .single-product__freq-aside img {
     height: 50%;
+}
+
+.single-product__freq-aside img:hover {
+    transform: scale(1.01) translateY(-3px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
 }
 
 .single-product__freq-main {

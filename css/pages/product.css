@@ -201,6 +201,7 @@ body {
   text-decoration: none;
   color: #333;
   display: block;
+  cursor: pointer;
   transition: 
     background-color 0.2s ease,
     color 0.2s ease,
@@ -215,7 +216,7 @@ body {
 
 .product__dashboard-sidebar .categories-links a.active {
   color: var(--color-primary);                 
-  background-color: #e9f7ef;
+  background-color: rgba(43, 191, 75,0.2);
   transform: translateX(6px);     
   font-weight: 600;
   position: relative;
@@ -294,7 +295,7 @@ body {
 }
 
 .carousel__button:hover {
-  background: rgba(255, 255, 255, 1);
+  background: var(--color-primary-hover);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-50%) scale(1.1);
 }

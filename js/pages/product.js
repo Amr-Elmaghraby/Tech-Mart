@@ -198,7 +198,7 @@ async function renderCategories() {
       });
 
       const params = new URLSearchParams(window.location.search);
-      const categoryFromUrl = params.get("categoryId") || "cat-002";
+      const categoryFromUrl = params.get("categoryId") || "cat-003";
 
       if (categoryFromUrl) {
         const activeLink = container.querySelector(

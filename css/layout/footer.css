@@ -182,6 +182,7 @@ footer {
     font-size: var(--font-size-sm);
     width: 300px;
     background: none;
+    color: var(--color-text-toggle);
 }
 
 .newsletter__input:focus {

@@ -81,12 +81,13 @@
         .form-textarea {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--color-primary);
             border-radius: 4px;
             font-size: 14px;
             font-family: inherit;
             transition: border-color 0.3s;
-            background: white;
+            background-color: var(--color-bg);
+            color:var(--color-text-toggle);
         }
 
         .form-input:focus,
@@ -95,7 +96,7 @@
         .form-select:focus,
         .form-textarea:focus {
             outline: none;
-            border-color: #4CAF50;
+            border: 2px solid var(--color-primary-hover);
         }
 
         .form-textarea {
