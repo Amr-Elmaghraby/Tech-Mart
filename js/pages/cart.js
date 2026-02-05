@@ -37,6 +37,7 @@ class CartPage {
       subtotalAmount: null,
       shippingAmount: null,
       taxAmount: null,
+      saveAmount: null,
       totalAmount: null,
       totalItemsCount: null,
       promoCodeInput: null,
@@ -64,6 +65,32 @@ class CartPage {
 
       // Render the cart
       await this.renderCart();
+
+      // Ensure save amount defaults to zero in UI
+      try {
+        if (this.elements.saveAmount) this.elements.saveAmount.textContent = formatPrice(0);
+      } catch (e) {}
+
+      // Restore promo if previously applied
+      try {
+        const storedPromo = storage.get("promo");
+        if (storedPromo && storedPromo.percent) {
+          this.discountPercent = storedPromo.percent;
+          if (this.elements.promoCodeInput) {
+            this.elements.promoCodeInput.value = storedPromo.code || "";
+            this.elements.promoCodeInput.disabled = true;
+          }
+          // update UI with saved amount
+          try {
+            const totals = cartService.getCartTotal();
+            const saved = storedPromo.saved || totals.subtotal * (storedPromo.percent / 100);
+            if (this.elements.saveAmount) this.elements.saveAmount.textContent = formatPrice(saved);
+            if (this.elements.clearPromoBtn) this.elements.clearPromoBtn.style.display = "inline-block";
+          } catch (err) {}
+        }
+      } catch (err) {
+        // ignore storage errors
+      }
 
       // Attach event listeners
       this.attachEventListeners();
@@ -119,10 +146,12 @@ class CartPage {
     this.elements.totalItemsCount = document.getElementById("totalItemsCount");
     this.elements.promoCodeInput = document.getElementById("promoCodeInput");
     this.elements.promoMessage = document.getElementById("promoMessage");
+    this.elements.clearPromoBtn = document.getElementById("clearPromoBtn");
     this.elements.applyPromoBtn = document.getElementById("applyPromoBtn");
     this.elements.checkoutBtn = document.getElementById("checkoutBtn");
     this.elements.notificationToast =
       document.getElementById("notificationToast");
+    this.elements.saveAmount = document.getElementById("saveAmount");
   }
 
   /* ============================================
@@ -298,6 +327,24 @@ class CartPage {
     this.elements.taxAmount.textContent = formatPrice(totals.tax);
     this.elements.totalAmount.textContent = formatPrice(finalTotal);
 
+    // Update saved amount (default 0)
+    try {
+      const saved = this.discountPercent > 0 ? totals.subtotal * (this.discountPercent / 100) : 0;
+      if (this.elements.saveAmount) this.elements.saveAmount.textContent = formatPrice(saved);
+      // persist saved amount with promo
+      if (this.discountPercent > 0) {
+        try {
+          storage.set("promo", {
+            code: this.elements.promoCodeInput?.value || "",
+            percent: this.discountPercent,
+            saved: saved,
+          });
+        } catch (err) {}
+      }
+    } catch (err) {
+      // ignore UI errors
+    }
+
     // Show free shipping message if eligible
     if (totals.freeShippingEligible && this.elements.notificationToast) {
       this.showNotification("🎉 You qualify for free shipping!", "success");
@@ -328,6 +375,13 @@ class CartPage {
     if (this.elements.applyPromoBtn) {
       this.elements.applyPromoBtn.addEventListener("click", () => {
         this.handleApplyPromo();
+      });
+    }
+
+    // Clear promo button
+    if (this.elements.clearPromoBtn) {
+      this.elements.clearPromoBtn.addEventListener("click", () => {
+        this.handleClearPromo();
       });
     }
 
@@ -434,10 +488,14 @@ class CartPage {
     if (discount) {
       this.discountPercent = discount;
       this.updateOrderSummary();
-      this.showPromoMessage(`✓ ${discount}% discount applied!`, "success");
+      const totals = cartService.getCartTotal();
+      const saved = totals.subtotal * (discount / 100);
+      this.showPromoMessage(`✓ ${discount}% discount applied — You saved ${formatPrice(saved)}`, "success");
       this.showNotification(`Promo code applied: ${discount}% off`, "success");
       try {
-        storage.set("promo", { code, percent: discount });
+        storage.set("promo", { code, percent: discount, saved });
+        if (this.elements.promoCodeInput) this.elements.promoCodeInput.disabled = true;
+        if (this.elements.clearPromoBtn) this.elements.clearPromoBtn.style.display = "inline-block";
       } catch (err) {
         console.warn("Could not persist promo code:", err);
       }
@@ -448,7 +506,33 @@ class CartPage {
       } catch (err) {
         // ignore
       }
+      try {
+        if (this.elements.promoCodeInput) this.elements.promoCodeInput.disabled = false;
+        if (this.elements.saveAmount) this.elements.saveAmount.textContent = formatPrice(0);
+        if (this.elements.clearPromoBtn) this.elements.clearPromoBtn.style.display = "none";
+      } catch (err) {}
     }
+  }
+
+  /* ============================================
+     CLEAR APPLIED PROMO
+     ============================================ */
+  handleClearPromo() {
+    this.discountPercent = 0;
+    try {
+      storage.remove("promo");
+    } catch (err) {
+      // ignore
+    }
+    if (this.elements.promoCodeInput) {
+      this.elements.promoCodeInput.disabled = false;
+      this.elements.promoCodeInput.value = "";
+    }
+    if (this.elements.saveAmount) this.elements.saveAmount.textContent = formatPrice(0);
+    if (this.elements.clearPromoBtn) this.elements.clearPromoBtn.style.display = "none";
+    this.updateOrderSummary();
+    this.showPromoMessage("", "");
+    this.showNotification("Promo removed", "success");
   }
 
   /* ============================================
