@@ -12,11 +12,12 @@
    ============================================ */
 
 // Import existing services
-import * as cartService from '../services/cartService.js';
-import { getProductById } from '../services/productService.js';
-import * as userService from '../services/userService.js';
-import { formatPrice } from '../core/utils.js';
-import { updateCartBadge } from '../components/header.js';
+import * as cartService from "../services/cartService.js";
+import { getProductById } from "../services/productService.js";
+import * as userService from "../services/userService.js";
+import { formatPrice } from "../core/utils.js";
+import { updateCartBadge } from "../components/header.js";
+import * as storage from "../core/storage.js";
 
 /* ============================================
    CART PAGE CLASS
@@ -26,7 +27,7 @@ class CartPage {
   constructor() {
     this.cart = [];
     this.discountPercent = 0;
-    
+
     // DOM Elements (will be cached after init)
     this.elements = {
       emptyCartMessage: null,
@@ -42,7 +43,7 @@ class CartPage {
       promoMessage: null,
       applyPromoBtn: null,
       checkoutBtn: null,
-      notificationToast: null
+      notificationToast: null,
     };
   }
 
@@ -54,32 +55,32 @@ class CartPage {
     try {
       // Cache DOM elements FIRST (before trying to use them)
       this.cacheElements();
-      
+
       // Load header and footer partials (optional - won't break if they fail)
       await this.loadPartials();
-      
+
       // Load cart from localStorage
       this.loadCart();
-      
+
       // Render the cart
       await this.renderCart();
-      
+
       // Attach event listeners
       this.attachEventListeners();
-      
+
       // Update header cart badge (only if header exists)
       try {
         await updateCartBadge();
       } catch (error) {
-        console.log('Header badge update skipped (header not loaded)');
+        console.log("Header badge update skipped (header not loaded)");
       }
-      
-      console.log('✓ Cart page initialized successfully');
+
+      console.log("✓ Cart page initialized successfully");
     } catch (error) {
-      console.error('❌ Cart initialization error:', error);
+      console.error("❌ Cart initialization error:", error);
       // Only show notification if the element exists
       if (this.elements.notificationToast) {
-        this.showNotification('Failed to load cart', 'error');
+        this.showNotification("Failed to load cart", "error");
       }
     }
   }
@@ -90,11 +91,11 @@ class CartPage {
   async loadPartials() {
     try {
       await Promise.all([
-        loadPartial('header', 'partials/header.html'),
-        loadPartial('footer', 'partials/footer.html')
+        loadPartial("header", "partials/header.html"),
+        loadPartial("footer", "partials/footer.html"),
       ]);
     } catch (error) {
-      console.log('Partials not loaded (this is OK, continuing without them)');
+      console.log("Partials not loaded (this is OK, continuing without them)");
       // Continue even if partials fail - not critical
     }
   }
@@ -104,20 +105,24 @@ class CartPage {
      Store references to avoid repeated queries
      ============================================ */
   cacheElements() {
-    this.elements.emptyCartMessage = document.getElementById('emptyCartMessage');
-    this.elements.cartItemsList = document.getElementById('cartItemsList');
-    this.elements.orderSummary = document.getElementById('orderSummary');
-    this.elements.continueShoppingSection = document.getElementById('continueShoppingSection');
-    this.elements.subtotalAmount = document.getElementById('subtotalAmount');
-    this.elements.shippingAmount = document.getElementById('shippingAmount');
-    this.elements.taxAmount = document.getElementById('taxAmount');
-    this.elements.totalAmount = document.getElementById('totalAmount');
-    this.elements.totalItemsCount = document.getElementById('totalItemsCount');
-    this.elements.promoCodeInput = document.getElementById('promoCodeInput');
-    this.elements.promoMessage = document.getElementById('promoMessage');
-    this.elements.applyPromoBtn = document.getElementById('applyPromoBtn');
-    this.elements.checkoutBtn = document.getElementById('checkoutBtn');
-    this.elements.notificationToast = document.getElementById('notificationToast');
+    this.elements.emptyCartMessage =
+      document.getElementById("emptyCartMessage");
+    this.elements.cartItemsList = document.getElementById("cartItemsList");
+    this.elements.orderSummary = document.getElementById("orderSummary");
+    this.elements.continueShoppingSection = document.getElementById(
+      "continueShoppingSection",
+    );
+    this.elements.subtotalAmount = document.getElementById("subtotalAmount");
+    this.elements.shippingAmount = document.getElementById("shippingAmount");
+    this.elements.taxAmount = document.getElementById("taxAmount");
+    this.elements.totalAmount = document.getElementById("totalAmount");
+    this.elements.totalItemsCount = document.getElementById("totalItemsCount");
+    this.elements.promoCodeInput = document.getElementById("promoCodeInput");
+    this.elements.promoMessage = document.getElementById("promoMessage");
+    this.elements.applyPromoBtn = document.getElementById("applyPromoBtn");
+    this.elements.checkoutBtn = document.getElementById("checkoutBtn");
+    this.elements.notificationToast =
+      document.getElementById("notificationToast");
   }
 
   /* ============================================
@@ -126,7 +131,7 @@ class CartPage {
      ============================================ */
   loadCart() {
     this.cart = cartService.getCart();
-    console.log('Cart loaded:', this.cart);
+    console.log("Cart loaded:", this.cart);
   }
 
   /* ============================================
@@ -135,16 +140,16 @@ class CartPage {
      ============================================ */
   async renderCart() {
     if (!this.elements.cartItemsList) {
-      console.error('Cart elements not found in DOM');
+      console.error("Cart elements not found in DOM");
       return;
     }
-    
+
     if (this.cart.length === 0) {
       this.showEmptyCart();
     } else {
       await this.showCartItems();
     }
-    
+
     this.updateOrderSummary();
   }
 
@@ -153,19 +158,19 @@ class CartPage {
      ============================================ */
   showEmptyCart() {
     if (this.elements.emptyCartMessage) {
-      this.elements.emptyCartMessage.classList.remove('hidden');
+      this.elements.emptyCartMessage.classList.remove("hidden");
     }
     if (this.elements.cartItemsList) {
-      this.elements.cartItemsList.classList.remove('visible');
+      this.elements.cartItemsList.classList.remove("visible");
     }
     if (this.elements.orderSummary) {
-      this.elements.orderSummary.classList.remove('visible');
+      this.elements.orderSummary.classList.remove("visible");
     }
     if (this.elements.continueShoppingSection) {
-      this.elements.continueShoppingSection.classList.remove('visible');
+      this.elements.continueShoppingSection.classList.remove("visible");
     }
     if (this.elements.totalItemsCount) {
-      this.elements.totalItemsCount.textContent = '0';
+      this.elements.totalItemsCount.textContent = "0";
     }
   }
 
@@ -175,28 +180,28 @@ class CartPage {
   async showCartItems() {
     // Hide empty message
     if (this.elements.emptyCartMessage) {
-      this.elements.emptyCartMessage.classList.add('hidden');
+      this.elements.emptyCartMessage.classList.add("hidden");
     }
-    
+
     // Show cart sections
     if (this.elements.cartItemsList) {
-      this.elements.cartItemsList.classList.add('visible');
+      this.elements.cartItemsList.classList.add("visible");
     }
     if (this.elements.orderSummary) {
-      this.elements.orderSummary.classList.add('visible');
+      this.elements.orderSummary.classList.add("visible");
     }
     if (this.elements.continueShoppingSection) {
-      this.elements.continueShoppingSection.classList.add('visible');
+      this.elements.continueShoppingSection.classList.add("visible");
     }
-    
+
     // Generate HTML for all items
-    const itemsHTML = this.cart.map((cartItem, index) => 
-      this.createCartItemHTML(cartItem, index)
+    const itemsHTML = this.cart.map((cartItem, index) =>
+      this.createCartItemHTML(cartItem, index),
     );
-    
+
     // Insert into DOM
-    this.elements.cartItemsList.innerHTML = itemsHTML.join('');
-    
+    this.elements.cartItemsList.innerHTML = itemsHTML.join("");
+
     // Update total items count
     const totalItems = cartService.getCartItemCount();
     if (this.elements.totalItemsCount) {
@@ -221,13 +226,13 @@ class CartPage {
     // YOUR cart items ARE the products - no nested product object
     const quantity = cartItem.quantity || 1;
     const itemTotal = cartItem.price * quantity;
-    
+
     return `
       <div class="cart-item" data-cart-id="${cartItem.id}">
         <!-- Product Image -->
         <div class="cart-item-image">
           <img 
-            src="${cartItem.thumbnail || cartItem.image || '/assets/images/logo/logo.svg'}" 
+            src="${cartItem.thumbnail || cartItem.image || "/assets/images/logo/logo.svg"}" 
             alt="${cartItem.name}"
             onerror="this.src='/assets/images/logo/logo.svg'"
           />
@@ -236,7 +241,7 @@ class CartPage {
         <!-- Product Details -->
         <div class="cart-item-details">
           <h3>${cartItem.name}</h3>
-          <p>${cartItem.description || ''}</p>
+          <p>${cartItem.description || ""}</p>
           <div class="cart-item-price">${formatPrice(cartItem.price)}</div>
           
           <!-- Quantity Controls -->
@@ -244,7 +249,7 @@ class CartPage {
             <button 
               class="btn-quantity-decrease" 
               data-cart-id="${cartItem.id}"
-              ${quantity <= 1 ? 'disabled' : ''}
+              ${quantity <= 1 ? "disabled" : ""}
             >
               -
             </button>
@@ -275,26 +280,27 @@ class CartPage {
      ============================================ */
   updateOrderSummary() {
     if (!this.elements.subtotalAmount) return;
-    
+
     // Get totals from YOUR cartService
     const totals = cartService.getCartTotal();
-    
+
     // Apply discount if promo code was used
     let finalTotal = totals.total;
     if (this.discountPercent > 0) {
       const discount = totals.subtotal * (this.discountPercent / 100);
       finalTotal = totals.total - discount;
     }
-    
+
     // Update DOM
     this.elements.subtotalAmount.textContent = formatPrice(totals.subtotal);
-    this.elements.shippingAmount.textContent = totals.shipping === 0 ? 'FREE' : formatPrice(totals.shipping);
+    this.elements.shippingAmount.textContent =
+      totals.shipping === 0 ? "FREE" : formatPrice(totals.shipping);
     this.elements.taxAmount.textContent = formatPrice(totals.tax);
     this.elements.totalAmount.textContent = formatPrice(finalTotal);
-    
+
     // Show free shipping message if eligible
     if (totals.freeShippingEligible && this.elements.notificationToast) {
-      this.showNotification('🎉 You qualify for free shipping!', 'success');
+      this.showNotification("🎉 You qualify for free shipping!", "success");
     }
   }
 
@@ -303,39 +309,39 @@ class CartPage {
      ============================================ */
   attachEventListeners() {
     if (!this.elements.cartItemsList) return;
-    
+
     // Use event delegation for cart items (more efficient)
-    this.elements.cartItemsList.addEventListener('click', (e) => {
+    this.elements.cartItemsList.addEventListener("click", (e) => {
       const cartId = e.target.dataset.cartId;
       if (!cartId) return;
-      
-      if (e.target.classList.contains('btn-quantity-increase')) {
+
+      if (e.target.classList.contains("btn-quantity-increase")) {
         this.handleQuantityIncrease(cartId);
-      } else if (e.target.classList.contains('btn-quantity-decrease')) {
+      } else if (e.target.classList.contains("btn-quantity-decrease")) {
         this.handleQuantityDecrease(cartId);
-      } else if (e.target.classList.contains('btn-remove')) {
+      } else if (e.target.classList.contains("btn-remove")) {
         this.handleRemoveItem(cartId);
       }
     });
-    
+
     // Promo code button
     if (this.elements.applyPromoBtn) {
-      this.elements.applyPromoBtn.addEventListener('click', () => {
+      this.elements.applyPromoBtn.addEventListener("click", () => {
         this.handleApplyPromo();
       });
     }
-    
+
     // Checkout button
     if (this.elements.checkoutBtn) {
-      this.elements.checkoutBtn.addEventListener('click', () => {
+      this.elements.checkoutBtn.addEventListener("click", () => {
         this.handleCheckout();
       });
     }
-    
+
     // Enter key on promo input
     if (this.elements.promoCodeInput) {
-      this.elements.promoCodeInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
+      this.elements.promoCodeInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
           this.handleApplyPromo();
         }
       });
@@ -346,13 +352,13 @@ class CartPage {
      HANDLE QUANTITY INCREASE
      ============================================ */
   async handleQuantityIncrease(cartId) {
-    const cartItem = this.cart.find(item => item.id === cartId);
+    const cartItem = this.cart.find((item) => item.id === cartId);
     if (!cartItem) return;
-    
+
     const newQuantity = cartItem.quantity + 1;
-    
+
     const success = cartService.updateQuantity(cartId, newQuantity);
-    
+
     if (success) {
       this.loadCart();
       await this.renderCart();
@@ -361,7 +367,7 @@ class CartPage {
       } catch (e) {
         // Header might not exist
       }
-      this.showNotification('Quantity updated', 'success');
+      this.showNotification("Quantity updated", "success");
     }
   }
 
@@ -369,13 +375,13 @@ class CartPage {
      HANDLE QUANTITY DECREASE
      ============================================ */
   async handleQuantityDecrease(cartId) {
-    const cartItem = this.cart.find(item => item.id === cartId);
+    const cartItem = this.cart.find((item) => item.id === cartId);
     if (!cartItem || cartItem.quantity <= 1) return;
-    
+
     const newQuantity = cartItem.quantity - 1;
-    
+
     const success = cartService.updateQuantity(cartId, newQuantity);
-    
+
     if (success) {
       this.loadCart();
       await this.renderCart();
@@ -384,7 +390,7 @@ class CartPage {
       } catch (e) {
         // Header might not exist
       }
-      this.showNotification('Quantity updated', 'success');
+      this.showNotification("Quantity updated", "success");
     }
   }
 
@@ -392,13 +398,13 @@ class CartPage {
      HANDLE REMOVE ITEM
      ============================================ */
   async handleRemoveItem(cartId) {
-    const cartItem = this.cart.find(item => item.id === cartId);
+    const cartItem = this.cart.find((item) => item.id === cartId);
     if (!cartItem) return;
-    
+
     const productName = cartItem.name; // FIXED: cartItem.name not cartItem.product.name
-    
+
     const success = cartService.removeFromCart(cartId);
-    
+
     if (success) {
       this.loadCart();
       await this.renderCart();
@@ -407,7 +413,7 @@ class CartPage {
       } catch (e) {
         // Header might not exist
       }
-      this.showNotification(`${productName} removed from cart`, 'success');
+      this.showNotification(`${productName} removed from cart`, "success");
     }
   }
 
@@ -416,22 +422,32 @@ class CartPage {
      ============================================ */
   handleApplyPromo() {
     const code = this.elements.promoCodeInput?.value.trim();
-    
+
     if (!code) {
-      this.showPromoMessage('Please enter a promo code', 'error');
+      this.showPromoMessage("Please enter a promo code", "error");
       return;
     }
-    
+
     // Validate using YOUR cartService
     const discount = cartService.validatePromoCode(code);
-    
+
     if (discount) {
       this.discountPercent = discount;
       this.updateOrderSummary();
-      this.showPromoMessage(`✓ ${discount}% discount applied!`, 'success');
-      this.showNotification(`Promo code applied: ${discount}% off`, 'success');
+      this.showPromoMessage(`✓ ${discount}% discount applied!`, "success");
+      this.showNotification(`Promo code applied: ${discount}% off`, "success");
+      try {
+        storage.set("promo", { code, percent: discount });
+      } catch (err) {
+        console.warn("Could not persist promo code:", err);
+      }
     } else {
-      this.showPromoMessage('✗ Invalid promo code', 'error');
+      this.showPromoMessage("✗ Invalid promo code", "error");
+      try {
+        storage.remove("promo");
+      } catch (err) {
+        // ignore
+      }
     }
   }
 
@@ -440,7 +456,7 @@ class CartPage {
      ============================================ */
   showPromoMessage(message, type) {
     if (!this.elements.promoMessage) return;
-    
+
     this.elements.promoMessage.textContent = message;
     this.elements.promoMessage.className = `promo-message ${type}`;
   }
@@ -450,39 +466,39 @@ class CartPage {
      ============================================ */
   handleCheckout() {
     if (this.cart.length === 0) {
-      this.showNotification('Your cart is empty', 'error');
+      this.showNotification("Your cart is empty", "error");
       return;
     }
     // Require user to be logged in before proceeding
     if (!userService.isAuthenticated()) {
-      this.showNotification('Please login to proceed to checkout', 'error');
+      this.showNotification("Please login to proceed to checkout", "error");
       setTimeout(() => {
-        window.location.href = '../pages/login.html';
+        window.location.href = "../pages/login.html";
       }, 1000);
       return;
     }
 
-    this.showNotification('Proceeding to checkout...', 'success');
+    this.showNotification("Proceeding to checkout...", "success");
     setTimeout(() => {
-      window.location.href = '../pages/checkout.html';
+      window.location.href = "../pages/checkout.html";
     }, 1000);
   }
 
   /* ============================================
      SHOW NOTIFICATION TOAST
      ============================================ */
-  showNotification(message, type = 'success') {
+  showNotification(message, type = "success") {
     if (!this.elements.notificationToast) {
       console.log(`Notification: ${message}`);
       return;
     }
-    
+
     const toast = this.elements.notificationToast;
     toast.textContent = message;
     toast.className = `notification-toast ${type} show`;
-    
+
     setTimeout(() => {
-      toast.classList.remove('show');
+      toast.classList.remove("show");
     }, 3000);
   }
 }
@@ -490,7 +506,7 @@ class CartPage {
 /* ============================================
    INITIALIZE WHEN DOM IS READY
    ============================================ */
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const cartPage = new CartPage();
   await cartPage.init();
 });
