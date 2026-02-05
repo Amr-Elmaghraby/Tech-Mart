@@ -123,6 +123,7 @@ label {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .content input:empty:focus {
@@ -130,7 +131,7 @@ label {
   outline: none;
 }
 
-.content input:empty:focus + .toggle-password {
+.content input:empty:focus+.toggle-password {
   color: var(--color-primary);
   outline: none;
 }
@@ -218,6 +219,7 @@ label {
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
+  box-sizing: border-box;
 }
 
 .field textarea:focus {
@@ -239,6 +241,7 @@ label {
   padding: 15px;
   cursor: pointer;
 }
+
 .edit-avatar:hover {
   background: var(--color-primary);
   transition: 0.2s;
@@ -259,7 +262,7 @@ label {
 
 
 .orders-container {
-  max-height: 400px; /* ارتفاع قابل للتعديل */
+  max-height: 400px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -299,4 +302,363 @@ label {
 .order-total {
   font-weight: bold;
   color: var(--color-primary);
+}
+
+/* ============================================
+   RESPONSIVE MEDIA QUERIES
+   ============================================ */
+
+/* Large screens (desktops) – 1200px and above */
+@media (min-width: 1200px) {
+  .account-page {
+    max-width: 1200px;
+    padding: 40px;
+  }
+
+  .sidebar {
+    width: 22%;
+  }
+
+  .content {
+    padding: 40px 50px;
+  }
+}
+
+/* Medium screens (laptops/tablets) – 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .account-page {
+    width: 95%;
+    padding: 30px;
+  }
+
+  .sidebar {
+    width: 25%;
+  }
+
+  .content {
+    padding: 30px 35px;
+  }
+
+  .user-info img {
+    max-width: 180px;
+    max-height: 180px;
+  }
+
+  .menu li {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Small screens (tablets/large phones) – 768px to 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  .account-page {
+    width: 95%;
+    padding: 25px;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .user-avatar-wrapper {
+    flex-shrink: 0;
+  }
+
+  .user-info img {
+    width: 120px;
+    max-width: 120px;
+    max-height: 120px;
+    margin: 0;
+  }
+
+  .user-info strong,
+  .user-info span {
+    text-align: left;
+  }
+
+  .menu {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .menu li {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 150px;
+    padding: 10px 12px;
+    font-size: 13px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .menu li.active i {
+    transform: translateX(5px);
+  }
+
+  .content {
+    padding: 20px 25px;
+  }
+
+  .content h2 {
+    font-size: 1.4rem;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .orders-container {
+    max-height: 350px;
+  }
+
+  .user-avatar-wrapper label {
+    padding: 12px;
+    top: -8px;
+    right: 5px;
+  }
+}
+
+/* Extra small screens (mobile phones) – below 768px */
+@media (max-width: 767px) {
+  .account-page {
+    width: 95%;
+    padding: 20px 15px;
+    margin: 20px auto;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: 15px 10px 20px;
+    margin-bottom: 20px;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .user-avatar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .user-info img {
+    width: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    margin: 0 auto;
+  }
+
+  .user-info strong {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 8px;
+  }
+
+  .user-info span {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .menu {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .menu li {
+    padding: 10px 12px;
+    font-size: 13px;
+    width: 100%;
+  }
+
+  .menu li.active i {
+    transform: translateX(5px);
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .field {
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  .content input,
+  .field textarea {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .orders-container {
+    max-height: 300px;
+  }
+
+  .order-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .order-info p {
+    font-size: 0.9rem;
+  }
+
+  .order-total {
+    align-self: flex-end;
+    font-size: 1rem;
+  }
+
+  #noOrdersMsg {
+    font-size: 1rem;
+  }
+
+  .user-avatar-wrapper label {
+    padding: 10px;
+    top: -5px;
+    right: 0;
+  }
+
+  .toggle-password {
+    right: 15px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra extra small screens – below 480px */
+@media (max-width: 479px) {
+  .account-page {
+    width: 98%;
+    padding: 15px 12px;
+    margin: 15px auto;
+  }
+
+  .sidebar {
+    padding: 12px 8px 15px;
+  }
+
+  .user-info img {
+    width: 90px;
+    max-width: 90px;
+    max-height: 90px;
+  }
+
+  .user-info strong {
+    font-size: 14px;
+  }
+
+  .user-info span {
+    font-size: 11px;
+  }
+
+  .menu {
+    margin-top: 12px;
+  }
+
+  .menu li {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+
+  .content {
+    padding: 12px;
+  }
+
+  .content h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .field {
+    margin-bottom: 12px;
+  }
+
+  label {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .content input,
+  .field textarea {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .orders-container {
+    max-height: 250px;
+  }
+
+  .order-card {
+    padding: 10px;
+  }
+
+  .order-info p {
+    font-size: 0.85rem;
+  }
+
+  .order-total {
+    font-size: 0.95rem;
+  }
+
+  #noOrdersMsg {
+    font-size: 0.95rem;
+  }
+
+  .user-avatar-wrapper label {
+    padding: 8px;
+    top: -5px;
+    right: -5px;
+  }
+
+  .toggle-password {
+    right: 12px;
+    font-size: 1rem;
+  }
 }

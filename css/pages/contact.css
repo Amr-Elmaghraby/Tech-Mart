@@ -282,6 +282,28 @@
             border: none;
         }
 
+        /* ========================================================================== */
+        /* Responsive Design */
+        /* ========================================================================== */
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-title-area,
+            .form-area,
+            .contact-info-area {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Mobile */
         @media (max-width: 768px) {
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -297,3 +319,21 @@
                 padding: 30px 20px;
             }
         }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-title-area,
+            .form-area,
+            .contact-info-area {
+                padding: 30px 20px;
+            }
+        }
+        

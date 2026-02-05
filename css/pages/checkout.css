@@ -509,81 +509,7 @@
   background: var(--color-primary-hover);
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
 
-@media (max-width: 768px) {
-  .checkout-container {
-    padding: var(--space-md);
-    margin-top: 60px;
-  }
-
-  .checkout-content {
-    grid-template-columns: 1fr;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-  .checkout-progress {
-    gap: var(--space-sm);
-    margin-bottom: var(--space-lg);
-  }
-
-  .progress-connector {
-    width: 30px;
-  }
-
-  .step-number {
-    width: 35px;
-    height: 35px;
-    font-size: 14px;
-  }
-
-  .step-label {
-    font-size: 11px;
-  }
-
-  .checkout-form-section,
-  .checkout-summary-section {
-    padding: var(--space-md);
-  }
-}
-
-@media (max-width: 480px) {
-  .checkout-progress {
-    gap: var(--space-xs);
-  }
-
-  .progress-connector {
-    width: 15px;
-  }
-
-  .step-number {
-    width: 30px;
-    height: 30px;
-    font-size: 12px;
-  }
-
-  .step-label {
-    display: none;
-  }
-
-  .checkout-form-section,
-  .checkout-summary-section {
-    padding: var(--space-md);
-  }
-
-  .form-group legend {
-    font-size: var(--font-size-sm);
-  }
-
-  .modal-content {
-    min-width: 80%;
-    margin: var(--space-md);
-    padding: var(--space-lg);
-  }
-}
 
 /* Toast notification (theme-aware) */
 .notification {
@@ -628,5 +554,121 @@
   to {
     transform: translateX(400px);
     opacity: 0;
+  }
+}
+
+/* ========================================================================== */
+/* Responsive Design */
+/* ========================================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .checkout-container {
+    padding: var(--space-md);
+    margin-top: 60px;
+  }
+
+  .checkout-content {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-progress {
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .progress-connector {
+    width: 30px;
+  }
+
+  .step-number {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .step-label {
+    font-size: 11px;
+  }
+
+  .checkout-form-section,
+  .checkout-summary-section {
+    padding: var(--space-md);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .checkout-progress {
+    gap: var(--space-xs);
+  }
+
+  .progress-connector {
+    width: 15px;
+  }
+
+  .step-number {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .step-label {
+    display: none;
+  }
+
+  .checkout-form-section,
+  .checkout-summary-section {
+    padding: var(--space-md);
+  }
+
+  .form-group legend {
+    font-size: var(--font-size-sm);
+  }
+
+  .modal-content {
+    min-width: 80%;
+    margin: var(--space-md);
+    padding: var(--space-lg);
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .checkout-progress {
+    gap: var(--space-xs);
+  }
+
+  .progress-connector {
+    width: 15px;
+  }
+
+  .step-number {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .step-label {
+    display: none;
+  }
+
+  .checkout-form-section,
+  .checkout-summary-section {
+    padding: var(--space-md);
+  }
+
+  .form-group legend {
+    font-size: var(--font-size-sm);
+  }
+
+  .modal-content {
+    min-width: 80%;
+    margin: var(--space-md);
+    padding: var(--space-lg);
   }
 }
