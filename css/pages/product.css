@@ -1671,9 +1671,7 @@ body {
   }
 
   .second-banner .banner-content a {
-    padding: 6px 12px;
-    font-size: 10px;
-    top: 5%;
+    display: none;
   }
 
   .product__best-seller {
