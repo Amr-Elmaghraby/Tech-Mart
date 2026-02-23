@@ -45,7 +45,7 @@ This project was built with passion by:
 - [Amr Elmaghraby](https://github.com/Amr-Elmaghraby)
 - [Adham Sakoury](https://github.com/AdhamSakoury)
 - [Ahmed Ghanem](https://github.com/AhmedGhanem50)
-- [Ahmed Kamel](https://github.com/ahmedgaddoo21)
+- [Ahmed Karam](https://github.com/ahmedgaddoo21)
 - [Amr Tarek](https://github.com/Amrtarik)
 
 ---
